@@ -9,7 +9,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: black;
+    background-color: #89113E;
 }
 
 .logo-marca {
@@ -32,7 +32,7 @@ body {
 }
 
 .todasInput {
-    background-color: #89113E;
+    background-color: white;
     width: 50%;
     height: 100%;
     display: flex;
@@ -43,7 +43,7 @@ body {
 }
 
 .resultado {
-    background-color: #671137;
+    background-color: white;
     width: 50%;
     height: 100%;
     display: flex;
@@ -54,7 +54,7 @@ body {
 }
 
 .texto {
-    color: white;
+    color: black;
     margin: 10px;
 }
 
@@ -67,7 +67,7 @@ input {
 }
 
 p {
-    color: white;
+    color: black;
 }
 
 button {

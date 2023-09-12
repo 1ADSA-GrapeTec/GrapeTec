@@ -2,10 +2,10 @@ create database Sprint;
 
 use Sprint;
 
-create table cadastro(
+create table empresa(
 id int primary key auto_increment,
+nome varchar(50) not null,
 CNPJ char(18) not null,
-nomeDaEmpresa varchar(50) not null,
 email varchar(30) not null,
 numero char(14) not null,
 senha varchar (20) not null
@@ -14,13 +14,13 @@ senha varchar (20) not null
 create table instalacao(
 id int primary key auto_increment,
 CEP char(9) not null,
-tamanhoLocal varchar(20) not null
+tamanhoLocal float not null
 );
 
 create table vinho(
 id int primary key auto_increment,
-tipoVinho varchar(20) not null,
-tempIdeal varchar(5) not null
+tipoVinho varchar(20),
+tempIdeal float not null
 );
 
 create table sensor(
@@ -31,23 +31,23 @@ localizacao varchar(10) not null
 
 create table dadoSensor(
 id int primary key auto_increment,
-temperatura varchar(10) not null,
+temperatura float not null,
 dtAtual datetime default current_timestamp
 );
 
-insert into cadastro (CNPJ, nomeDaEmpresa,email,numero,senha) values
+insert into empresa (nome, CNPJ, email,numero,senha) values
 ('43.093.053/0001-07','Vinhos Viana','Vinhos Viana@gmail.com','(28) 2232-4086','&6Pdl$%f(UesU9BPI=RU'),
 ('78.581.354/0001-64','YabutaWine','YabutaWine@gmail.com','(69) 2763-2911','7X0i%eXrnz%wnjRgv@W8'),
 ('49.704.129/0001-70','Divinhos','Divinhos@gmail.com','(82) 3652-7289','Su_CbXH2FQS4)i0Wq4Yy'),
 ('52.478.266/0001-48','VinhedosLoureiro','VinhedosLoureiro@gmail.com','(82) 3514-3717','*=Ctw4cgbym)E7k3%XfQ');
 
-select * from cadastro;
-select* from cadastro where nomeDaEmpresa = 'VinhedosLoureiro';
-select CNPJ from cadastro where nomeDaEmpresa = 'Vinhos Viana';
-select email from cadastro where nomeDaEmpresa = 'Divinhos';
-select numero from cadastro where nomeDaEmpresa = 'YatubaWine';
-truncate table cadastro;
-drop table cadastro;
+select * from empresa;
+select* from empresa where nome = 'VinhedosLoureiro';
+select CNPJ from empresa where nome = 'Vinhos Viana';
+select email from empresa where nome = 'Divinhos';
+select numero from empresa where nome = 'YatubaWine';
+truncate table empresa;
+drop table empresa;
 
 insert into instalacao (CEP,tamanhoLocal) values
 ('69303-457','202'),
@@ -63,10 +63,10 @@ truncate table instalacao;
 drop table instalacao;
 
 insert into vinho (tipoVinho,tempIdeal) values
-('Tinto Leve','14°C'),
-('Branco','10°C'),
-('Espumante','9C'),
-('Tinto Encorpado','18°C');
+('Tinto Leve','14'),
+('Branco','10'),
+('Espumante','9'),
+('Tinto Encorpado','18');
 
 select * from vinho;
 select tempIdeal from vinho where tipoVinho like '%Tinto%';
@@ -92,13 +92,13 @@ truncate table sensor;
 drop table sensor;
 
 insert into dadoSensor (temperatura) values
-('W°C'),
-('X°C'),
-('Y°C'),
-('Z°C');
+('0'),
+('5'),
+('7'),
+('2');
 
 select * from dadoSensor;
-select * from dadoSensor where temperatura > x;
-select * from dadoSensor where temperatura < y;
+select * from dadoSensor where temperatura > 4;
+select * from dadoSensor where temperatura < 3; 	
 truncate table dadoSensor;
 drop table dadoSensor;
