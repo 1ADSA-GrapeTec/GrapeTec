@@ -62,6 +62,7 @@ select * from instalacao where tamanhoLocal > 400;
 truncate table instalacao;
 drop table instalacao;
 
+alter table vinho add constraint chkVinho check (tipoVinho in ('Tinto Leve', 'Branco','Espumante','Tinto Encorpado'));
 insert into vinho (tipoVinho,tempIdeal) values
 ('Tinto Leve','14'),
 ('Branco','10'),
