@@ -1,0 +1,93 @@
+* {
+   margin: 0;
+   padding: 0;
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+}
+
+.logo-marca {
+    width: 80%;
+    height: 10%;
+}
+
+.logo {
+    background-image: url(Logo-pretoebranco.png);
+    width: 10%;
+    height: 10%;
+}
+
+.container {
+    width: 80%;
+    height: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.todasInput {
+    background-color: #89113E;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 16px;
+}
+
+.resultado {
+    background-color: #671137;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 16px;
+}
+
+.texto {
+    color: white;
+    margin: 10px;
+}
+
+input {
+    border: 0;
+    background-color: black;
+    width: 80%;
+    height: 5%;
+    color: white;
+}
+
+p {
+    color: white;
+}
+
+button {
+    border: 0;
+    background-color: black;
+    color: white;
+    width: 60%;
+    height: 5%;
+    border-radius: 16px;
+}
+
+.textoRoxo {
+    color: blueviolet;
+}
+.textoVerde {
+    color: green;
+}
+.textoAzul {
+    color:blue;
+}
+.textoVermelho{
+    color: red;
+}
