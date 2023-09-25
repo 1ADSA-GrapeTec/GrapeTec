@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Litros armazenados:
+    <input type="number" id="id_litrosArmazenados">
+    <br>
+    Faturamento anual:
+    <input type="number" id="id_faturamentoAnual">
+    <br><br>
+    <button onclick="calcular()">Calcule aqui!!!!!!</button><br>
+    <div id="resultado"></div>
+</body>
+</html>
+<script>
+    function calcular(){
+        // Conta de quanto o cliente perde
+        var litrosArmazenados = Number(id_litrosArmazenados.value);
+        var faturamentoAnual = Number(id_faturamentoAnual.value);
+        var litrosVendidos = litrosArmazenados * 0.75
+
+        var valorMaximo = (litrosArmazenados*faturamentoAnual)/litrosVendidos
+        var perdaDinheiro = valorMaximo - faturamentoAnual
+        resultado.innerHTML = Math.round(perdaDinheiro)
+    }
+
+</script>
