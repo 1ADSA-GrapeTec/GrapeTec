@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Questrial&display=swap');
+*{
+    font-family: 'Questrial', sans-serif;
+}
+body{
+    background-color: black;
+    color: white;
+    font-size: 1.5rem;
+    
+}
+
+.caixaInput{
+    background-color:white;
+    color: black;
+    font-weight: 700;
+    width: 380px;
+    height: 100px;
+    text-align: center;
+    border-radius: 20px;
+}
+
+#botaoCalcular{
+    background-color: white;
+    width: 20%;
+    height: 50px;
+    letter-spacing: 5px;
+    font-weight: bolder;
+    border-radius: 15px;
+    font-size: medium;
+}
+
+#main{
+    width: 90vw;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    gap: 5rem;
+}
+
+.containerInput{
+    width: 20%;
+    height: 180px;
+}
+
+#containerResultado{
+    background-color: #4D1132;
+    text-align: center;
+    width: 23%;
+    height: 300px;
+    border-radius: 20px;
+}
+
+#containerBotao{
+    text-align: center;
+}
+
+input{
+    background-color: black;
+    color: white;
+}

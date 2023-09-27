@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1>| Calculadora Orçamental</h1>
+    <div id="main">
+        <div id="containerInput">
+            <div class="caixaInput">
+                <p>Litros armazenados:</p>
+                <input type="number" id="id_litrosArmazenados">
+            </div>
+            <div class="caixaInput">
+                <p>Faturamento anual:</p>
+                <input type="number" id="id_faturamentoAnual">
+            </div>
+        </div>
+        <div id="containerResultado" >
+            <p>Total</p>
+            <div id="resultado"></div>
+        </div>
+    </div>
+    <br><br>
+    <div id="containerBotao">
+        <button id="botaoCalcular" onclick="calcular()">Calcule orçamento</button><br>
+    </div>
+    
+
+
+</body>
+
+</html>
+<script>
+    function calcular() {
+        // Conta de quanto o cliente perde
+        var litrosArmazenados = Number(id_litrosArmazenados.value);
+        var faturamentoAnual = Number(id_faturamentoAnual.value);
+        var litrosVendidos = litrosArmazenados * 0.75
+
+        var valorMaximo = (litrosArmazenados * faturamentoAnual) / litrosVendidos
+        var perdaDinheiro = valorMaximo - faturamentoAnual
+        resultado.innerHTML = `Atualmeente sua vinícola perde cerca de R$${perdaDinheiro.toFixed(2)} pelo mau armazenamento dos produtos.`
+    }
+
+</script>

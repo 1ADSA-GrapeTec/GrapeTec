@@ -8,14 +8,15 @@ nome varchar(50) not null,
 CNPJ char(18) not null,
 email varchar(30) not null,
 numero char(14) not null,
-senha varchar (20) not null
+senha varchar (20) not null,
+CEP char(9) not null
 );
 
-create table instalacao(
-id int primary key auto_increment,
-CEP char(9) not null,
-tamanhoLocal float not null
-);
+-- instalacao nao existe mais
+-- create table instalacao(
+-- id int primary key auto_increment,
+-- tamanhoLocal float not null
+-- );
 
 create table vinho(
 id int primary key auto_increment,
