@@ -8,7 +8,7 @@
 }
 
 body {
-    background-image: url(assets/img/amanhecer-tranquilo-em-chale-rustico-de-vinhedo-italiano-gerado-por-ia.jpg);
+    background-image: url(assets/img/Site\ Grapetec\ .png);
     background-color: black;
     height: 100vh;
     width: 100vw;
@@ -17,24 +17,22 @@ body {
     justify-content: center;
 }
 
-body::after {
-    content: "";
-    height: 100vh;
-    width: 100vw;
-    position: absolute;
-    z-index: -1;
-    opacity: 0.9;
-    background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.8) 50%, rgba(0,0,0,1) 100%);
-}
-
 .header {
     width: 100%;
+    height: 10%;
+    background-color: rgb(77, 17, 50);
     color: white;
+    display: flex;
+    align-items: center;
+}
+
+.header h1 {
+    margin-left: 10px;
 }
 
 .main {
-    height: 95%;
-    width: 95%;
+    height: 100%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -110,8 +108,8 @@ body::after {
 }
 
 button {
-    border: 0;
-    background-color: black;
+    border: 2px solid white;
+    background-color: rgb(77, 17, 50);
     color: white;
     border-radius: 16px;
     width: 130px;
@@ -135,7 +133,7 @@ button {
     display: flex;
     align-items: center;
     place-content: center;
-    box-shadow: rgba(77, 17, 50, 0.7) 0px 7px 15px 7px;
+    box-shadow: rgba(77, 17, 50, 0.7) 0px 10px 20px 10px;
 }
 
 .exibir p {

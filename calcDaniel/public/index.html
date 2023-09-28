@@ -5,12 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/b61c221d36.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="assets/img/fav.ico" type="image/x-icon">
     <title>Calculadora</title>
 </head>
 <body>
     <div class="main">
         <div class="header">
             <h1>|Calculadora Orçamental</h1>
+            <!-- <div class="navBar">
+                <ul>
+                    <li>Home</li>
+                    <li>Sobre</li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </div> -->
         </div>
         <div class="container">
             <div class="inputs">
@@ -61,9 +70,9 @@
 
         exibirPerda.innerHTML =
         `
-        <p>Conforme foi informado a quantidade de vinho que o senhor armazena é de ${armazenamento} litros, e o seu lucro anual é de R$${lucro}.<br><br>
-        A média de perda de vinho causada por falta de controle de temperatura é de cerda de 25%, o que para o senhor significa uma perda de aproximadamente ${perdaVinho} litros. Esses litros perdidos representam aproximadamente R$${Math.round(perdaDinheiro)}, por tanto seu lucro total poderia ser de R$${Math.round(lucroMaximo)}.<br><br>
-        Com a nossa solução o senhor pode reduzir em até 60% a suas perdas, o que representa aproximadamente ${reduzirPerda} litros ou em dinheiro cerca de R$${Math.round(reduzirPerdaDinheiro)}.</p>
+        <p>Conforme foi informado a quantidade de vinho que a sua empresa armazena é de ${armazenamento} litros, e o seu lucro anual é de R$${lucro}.<br><br>
+        A média de perda de vinho causada por falta de controle de temperatura é de cerda de 25%, o que para a sua empresa significa uma perda de aproximadamente ${perdaVinho} litros. Esses litros perdidos representam aproximadamente R$${Math.round(perdaDinheiro)}, por tanto seu lucro total poderia ser de R$${Math.round(lucroMaximo)}.<br><br>
+        Com a nossa solução sua empresa pode reduzir em até 60% a suas perdas, o que representa aproximadamente ${reduzirPerda} litros ou em dinheiro cerca de R$${Math.round(reduzirPerdaDinheiro)}.</p>
         `
     }
 </script>
