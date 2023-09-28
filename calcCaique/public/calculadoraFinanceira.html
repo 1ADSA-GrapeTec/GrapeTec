@@ -47,12 +47,18 @@
             </div>
 
             <div class="container">
+                <div class="headerResultado">
+                    <img src="assets/img/fav.png" width="50px">
+                    <h1>RESULTADO</h1>
+                </div>
+                
                 <div id="div_resultado" class="resultado"> 
                     
                 </div>
         </div>
         </div>
     </div>
+
     
 </body>
 </html>
@@ -65,7 +71,31 @@
 
         var valorMaximo = (litrosArmazenados*faturamentoAnual)/litrosVendidos
         var perdaDinheiro = valorMaximo - faturamentoAnual
-        div_resultado.innerHTML = Math.round(perdaDinheiro)
+        var economia = perdaDinheiro * 0.60
+
+        div_resultado.innerHTML = `
+            <span>
+                Com base em estimativas,
+                vinícolas desequipadas de sensores tendem a perder 
+                <b style="color:red">
+                    25%
+                </b> de seu faturamento anual, quantidade esta que equivale à 
+                <b style="color: red">
+                    R$${Math.round(perdaDinheiro)},00
+                </b> 
+                porporcionalmente ao faturamento anual de sua empresa.  
+            </span>
+            <span>
+                Nossos serviços garantem reduções em suas perdas em até 
+                <b style="color: green">
+                    60%
+                </b>.  Valor este que é equivalente à uma redução de 
+                <b style="color: green;">
+                    R$${Math.round(economia)},00 
+                </b> 
+                anualmente.  
+            </span>
+        `
     }
 
 </script>
