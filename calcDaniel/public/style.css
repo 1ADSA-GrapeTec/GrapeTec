@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Questrial&display=swap'); 
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Questrial', sans-serif;
+}
+
+body {
+    background-image: url(assets/img/amanhecer-tranquilo-em-chale-rustico-de-vinhedo-italiano-gerado-por-ia.jpg);
+    background-color: black;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+body::after {
+    content: "";
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    z-index: -1;
+    opacity: 0.9;
+    background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.8) 50%, rgba(0,0,0,1) 100%);
+}
+
+.header {
+    width: 100%;
+    color: white;
+}
+
+.main {
+    height: 95%;
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+} 
+
+.container {
+    height: 90%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.footer {
+    width: 100%;
+    height: 10%;
+    display: flex;
+    align-items: center;
+    place-content: center;
+    justify-content: space-evenly;
+}
+
+.footer a{
+    color: white;
+    font: inherit;
+}
+
+.inputs {
+    height: 100%;
+    width: 50%;
+    margin: 0px 10px 0px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    place-content: center;
+}
+
+.cards {
+    height: 65%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    place-content: center;
+}
+
+.card {
+    height: 40%;
+    width: 40%;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    place-content: center;
+    margin: 10px 10px 10px 10px;
+    border-radius: 16px;
+}
+
+.card input {
+    text-align: center;
+    background-color: black;
+    color: white;
+    border: 0;
+    width: 60%;
+    height: 20%;
+    margin: 10px 0px 0px 0px;
+}
+
+.card label {
+    text-align: center;
+    width: 95%;
+}
+
+button {
+    border: 0;
+    background-color: black;
+    color: white;
+    border-radius: 16px;
+    width: 130px;
+    height: 30px;
+}
+
+.resultado {
+    height: 100%;
+    width: 50%;
+    display: flex;
+    align-items: center;
+    place-content: center;
+    margin: 0px 10px 0px 10px;
+}
+
+.exibir {
+    width: 55%;
+    height: 85%;
+    background-color: rgb(77, 17, 50);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    place-content: center;
+    box-shadow: rgba(77, 17, 50, 0.7) 0px 7px 15px 7px;
+}
+
+.exibir p {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: white;
+    width: 75%;
+    height: 90%;
+}
