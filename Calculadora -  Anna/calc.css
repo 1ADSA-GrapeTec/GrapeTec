@@ -1,0 +1,152 @@
+
+.h1 {
+    position: absolute;
+    display: flex;
+    align-items: left;
+    justify-content: left; 
+    font-size: 55px;
+    color: white;
+    margin-top: 60px;
+    margin-left: 60px;
+    top: 10px;
+    left: 10px; 
+    font-family: 'Questrial', sans-serif;
+}
+
+
+.body {
+    background-color: black;
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    height: 100vh;
+    background-image: url(imgs/Captura\ de\ tela\ de\ 2023-09-27\ 19-15-48.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+
+
+.container {
+    align-self: center;
+    display: flex;
+    color: white;
+    text-align: center; 
+    width: 80%;
+    height: 600px;
+    margin: 10px;;
+    margin-left: 20%;
+    margin-top: 300px;
+    border-radius: 20px;
+    justify-content: space-evenly;
+    flex-direction: row;
+    height: 90vh;
+    
+}
+
+
+.informacoes {
+    
+    border-radius: 20px;
+    width: 300px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;  
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px; 
+}
+
+
+.input1 {
+    width: 70%;
+    padding: 5px;
+    font-size: 12px;
+    margin-top: 10px; 
+    background-color: black;
+    color: white;
+    align-items: center;
+    align-self: center;
+}
+
+
+.botao {
+    margin-top: 10px; 
+    border-radius: 20px;
+    width: 200px;
+    color: black;
+    background-color: white;
+}
+
+.input-section{
+    background-color: white;
+    border-radius: 25px;
+    width: 300px;
+    height: 300px;
+    display: inline-flex;
+    flex-direction: center;
+    align-items: center;
+    justify-content: center;
+    margin-top: 100px;
+    margin-right: 10px;
+    color: black;
+    text-align: top;
+    align-self: top;
+}
+
+.span{
+    font-family: 'Questrial', sans-serif; 
+    
+
+}
+.h1::before {
+    content: "";
+    display: inline-block;
+    width: 5px; 
+    height: 65px; 
+    background-color: #ffffff; 
+    margin-right: 15px;
+}
+
+.botao{
+    cursor: pointer;
+    border: 3 solid;
+    background-color: white;
+    color: black;
+    width: 34%;
+    height: 5%;
+    border-radius: 20px;
+    font-size: 12px;
+    font-family:'Questrial', sans-serif;
+    align-self: center;
+    margin-top: 10px;
+
+
+
+}
+.resultado {
+    display: flex;
+    margin-right: auto;
+    margin-left: auto;
+    background-color: rgb(128, 0, 77);
+    border-radius: 5%;
+    width: 40%;
+    height: 50%;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Questrial', sans-serif;
+}
+
+.botao .container{
+    display: flex;
+    justify-content: center;
+    align-items: flex-end; 
+    height: 100vh; 
+    margin-bottom: 20px;
+    align-content: baseline;
+}
+
+
+    
+

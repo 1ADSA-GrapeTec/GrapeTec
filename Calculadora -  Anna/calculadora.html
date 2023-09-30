@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Orçamental</title>
+    <link rel="stylesheet" href="calc.css">
+</head>
+
+<body class="body">
+    <h1 class="h1">Calculadora Orçamental</h1>
+    <div class="container">
+        <div class=" input-section">
+            <span class="span">Litros armazenados:</span> <br>
+            <input class="input1" id="litrosArmazenados" type="number" placeholder="Litros">
+        </div>
+
+        <div class="input-section">
+            <span class="span">Faturamento anual:</span> <br>
+            <input class="input1" id="faturamentoAnual" type="number" placeholder="R$">
+        </div>
+
+        
+            <button class="botao" onclick="calcular()">Calcule aqui</button>
+        
+    </div>
+
+    
+    <div class="resultado" id="div_resultado"></div>
+     
+</body>
+</html>
+<script>
+    function calcular() {
+        var inputListrosArmazenados = document.getElementById("litrosArmazenados");
+        var inputFaturamentoAnual = document.getElementById("faturamentoAnual");
+        // Conta de quanto o cliente perde
+        var litrosArmazenados = Number(inputListrosArmazenados.value);
+        var faturamentoAnual = Number(inputFaturamentoAnual.value);
+        var litrosVendidos = litrosArmazenados * 0.75;
+
+        var valorMaximo = (litrosArmazenados * faturamentoAnual) / litrosVendidos
+        var perdaDinheiro = valorMaximo - faturamentoAnual
+        div_titulo_resultado.innerHTML= `Resultado`
+        div_resultado.innerHTML = `Sua vinícola perde cerca de R$${perdaDinheiro} anualmente`
+    } 
+
+</script> 
