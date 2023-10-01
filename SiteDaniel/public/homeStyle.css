@@ -108,10 +108,18 @@ a{
     height: 60px;
     width: 180px;
     color: white;
-    text-align: center;
     background-color: #4d1132;
     border: 0;
     border-radius: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: ease-in-out;
+}
+
+button img {
+    width: 20px;
+    height: 20px;
 }
 
 .botoes button:hover {
