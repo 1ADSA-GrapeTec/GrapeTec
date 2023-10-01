@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Questrial&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Questrial', sans-serif; 
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+}
+
+ul {
+    width: 60%;
+    list-style: none;
+    display: flex;
+    color: white;
+    justify-content: space-around;
+}
+
+li {
+    padding: 4px 6px 4px 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
+
+.header {
+    width: 100%;
+    height: 10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header .container {
+    display: flex;
+    align-items: center;
+    place-content: center;
+    height: 100%;
+}
+
+.header .logo {
+    height: 100%;
+}
+
+.header img {
+    height: 100%;
+}
+
+.header h1 {
+    border-bottom: 1px solid white;
+    text-align: center;
+    color: white;
+    margin-left: 10px;
+}
+
+.transicao:hover {
+    border-radius: 16px;
+    border-bottom: 2px solid white;
+    background-color: #4d1132;
+    transition-delay: 0.1s;
+}
+
+.banner {
+    display: flex;
+    width: 100%;
+    height: 90%;
+}
+
+.container1 {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.container1 h2 {
+    font-size: 30px;
+    text-align: center;
+    color: white;
+}
+
+.container1 p {
+    text-align: center;
+    color: white;
+}
+
+.botoes {
+    width: 100%;
+    height: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.botoes button {
+    font-size: 14px;
+    height: 60px;
+    width: 180px;
+    color: white;
+    text-align: center;
+    background-color: #4d1132;
+    border: 0;
+    border-radius: 32px;
+}
+
+.botoes button:hover {
+    transform: translateY(-5px);
+    border: 2px solid white;
+}
+
+.container2 {
+    background-image: url(assets/img/fundoHome.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    align-items: end;
+    justify-content: center;
+    width: 50%;
+    height: 100%;
+}

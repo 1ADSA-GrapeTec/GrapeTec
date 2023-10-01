@@ -8,13 +8,33 @@
 }
 
 body {
-    background-image: url(assets/img/Site\ Grapetec\ .png);
+    background-image: url(assets/img/fundoCalc.png);
     background-color: black;
     height: 100vh;
     width: 100vw;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+ul {
+    width: 60%;
+    list-style: none;
+    display: flex;
+    color: white;
+    justify-content: space-around;
+}
+
+li {
+    padding: 4px 6px 4px 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+a{
+    text-decoration: none;
+    color: white;
 }
 
 .header {
@@ -24,10 +44,18 @@ body {
     color: white;
     display: flex;
     align-items: center;
+    justify-content: space-between;
 }
 
 .header h1 {
     margin-left: 10px;
+}
+
+.transicao:hover {
+    border-radius: 16px;
+    border-bottom: 2px solid white;
+    background-color: black;
+    transition-delay: 0.1s;
 }
 
 .main {
@@ -108,12 +136,17 @@ body {
 }
 
 button {
-    border: 2px solid white;
+    border: 0;
     background-color: rgb(77, 17, 50);
     color: white;
     border-radius: 16px;
     width: 130px;
     height: 30px;
+}
+
+button:hover {
+    transform: translateY(-5px);
+    border: 2px solid white;
 }
 
 .resultado {
