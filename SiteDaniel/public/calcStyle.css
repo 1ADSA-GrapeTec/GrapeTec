@@ -139,9 +139,9 @@ button {
     border: 0;
     background-color: rgb(77, 17, 50);
     color: white;
-    border-radius: 16px;
-    width: 130px;
-    height: 30px;
+    border-radius: 32px;
+    width: 180px;
+    height: 60px;
 }
 
 button:hover {

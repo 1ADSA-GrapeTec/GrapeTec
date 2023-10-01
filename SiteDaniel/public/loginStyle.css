@@ -1,0 +1,178 @@
+@import url('https://fonts.googleapis.com/css2?family=Questrial&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Questrial', sans-serif;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+ul {
+    width: 60%;
+    list-style: none;
+    display: flex;
+    color: white;
+    justify-content: space-around;
+}
+
+li {
+    padding: 4px 6px 4px 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header a{
+    text-decoration: none;
+    color: white;
+}
+
+.header {
+    width: 100%;
+    height: 10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    background-color: #4d1132;
+}
+
+.header h1 {
+    border-bottom: 1px solid white;
+    text-align: center;
+    margin-left: 10px;
+}
+
+.transicao:hover {
+    border-radius: 16px;
+    border-bottom: 2px solid white;
+    background-color: black;
+}
+
+.banner {
+    width: 80%;
+    height: 90%;
+    background-color: white;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+.card {
+    width: 65%;
+    height: 75%;
+    background-color: #4d1132;
+    position: fixed;
+    left: 0;
+    border-radius: 0px 20px 20px 0px;
+    display: flex;
+}
+
+.card img {
+    height: 100%;
+    width: 70%;
+}
+
+.texto {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.texto p {
+    text-align: center;
+    width: 70%;
+    font-size: 18px;
+    margin-top: 30px;
+}
+
+.login {
+    height: 90%;
+    width: 30%;
+    margin: 6px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    position: relative;
+}
+
+.inputs {
+    width: 70%;
+    height: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.inputs img {
+    width: 100px;
+    height: 100px;
+    align-self: center;
+}
+
+.inputs input {
+    text-align: center;
+    background-color: black;
+    color: white;
+    border: 0;
+    height: 15%;
+}
+
+.link {
+    font-size: 14px;
+    font-weight: 400;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.link a {
+    text-decoration: none;
+}
+
+.botoes {
+    width: 100%;
+    height: 15%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+button {
+    height: 30px;
+    width: 120px;
+    border: 0;
+    border-radius: 20px;
+    background-color: #4d1132;
+    color: white;
+}
+
+button:hover {
+    transform: translateY(-5px);
+    border: 2px solid black;
+}
+
+.redes {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.redes img {
+    width: 60px;
+}
