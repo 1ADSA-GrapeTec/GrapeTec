@@ -1,0 +1,205 @@
+* {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+body {
+    margin: 0;
+    height: 100;
+}
+
+.header {
+    border-bottom: 3px solid purple;
+    background-color: black;
+    margin: 0px;
+}
+
+.header .container {
+    display: flex;
+    width: 80%;
+    margin: auto;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.header .container ul {
+    display: flex;
+    color: aliceblue;
+    width: 800px;
+    list-style: none;
+    justify-content: space-between;
+
+}
+
+.header .container a {
+    color: aliceblue;
+    text-decoration: none;
+
+}
+
+.header h1 {
+    color: aliceblue;
+    font-size: 36px;
+    text-decoration: none;
+    list-style: none;
+}
+
+.container {
+    display: flex;
+    width: 80%;
+    margin: auto;
+    justify-content: space-between;
+
+}
+
+.banner {
+    background-image: url(imgs/Fundo\ Home.png);
+    background-size: cover;
+    flex-direction: column;
+}
+
+.banner .container {
+    justify-content: start;
+    align-items: start;
+    height: 660px;
+    flex-direction: column;
+
+}
+
+.banner .container h2 {
+    color: aliceblue;
+    margin: 70px 50px 70px 0px;
+    font-size: 40px;
+    
+}
+
+.banner .container p {
+    color: aliceblue;
+}
+
+.banner .container .botao {
+    display: flex;
+    width: 500px;
+    align-items: center;
+    justify-content: space-around;
+    align-self: start;
+    margin: 70px;
+}
+
+.banner .container .botao button {
+    background-color: purple;
+    border: 50px;
+    border-radius: 15px;
+    height: 30px;
+    justify-content: space-around;
+    align-items: center;  
+}
+
+.banner .container .botao img {
+    height: 15px;
+    width: 15px;
+    margin: 0px 3px 0px 5px;
+}
+
+.banner .container .botao a{
+    text-decoration: none;
+    color: aliceblue;
+}
+
+.footer {
+    display: flex;
+    background-color: purple;
+}
+
+.login {
+    display: flex;
+    height: 600px;
+    background-color: rgb(240, 222, 187);
+    margin-bottom: 0px ;
+    
+}
+
+.login .container .card {
+    display: flex;
+    width: 800px;
+    align-items: start;
+    align-self: center  ;
+}
+
+.login .container {
+    display: flex;
+    align-items: start;
+    background-image: url(imgs/img\ login.png);
+    height: 550px;
+    width: 750px;
+    margin: 50px 0px 0px 0px;
+    border-radius: 30px;
+}
+
+.login .box {
+    display: flex;
+    margin: 0px 0px 0px 470px;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 400px;
+    
+}
+
+
+
+.login h2 {
+    display: flex;
+    margin: 0px ;
+    color: white;
+}
+
+.login p {
+    display: flex;
+    margin: 0px ;
+    width: 200px;
+    color: white;
+}
+
+.login .icon {
+display: flex;
+height: 50px;
+width: 50px;
+}
+
+.login .container .card .formulario .campo img{
+    display: flex;
+    height: 30px;
+    width: 30px;
+
+}
+.formulario {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 0px 0px 0px 300px;
+    justify-content: space-around;
+    height: 300px;
+}
+.login input {
+    background-color: black;
+}
+.login button {
+    background-color: purple;
+    border: 50px;
+    border-radius: 15px;
+    height: 30px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.login .links {
+    display: flex;
+    align-items: center;
+    margin: 15px;
+    justify-content: space-around;
+}
+.login .links img {
+    height: 30px;
+    width: 30px;
+}
