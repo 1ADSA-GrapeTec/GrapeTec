@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/b61c221d36.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="assets/img/fav.ico" type="image/x-icon">
+    <title>Calculadora</title>
+</head>
+<body>
+    <div class="main">
+        <div class="header">
+            <h1>|Calculadora Orçamental</h1>
+            <!-- <div class="navBar">
+                <ul>
+                    <li>Home</li>
+                    <li>Sobre</li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </div> -->
+        </div>
+        <div class="container">
+            <div class="inputs">
+                <div class="cards">
+                    <div class="card">
+                        <label for="litrosArmazenados">Informe quantos litros são armazenados:</label>
+                        <input type="text" id="litrosArmazenados">
+                    </div>
+                    <div class="card">
+                        <label for="lucroAnual">Informe seu lucro anual:</label>
+                        <input type="text" id="lucroAnual">
+                    </div>
+                </div>
+                <button onclick="calcular()">Calcular Perdas</button>
+            </div>
+            <div class="resultado">
+                <div class="exibir"  id="exibirPerda"></div>
+            </div>
+        </div>
+        <div class="footer">
+            <a>
+                <i class="fab fa-whatsapp"></i>
+                Contate-nos: (11)97654-3210
+            </a>
+            <a>
+                <i class="fa fa-envelope"></i>
+                grapetec@company.com
+            </a>
+            <a>
+                <i class="fa fa-instagram"></i>
+                grape_tec.company
+            </a>
+        </div>
+    </div>
+</body>
+</html>
+
+<script>
+    function calcular () {
+        var armazenamento = Number(litrosArmazenados.value)
+        var lucro = Number(lucroAnual.value)
+        var litrosVendidos = armazenamento * 0.75
+        var lucroMaximo = armazenamento * lucro/litrosVendidos
+        var perdaVinho = armazenamento * 0.25
+        var perdaDinheiro = lucroMaximo - lucro
+        var reduzirPerda = perdaVinho * 0.6
+        var reduzirPerdaDinheiro = reduzirPerda*perdaDinheiro/perdaVinho
+
+        exibirPerda.innerHTML =
+        `
+        <p>Conforme foi informado a quantidade de vinho que a sua empresa armazena é de ${armazenamento} litros, e o seu lucro anual é de R$${lucro}.<br><br>
+        A média de perda de vinho causada por falta de controle de temperatura é de cerda de 25%, o que para a sua empresa significa uma perda de aproximadamente ${perdaVinho} litros. Esses litros perdidos representam aproximadamente R$${Math.round(perdaDinheiro)}, por tanto seu lucro total poderia ser de R$${Math.round(lucroMaximo)}.<br><br>
+        Com a nossa solução sua empresa pode reduzir em até 60% a suas perdas, o que representa aproximadamente ${reduzirPerda} litros ou em dinheiro cerca de R$${Math.round(reduzirPerdaDinheiro)}.</p>
+        `
+    }
+</script>
+

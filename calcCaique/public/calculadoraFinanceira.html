@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora financeira</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="assets/img/fav.png">
+</head>
+<body>
+    <div class="header">
+        <img src="assets/img/logoGRAPETEC.png">
+        
+            <ul>
+                <li><a href="">Cadastro</a></li>
+                <li><a href="">Login</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="conteudo">
+
+        <div class="titulo">
+            <h1>CALCULADORA FINANCEIRA</h1>
+        </div>
+        
+        <div class="conteudo2">
+            <div class="formulario">
+                <div class="campo">
+
+                    <span>
+                        Litros armazenados:
+                    </span>
+                    <input type="number" id="id_litrosArmazenados">
+
+                </div>
+
+                <div class="campo">
+                    
+                    <span>
+                        Faturamento anual:
+                    </span>
+                    <input type="number" id="id_faturamentoAnual">
+
+                </div>
+
+                <button onclick="calcular()">Calcular</button><br>
+            </div>
+
+            <div class="container">
+                <div class="headerResultado">
+                    <img src="assets/img/fav.png" width="50px">
+                    <h1>RESULTADO</h1>
+                </div>
+                
+                <div id="div_resultado" class="resultado"> 
+                    
+                </div>
+        </div>
+        </div>
+    </div>
+
+    
+</body>
+</html>
+<script>
+    function calcular(){
+        // Conta de quanto o cliente perde
+        var litrosArmazenados = Number(id_litrosArmazenados.value);
+        var faturamentoAnual = Number(id_faturamentoAnual.value);
+        var litrosVendidos = litrosArmazenados * 0.75
+
+        var valorMaximo = (litrosArmazenados*faturamentoAnual)/litrosVendidos
+        var perdaDinheiro = valorMaximo - faturamentoAnual
+        var economia = perdaDinheiro * 0.60
+
+        div_resultado.innerHTML = `
+            <span>
+                Com base em estimativas,
+                vinícolas desequipadas de sensores tendem a perder 
+                <b style="color:red">
+                    25%
+                </b> de seu faturamento anual, quantidade esta que equivale à 
+                <b style="color: red">
+                    R$${Math.round(perdaDinheiro)},00
+                </b> 
+                porporcionalmente ao faturamento anual de sua empresa.  
+            </span>
+            <span>
+                Nossos serviços garantem reduções em suas perdas em até 
+                <b style="color: green">
+                    60%
+                </b>.  Valor este que é equivalente à uma redução de 
+                <b style="color: green;">
+                    R$${Math.round(economia)},00 
+                </b> 
+                anualmente.  
+            </span>
+        `
+    }
+
+</script>
