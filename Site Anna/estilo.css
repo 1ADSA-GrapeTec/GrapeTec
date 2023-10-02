@@ -11,6 +11,7 @@ head title {
     background-position: left 1050px center;
     background-size: 800px;
     margin-bottom: 38vh;
+    overflow-x: hidden;
 }
 
 
