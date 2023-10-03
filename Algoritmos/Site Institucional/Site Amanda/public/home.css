@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Questrial&display=swap');
+*{
+    font-family: 'Questrial', sans-serif;
+    margin: 0;
+}
+body{
+    background-color: black;
+    color: white;
+}
+
+.header{
+    background-image: linear-gradient(to right, #4d1132 40%, #ab216d );
+    border-bottom: 4px solid #29091b;
+    height: 15vh;
+    width: 100%;
+   display: flex;
+   justify-content:space-between ;
+    /* position: fixed; */
+}
+
+.header .container{
+    gap: 1.35rem;
+    margin-right: 20px;
+}
+
+.container{
+    display: flex;
+    align-items: center;
+}
+.container span{
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.container span:hover{
+   /* color: #29091b; */
+   transform: translateY(-8px);
+}
+
+.logo{
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 2rem;
+    margin-left: 20px;
+}
+
+.main{
+    display: flex;
+    justify-content: space-between;
+    font-size:x-large;
+    height: 80vh;
+}
+
+.imagem-vinicola{
+    width: 150%;
+    align-self: center;
+}
+
+.bem-vindo{
+    text-align: center;
+    align-self: center;
+    margin:13%;
+    font-size: larger;
+}
+
+
+.bem-vindo h3:hover{
+    color: #4d1132;
+}
+.botao{
+    background-color: #4d1132;
+    border-radius: 25px;
+    width: 120px;
+    height: 50px;
+    border: 1px solid white;
+    color: white;
+    box-shadow: 8px 15px 40px #4d1132;
+    transition: background-color 0.3s;
+    transition: transform 0.3s ease;
+}
+.botao:hover {
+    background-color: #720d83;
+    cursor: pointer;
+    transform: translateY(-8px);
+}
+.botao-orcamento{
+    width: 180px;
+}
+
+#pag-inic{
+    background-color:#430e2b;
+    padding: 10px;
+    border-radius: 20px;
+    border: 1px solid white;
+    transition: background-color 0.3s;
+    box-shadow:0px 5px  white;
+    cursor: auto;
+}
+#pag-inic:hover {
+    background-color: #720d83;
+    transform: none;
+}
