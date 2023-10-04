@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Questrial&display=swap'); 
+*{ 
+    padding: 0;
+    margin: 0;
+    font-family: 'Questrial', sans-serif; 
+} 
+
+@keyframes reload {
+    from{
+        margin-left: 800px;
+        filter: blur(5px);
+    }
+    to{
+        margin-left: 0px;
+    }
+}
+
+.login{
+    background-image: url(assets/img/bgLogin.png);
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+.container{
+    width: 100%;
+    height: 90%;
+    display: flex;
+    flex-direction: row;
+    animation: reload;
+    animation-duration: 2s;
+}
+
+.texto{
+    width: 60%;
+    height: 100%;
+    border-radius: 20px;
+    background-image: url(assets/img/fundoLogin.png);
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+
+.frase{
+    margin-right: 50px;
+    width: 30%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+    color: white;
+    font-weight: 700;
+    text-align: center;
+}
+
+.formulario{
+    background-color: #fff;
+    width: 29%;
+    height: 100%;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+}
+
+.formulario input{
+    background-color: black;
+    border: 1px grey solid;
+    color: #fff;
+}
+
+.social_icon{
+    width: 50px;
+    height: 50px;
+    justify-self: center;
+}
+
+.campos{
+    width: 100%;
+    height: 60%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+}
+
+.opcoes{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+}
+
+.botoes{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 60%;
+
+}
+
+.botoes a{
+    align-self: center;
+    color: blue;
+    padding-top: 10px;
+}
+
+.botoes button{
+    width: 100px;
+    height: 30px;
+    background-color: #4D1132;
+    align-self: center;
+    border-radius: 20px;
+    border: 0px;
+    color: #fff;
+}

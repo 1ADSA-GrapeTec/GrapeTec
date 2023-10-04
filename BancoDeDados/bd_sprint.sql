@@ -104,3 +104,4 @@ select * from dadoSensor where temperatura > 4;
 select * from dadoSensor where temperatura < 3; 	
 truncate table dadoSensor;
 drop table dadoSensor;
+
