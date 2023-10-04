@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora GrapeTec</title>
+    <link rel="shortcut icon" href="assets/img/fav.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="main">
+        <div class="divEsquerda">
+            <div class="cardMsg">
+                    <div id="resultado"></div>
+            </div>
+        </div>
+        <div class="divDireita">  
+            <div class="card">
+                <h1>CALCULE AGORA!</h1>
+                <h1 id="linha">_________________________</h1>
+                <div class="inputbox">
+                    <p>Informe a quantidade de litros armazenados:</p>
+                    <input type="number" placeholder="0000" id="input_litrosArmazenados">
+                    <p>Informe o seu Faturamento Anual:</p>
+                    <input type="number" placeholder="00000" id="input_faturamentoAnual">
+                </div>
+                <button class="botao" onclick="calcular()">Calcule o quanto você economizará</button><br>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+<script>
+    function calcular() {
+        // Conta de quanto o cliente perde
+        var litrosArmazenados = Number(input_litrosArmazenados.value);
+        var faturamentoAnual = Number(input_faturamentoAnual.value);
+        var litrosVendidos = litrosArmazenados * 0.75
+
+        var valorMaximo = (litrosArmazenados * faturamentoAnual) / litrosVendidos
+        var perdaDinheiro = valorMaximo - faturamentoAnual
+        resultado.innerHTML = `Atualmente, informado por você, sua vinícola tem um retorno de R$${faturamentoAnual}, 
+                               mas desse valor, vocês <span style="color: red;">perdem</span> ${perdaDinheiro.toFixed(2)}, resultando assim em uma <span style="color: red;">perca de até 25% do valor final</span>.
+                               <br><br>A <span style="color: #4D1132;">GrapeTec</span> irá te ajudar a diminuir esse valor em até <span style="color: green;">60%</span> com os nossos <span style="color: #4D1132;">sensores de temperatura</span>.`
+    }
+
+</script>

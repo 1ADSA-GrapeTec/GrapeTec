@@ -1,0 +1,200 @@
+head title {
+    font-size: 200px; 
+    color: #ffffff;
+}
+
+.body {
+    background-color: rgb(0, 0, 0);
+    margin: auto;
+    background-image: url(imgs/Cópia\ de\ Site\ Grapetec\ .png);
+    background-repeat: no-repeat;
+    background-position: left 1050px center;
+    background-size: 800px;
+    margin-bottom: 38vh;
+    overflow-x: hidden;
+}
+
+
+
+.header{
+    font-family: 'Questrial', sans-serif;
+    background-color: black;
+    width: 120%;
+    height: 13vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.logo {
+    float: left;
+    width: 150px; 
+    height: auto; 
+    margin-right: 20px;
+    margin-top: -70px;
+    margin-right: auto;
+    
+}
+
+.header .container{
+    width: 60%;
+    margin: auto;
+    margin: right 40px;;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+}
+
+.header .container ul{
+    font-family:'Questrial', sans-serif ;
+   color: white;
+   display: flex;
+   justify-content: space-between;
+   width: 900px;
+   align-items: center;
+   height: 90%;
+   list-style-type: none;
+  
+}
+.header ul #aqui {
+    color: #ffffff;
+    box-shadow: 0px 3px 0px white;
+    background-color: #4D1132;
+}
+
+.item{
+    border-radius: 70px;
+    padding: 10px;
+    list-style: none;
+    cursor: pointer;
+    position: relative; 
+    transition: box-shadow 0.3s ease;
+}
+
+.item:hover {
+    box-shadow: 0px 3px 0px white;
+    background-color: #4D1132;
+}
+
+.item:focus{
+    outline: none;
+}
+
+.header ul li a {
+    color:#fbfbfb;
+    text-decoration: none;
+}
+
+.header h1{
+    color: #ffffff;
+    width: fit-content;
+    font-weight: 300;
+    margin-left: -35%;
+    justify-content: center;
+    height: 36px;
+    text-align: center;
+    
+}
+
+.container{
+    display: flexbox;
+    width: 80%;
+    margin: auto;
+}
+
+.banner{
+   display: inline;
+    
+
+}
+
+.banner .container{
+    justify-content: center;
+    align-items: center;
+    height: 470px;
+    text-align: center;
+}
+
+h1{
+    font-family: 'Questrial', sans-serif;
+
+}
+ p {
+    font-size: 25px;
+    color: rgb(255, 255, 255);
+    width: 700px;
+    justify-content: left;
+    display: flex;
+    text-align: left;
+    height: 70px;
+    font-family:'Questrial', sans-serif ;
+    
+}
+
+h2 {
+    font-size: 50px;
+    color: rgb(255, 255, 255);
+    width: 600px;
+    justify-content: left;
+    display: flex;
+    text-align: left;
+    font-family:'Questrial', sans-serif;
+    white-space: nowrap;
+    height: 70px;
+    margin-top:150px;
+    font-weight: normal;
+}
+
+.botao1-container{
+    text-align: center; 
+    margin-top: 20px; 
+    margin-left: -900px;
+}
+
+
+.botao1{
+    vertical-align: middle;
+    display: inline-block;
+    border-radius: 70px;
+    color: white;
+    background-color: #4D1132;
+    width: 340px;
+    padding: 15px 45px;
+    cursor: pointer;
+    white-space: nowrap;
+    border: #4D1132;
+    margin: center;
+    font-size: 150%;
+    margin-right: auto;
+    margin-left: 30px;
+    margin-top: 30px;
+    overflow: hidden; 
+    z-index: 0; 
+    align-items: center;
+    text-align: center;
+
+    
+    transition: box-shadow 0.3s ease;
+}
+
+
+
+
+.botao1:hover{
+    box-shadow: 0px -5px 0px white;
+}
+
+.botao1 .icone{
+width: 30px;
+height: 30px;
+margin-right: 15px;
+align-self: auto;
+vertical-align: middle;
+align-items: center;
+
+}
+.link{
+    text-decoration: none;
+    color: white;
+}

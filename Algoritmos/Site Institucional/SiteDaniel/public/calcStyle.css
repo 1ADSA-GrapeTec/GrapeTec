@@ -1,0 +1,179 @@
+@import url('https://fonts.googleapis.com/css2?family=Questrial&display=swap'); 
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Questrial', sans-serif;
+}
+
+body {
+    background-image: url(assets/img/fundoCalc.png);
+    background-color: black;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+ul {
+    width: 60%;
+    list-style: none;
+    display: flex;
+    color: white;
+    justify-content: space-around;
+}
+
+li {
+    padding: 4px 6px 4px 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
+
+.header {
+    width: 100%;
+    height: 10%;
+    background-color: rgb(77, 17, 50);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header h1 {
+    margin-left: 10px;
+}
+
+.transicao:hover {
+    border-radius: 16px;
+    border-bottom: 2px solid white;
+    background-color: black;
+    transition-delay: 0.1s;
+}
+
+.main {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+} 
+
+.container {
+    height: 90%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.footer {
+    width: 100%;
+    height: 10%;
+    display: flex;
+    align-items: center;
+    place-content: center;
+    justify-content: space-evenly;
+}
+
+.footer a{
+    color: white;
+    font: inherit;
+}
+
+.inputs {
+    height: 100%;
+    width: 50%;
+    margin: 0px 10px 0px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    place-content: center;
+}
+
+.cards {
+    height: 65%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    place-content: center;
+}
+
+.card {
+    height: 40%;
+    width: 40%;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    place-content: center;
+    margin: 10px 10px 10px 10px;
+    border-radius: 16px;
+}
+
+.card input {
+    text-align: center;
+    background-color: black;
+    color: white;
+    border: 0;
+    width: 60%;
+    height: 20%;
+    margin: 10px 0px 0px 0px;
+}
+
+.card label {
+    text-align: center;
+    width: 95%;
+}
+
+button {
+    border: 0;
+    background-color: rgb(77, 17, 50);
+    color: white;
+    border-radius: 32px;
+    width: 180px;
+    height: 60px;
+}
+
+button:hover {
+    transform: translateY(-5px);
+    border: 2px solid white;
+}
+
+.resultado {
+    height: 100%;
+    width: 50%;
+    display: flex;
+    align-items: center;
+    place-content: center;
+    margin: 0px 10px 0px 10px;
+}
+
+.exibir {
+    width: 55%;
+    height: 85%;
+    background-color: rgb(77, 17, 50);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    place-content: center;
+    box-shadow: rgba(77, 17, 50, 0.7) 0px 10px 20px 10px;
+}
+
+.exibir p {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: white;
+    width: 75%;
+    height: 90%;
+}
