@@ -1,65 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Questrial&display=swap');
-
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Questrial', sans-serif;
-}
-
-body {
-    width: 100vw;
-    height: 100vh;
-    background-color: black;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-ul {
-    width: 60%;
-    list-style: none;
-    display: flex;
-    color: white;
-    justify-content: space-around;
-}
-
-li {
-    padding: 4px 6px 4px 6px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.header a{
-    text-decoration: none;
-    color: white;
-}
-
-.header {
-    width: 100%;
-    height: 10%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: fixed;
-    top: 0;
-    background-color: #4d1132;
-}
-
-.header h1 {
-    border-bottom: 1px solid white;
-    text-align: center;
-    margin-left: 10px;
-}
-
-.transicao:hover {
-    border-radius: 16px;
-    border-bottom: 2px solid white;
-    background-color: black;
-}
-
 .banner {
     width: 80%;
     height: 90%;
@@ -153,12 +91,15 @@ li {
 }
 
 button {
-    height: 30px;
-    width: 120px;
     border: 0;
-    border-radius: 20px;
-    background-color: #4d1132;
+    background-color: rgb(77, 17, 50);
     color: white;
+    border-radius: 32px;
+    width: 120px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 button:hover {
