@@ -4,33 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/b61c221d36.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="calcStyle.css">
     <link rel="shortcut icon" href="assets/img/fav.ico" type="image/x-icon">
-    <title>Calculadora</title>
+    <title>Calculadora|GrapeTec</title>
 </head>
 <body>
-    <div class="main">
-        <div class="header">
-            <h1>|Calculadora Orçamental</h1>
-            <ul>
-                <li class="transicao"><a href="home.html">Home</a></li>
-                <li class="transicao"><a href="login.html">Login/Cadastro</a></li>
-                <li class="transicao"><a href="">Contate-nos</a></li>
-                <li class="transicao"><a href="">Sobre Nós</a></li>
-                <li class="transicao"><a href="">Como Funciona</a></li>
-                <li class="transicao"><a href="calculadora.html">Calculadora Orçamental</a></li>
-            </ul>
-        </div>
+    <div class="header">
         <div class="container">
+            <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="logo"></a>
+            <h1><a href="index.html">GRAPETEC</a></h1>
+        </div>
+        <ul>
+            <li class="transicao"><a href="index.html">Home</a></li>
+            <li class="transicao"><a href="login.html">Login/Cadastro</a></li>
+            <li class="transicao"><a href="">Contate-nos</a></li>
+            <li class="transicao"><a href="sobre-nos.html">Sobre Nós</a></li>
+            <li class="transicao"><a href="">Como Funciona</a></li>
+        </ul>
+    </div>
+    <div class="main">
+        <div class="container2">
             <div class="inputs">
+                <h2>|Calculadora Orçamental</h2>
                 <div class="cards">
                     <div class="card">
                         <label for="litrosArmazenados">Informe quantos litros são armazenados:</label>
-                        <input type="text" id="litrosArmazenados">
+                        <input type="text" id="litrosArmazenados" required>
                     </div>
                     <div class="card">
                         <label for="lucroAnual">Informe seu lucro anual:</label>
-                        <input type="text" id="lucroAnual">
+                        <input type="text" id="lucroAnual" required>
                     </div>
                 </div>
                 <button onclick="calcular()">Calcular Perdas</button>

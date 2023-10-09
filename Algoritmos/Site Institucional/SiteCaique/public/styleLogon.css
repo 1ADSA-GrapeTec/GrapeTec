@@ -72,6 +72,10 @@
     margin: 10px;
 }
 
+.campos .campo input{
+    padding-left: 2%;
+}
+
 .campos .campo button{
     width: 100px;
     height: 50px;

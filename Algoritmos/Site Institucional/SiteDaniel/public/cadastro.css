@@ -1,0 +1,102 @@
+.cardBranco {
+    width: 90%;
+    height: 90%;
+    background-color: white;
+}
+
+.cardVinho {
+    width:90%;
+    height: 75%;
+    background-image: url(assets/img/fundo-cadastro.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #4d1132;
+    position: fixed;
+    left: 0;
+    border-radius: 0px 20px 20px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.cardVinho img {
+    width: 350px;
+    height:350px;
+}
+
+.texto {
+    width: 20%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    place-content: center;
+    align-items: center;
+    color: white;
+}
+
+.texto p {
+    width: 80%;
+    font-size: 18px;
+    margin-top: 50px;
+}
+
+.formulario {
+    width: 40%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.logo img {
+    width: 60px;
+    height: 60px;
+}
+
+.inputs {
+    width: 100%;
+    height: 55%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+input {
+    width: 50%;
+    height: 10%;
+    border: 0;
+    padding: 0px 10px;
+}
+
+input::placeholder {
+    color: black;
+    font-weight: 500;
+}
+
+button {
+    border: 0;
+    background-color: white;
+    color: black;
+    border-radius: 32px;
+    width: 120px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+button:hover {
+    transform: translateY(-5px);
+    border: 2px solid black;
+}
