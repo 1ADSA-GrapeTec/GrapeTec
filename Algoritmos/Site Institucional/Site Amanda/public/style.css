@@ -19,7 +19,7 @@ body{
 }
 
 .header .container{
-    gap: 1.35rem;
+    gap: 2rem;
     margin-right: 20px;
 }
 
@@ -88,7 +88,7 @@ body{
     width: 180px;
 }
 
-#pag-inic{
+#aqui{
     background-color:#430e2b;
     padding: 10px;
     border-radius: 20px;
@@ -100,4 +100,9 @@ body{
 #pag-inic:hover {
     background-color: #720d83;
     transform: none;
+}
+
+a{
+    text-decoration: none;
+    color: white;
 }

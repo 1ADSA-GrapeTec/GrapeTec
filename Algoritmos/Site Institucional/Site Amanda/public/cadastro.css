@@ -1,0 +1,69 @@
+.container-cadastro{
+    position: relative;
+    background-color: white;
+    width: 80%;
+    left: 10%;
+    height: 580px ;
+    z-index: 0;
+}
+.card{
+    width: 80vw;
+    left: -15%;
+    height: 450px;
+    background-color: #4d1132;
+    display: flex;
+    margin: 2% 0;
+    border-radius: 0px 30px 30px 0px;
+    position: relative;
+    flex-direction: row;
+    z-index: 1;
+    justify-content: space-around;
+    align-items: center;
+    gap: 3rem;
+    padding: 25px;
+}
+
+.textoBoasVindas{
+    align-self: center;
+    text-align: center;
+    font-size: 20px;
+    width: 400px;
+}
+
+
+#img-logo{
+    width: 85px;
+}
+
+#img-cadastro{
+    width: 300px;
+}
+
+.botoes button{
+    background-color: #4d1132;
+    border-radius: 15px;
+    width: 120px;
+    height: 40px;
+    border: 1px solid white;
+    color: white;
+    box-shadow: 8px 10px 40px #4d1132;
+    transition: background-color 0.3s;
+    transition: transform 0.3s ease;
+}
+
+.botoes button:hover {
+    background-color: #720d83;
+    cursor: pointer;
+    transform: translateY(-8px);
+}
+
+.formulario{
+    text-align: center;
+}
+
+.formulario input{
+    width: 180px;
+    height: 25px;
+}
+
+
