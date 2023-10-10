@@ -1,0 +1,183 @@
+head title {
+    font-size: 200px; 
+    color: #4D1132;
+}
+.body {
+    background-color: rgb(0, 0, 0);
+    margin: auto;
+}
+
+.header {
+    font-family: 'Questrial', sans-serif;
+    background-color:#350b23;
+    width: 120%;
+    height: 13vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.header ul #aqui {
+    color: #ffffff;
+    box-shadow: 0px 3px 0px white;
+    background-color: #4d1132;
+}
+
+.item {
+    border-radius: 70px;
+    padding: 10px;
+    list-style: none;
+    cursor: pointer;
+    position: relative;
+    transition: box-shadow 0.3s ease;
+}
+
+.item:hover {
+    box-shadow: 0px 3px 0px white;
+    background-color: #4D1132;
+}
+
+.item:focus {
+    outline: none;
+}
+
+.header h1 {
+    color: #ffffff;
+    width: fit-content;
+    font-weight: 300;
+    margin-left: -35%;
+    justify-content: center;
+    height: 36px;
+    text-align: center;
+
+}
+
+.logo {
+    float: left;
+    width: 150px;
+    height: auto;
+    margin-right: 20px;
+    margin-top: -70px;
+    margin-right: auto;
+
+}
+
+.header .container {
+    width: 60%;
+    margin: auto;
+    margin: right 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+}
+
+.header .container ul {
+    font-family: 'Questrial', sans-serif;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    width: 900px;
+    align-items: center;
+    height: 90%;
+    list-style-type: none;
+
+}
+.header ul #aqui {
+    color: #ffffff;
+    box-shadow: 0px 3px 0px white;
+    background-color: #4D1132;
+}
+
+.item{
+    border-radius: 70px;
+    padding: 10px;
+    list-style: none;
+    cursor: pointer;
+    position: relative; 
+    transition: box-shadow 0.3s ease;
+}
+
+.item:hover {
+    box-shadow: 0px 3px 0px white;
+    background-color: #4D1132;
+}
+
+.item:focus{
+    outline: none;
+}
+
+.header ul li a {
+    color:#fbfbfb;
+    text-decoration: none;
+}
+
+.header h1{
+    color: #ffffff;
+    width: fit-content;
+    font-weight: 300;
+    margin-left: -35%;
+    justify-content: center;
+    height: 36px;
+    text-align: center;
+    
+}
+.body .content {
+    width: 92%;
+    height: 80vh;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    margin-left: 5%;
+    background-image: url(imgs/SobreNós.png);
+    background-repeat: no-repeat;
+    background-position: right 114px center;
+    background-size: 720px;
+}
+
+.body .container-boxPurple {
+    width: 3000vw;
+    height: 70vh;
+    background-color:#4D1132;
+    display: flex;
+    border-radius: 45px;
+    margin-bottom: 50px;
+    margin-top: 70px;
+    margin-left: 50px;
+    margin-right: 900px;
+
+}  
+
+.box h1{
+    color: white;
+    font-family:'Questrial', sans-serif ; 
+    margin-left: 30px;
+    margin-top: 60px;
+}
+
+
+.box h1{
+    display: flex;
+    color: white;
+    margin-left: 40px;
+}
+
+.box h2 {
+    color: white;
+    font-family: 'Questrial', sans-serif;
+    margin-top: 130px;
+    margin-left: -35px; 
+    text-align: center;
+}
+
+.box p {
+    display: flex;
+    color: white;
+    font-family: 'Questrial', sans-serif;
+    margin-left: 20px;
+    text-align: center;
+    justify-content: center;
+    margin-right: 10px;
+}

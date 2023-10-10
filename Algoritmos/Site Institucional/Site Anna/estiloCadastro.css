@@ -1,8 +1,7 @@
 head title {
-    font-size: 200px;
-    color: #000000;
+    font-size: 200px; 
+    color: #ffffff;
 }
-
 .body {
     background-color: rgb(0, 0, 0);
     margin: auto;
@@ -86,12 +85,45 @@ head title {
     list-style-type: none;
 
 }
-
-.link {
-    text-decoration: none;
-    color: white;
+.header ul #aqui {
+    color: #ffffff;
+    box-shadow: 0px 3px 0px white;
+    background-color: #4D1132;
 }
 
+.item{
+    border-radius: 70px;
+    padding: 10px;
+    list-style: none;
+    cursor: pointer;
+    position: relative; 
+    transition: box-shadow 0.3s ease;
+}
+
+.item:hover {
+    box-shadow: 0px 3px 0px white;
+    background-color: #4D1132;
+}
+
+.item:focus{
+    outline: none;
+}
+
+.header ul li a {
+    color:#fbfbfb;
+    text-decoration: none;
+}
+
+.header h1{
+    color: #ffffff;
+    width: fit-content;
+    font-weight: 300;
+    margin-left: -35%;
+    justify-content: center;
+    height: 36px;
+    text-align: center;
+    
+}
 .body .content {
     width: 92%;
     height: 80vh;
@@ -103,7 +135,7 @@ head title {
 }
 
 .body .container-boxPurple {
-    width: 130vw;
+    width: 140vw;
     height: 65vh;
     background-color: #4D1132;
     display: flex;
@@ -111,10 +143,10 @@ head title {
     margin-bottom: 50px;
     margin-top: 90px;
     margin-left: -1500px;
-    background-image: url(imgs/login.png);
+    background-image: url(imgs/CADASTRO.png);
     background-repeat: no-repeat;
-    background-position: left 1114px center;
-    background-size: 720px;
+    background-position: left 1214px center;
+    background-size: 1200px;
 }
 
 h2 {
@@ -125,6 +157,7 @@ h2 {
     margin-left: 500px;
     margin-right: 500px;
     text-decoration: normal;
+    font-size: 30px;
 }
 
 p {
@@ -139,21 +172,21 @@ p {
     text-decoration: normal;
     width: 200px;
     align-self: center;
-    font-size: 23px;
+    font-size: 26px;
 
 
 }
 
 .box h2 {
     float: right;
-    margin-left: 490vh;
+    margin-left: 440vh;
     margin-top: 10vh;
 }
 
 .box p {
     display: flex;
     float: right;
-    margin-left: 490vh;
+    margin-left: 440vh;
     margin-top: 10vh;
     margin-bottom: 100vh;
     justify-content: center;
@@ -173,86 +206,42 @@ p {
     padding-top: -50px;
 }
 
-
-.content .info {
+.inputs {
     display: flex;
-    font-family: 'Questrial', sans-serif;
-    align-self: self-end;
-    margin-bottom: 10px;
-    color: #000000;
     flex-direction: column;
-    margin-left: 10vh;
-    height: 40vh;
-    width: 50%;
-    padding: 5px;
-    vertical-align: top;
-    margin-top: 90%;
-
+    justify-content: flex-end; 
+    align-items: flex-end; 
+    margin-left: 500vh; 
+    width: 40%;
 }
-
- .img{
-    display: flex;
-    background-image: url(imgs/person.png);
-    background-repeat: no-repeat;
-    background-position: right 20vh;
-    background-size: 70px;
-    flex-direction: column;
+.inputs input[type="text"] {
+    width: 300px; 
+    height: 30px; 
 }
-
-
-.E-mail {
-    color: white;
-    display: flex;
-    background-color: #000000;
-    width: 150%;
-    padding: 13px;
-    padding-top: 13px;
-}
-
-.Senha {
-    color: white;
-    display: flex;
-    background-color: #000000;
-    width: 150%;
-    padding: 13px;
-    padding-top: 13px;
-    margin-left: auto;
-
-}
-
-
-
-.content .LembreDeMim {
-    flex-direction: column;
+.botao{
     display: inline-block;
-    margin-top: 49vh;
-    margin-left: -19vh;
-    size: 10px;
-}
-
-
- .botao{
+    background-color: white;
+    color: black;
+    margin-left:  475vh;
     border-radius: 30px;
     padding: 10px;
-    list-style: none;
+    white-space: nowrap;
     cursor: pointer;
-    position: relative; 
-    color: #ffffff;
-    background-color: #4D1132;
-    margin-left: 20px;
-    margin-top: 45px;
+    margin-right: auto;
 }
 
-.img .info ul{
-    font-family:'Questrial', sans-serif ;
+.inputs .p{
    color: white;
-   display: flex;
-   justify-content: space-around;
+   margin-top: 20vh;
+   font-family:'Questrial', sans-serif;
+   margin-left: 805vh;
+   flex-direction: column;
    align-items: center;
-   list-style-type: none;
-   
-  
 }
+.inputs li{
+    list-style: none;
+    margin-top: 20xp;
+    color: white;
+    
 
-
-
+ }
