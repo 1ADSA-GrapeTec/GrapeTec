@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Implementando o ChartJS</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="style2.css">
+
+</head>
+
+<body>
+    <div class="sensores">
+    <p class="alerta" >ALERTA SENSOR 1 FORA DA Temperatura IDEAL </p>
+    <p class="sensor2">Sensor 2 na temperatura ideal</p>
+</div>
+        <canvas id="myChart"></canvas>
+    </div>
+   
+</body>
+<script>
+    const ctx = document.getElementById('myChart');
+
+    new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: ['24:00', '01:00', '02:00', '03:00', '04:00', '05:00','06:00', '07:00', '08:00', '09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00','17:00', '18:00', '19:00', '20:00', '21:00', '22:00', '23:00'],
+            datasets: [{
+
+                label: 'Temperatura mínima',
+                borderColor: '#ff0000',
+                backgroundColor: "#ff0000",
+                data: [16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16],
+                borderWidth: 1
+
+
+            },
+            {
+                label: 'Sensor 1',
+                borderColor: '#ffff00',
+                backgroundColor: "#ffff00",
+                data: [17, 17, 17, 17, 17, 17, 17, 16, 17, 17, 17, 18, 17, 17, 17, 17, 17, 16, 16, 15, 15, 15, 15, 15],
+                borderWidth: 1
+            },
+            {
+                label: 'Sensor 2',
+                borderColor: '#00ff33',
+                backgroundColor: "#00ff33",
+                data: [16.5, 16.5, 16.5, 16.5, 16.5, 16.5, 16.5, 16.7, 16.7, 16.7, 16.7, 16.7, 16.7, 16.7, 17.3, 17.3, 17.3, 17.3, 17.3, 17.3, 17.3, 17.3, 17.3, 17.3],
+                borderWidth: 1
+            },
+
+            {
+
+
+                label: 'Temperatura maxima',
+                borderColor: '#0000ff',
+                backgroundColor: "#0000ff",
+                data: [18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18],
+                borderWidth: 1
+            }
+            ]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+
+</script>
+
+
+</html>
