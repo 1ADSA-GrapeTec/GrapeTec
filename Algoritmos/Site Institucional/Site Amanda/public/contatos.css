@@ -1,0 +1,74 @@
+/* .container-princiapal{
+    background-color: white;
+    color: black;
+    width: 80vw;
+    height: 80vh;
+    margin-left: 10%;
+    padding: 2%;
+} */
+
+.container-contatos{
+    position: relative;
+}
+.cardContato{
+    width: 65%;
+    height: 75%;
+    background-color: #4d1132;
+    display: flex;
+    margin: 2% 0;
+    border-radius: 0px 30px 30px 0px;
+    position: relative;
+    padding-right: 2rem;
+    padding-bottom: 5px;
+    z-index: 1;
+}
+
+.textoContato{
+    align-self: center;
+    text-align: end;
+    font-size: 15px;
+}
+
+.card-redes{
+    width: 90%;
+    height: 110%;
+    background-color: white;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    color: black;
+    font-size: 20px;
+    z-index:0;
+    top: -32px;
+    left: 70px;
+    position:absolute;
+}
+
+.redes{
+    height: 30%;
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 5%;
+    justify-content: space-evenly;
+    background-color: #6f204bd7;
+    box-shadow:4px 7px  #4d1132;
+    border-radius: 25px;
+}
+
+.redes  img{
+    width: 40px;
+
+}
+
+
+.img-contato{
+    width: 60px;
+    border-radius: 50%;
+}
+
+.infos-contato{
+    display: flex;
+    margin-left: 2%;
+}
