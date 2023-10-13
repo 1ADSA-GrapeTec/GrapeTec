@@ -15,69 +15,42 @@
             <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="logo"></a>
             <h1><a href="index.html">GRAPETEC</a></h1>
         </div>
-        <ul>
-            <li class="transicao"><a href="index.html">Home</a></li>
-            <li class="transicao"><a href="login.html">Login/Cadastro</a></li>
-            <li class="transicao"><a href="">Contate-nos</a></li>
-            <li class="transicao"><a href="sobre-nos.html">Sobre Nós</a></li>
-            <li class="transicao"><a href="comoFunciona.html">Como Funciona</a></li>
-        </ul>
+        <div class="icon_box">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+        <div class="navBar">
+            <nav>
+                <ul>
+                    <li class="transicao"><a href="index.html">Home</a></li>
+                    <li class="transicao"><a href="login.html">Login/Cadastro</a></li>
+                    <li class="aqui"><a href="calculadora.html">Calculadora Orçamental</a></li>
+                </ul>
+            </nav>
+        </div>
     </div>
     <div class="main">
-        <div class="container2">
-            <div class="inputs">
-                <h2>|Calculadora Orçamental</h2>
-                <div class="cards">
-                    <div class="card">
-                        <label for="litrosArmazenados">Informe quantos litros são armazenados:</label>
-                        <input type="text" id="litrosArmazenados" required>
-                    </div>
-                    <div class="card">
-                        <label for="lucroAnual">Informe seu lucro anual:</label>
-                        <input type="text" id="lucroAnual" required>
-                    </div>
+        <div class="inputs">
+            <h2>|Calculadora Orçamental</h2>
+            <div class="cards">
+                <div class="card">
+                    <label for="litrosArmazenados">Informe quantos litros são armazenados:</label>
+                    <input type="text" id="litrosArmazenados" required>
                 </div>
-                <button onclick="calcular()">Calcular Perdas</button>
+                <div class="card">
+                    <label for="lucroAnual">Informe seu lucro anual:</label>
+                    <input type="text" id="lucroAnual" required>
+                </div>
             </div>
-            <div class="resultado">
-                <div class="exibir"  id="exibirPerda"></div>
-            </div>
+            <button onclick="calcular()">Calcular Perdas</button>
         </div>
-        <div class="footer">
-            <a>
-                <i class="fab fa-whatsapp"></i>
-                Contate-nos: (11)97654-3210
-            </a>
-            <a>
-                <i class="fa fa-envelope"></i>
-                grapetec@company.com
-            </a>
-            <a>
-                <i class="fa fa-instagram"></i>
-                grape_tec.company
-            </a>
+        <div class="resultado">
+            <div class="exibir"  id="exibirPerda"></div>
         </div>
     </div>
 </body>
 </html>
-
-<script>
-    function calcular () {
-        var armazenamento = Number(litrosArmazenados.value)
-        var lucro = Number(lucroAnual.value)
-        var litrosVendidos = armazenamento * 0.75
-        var lucroMaximo = armazenamento * lucro/litrosVendidos
-        var perdaVinho = armazenamento * 0.25
-        var perdaDinheiro = lucroMaximo - lucro
-        var reduzirPerda = perdaVinho * 0.6
-        var reduzirPerdaDinheiro = reduzirPerda*perdaDinheiro/perdaVinho
-
-        exibirPerda.innerHTML =
-        `
-        <p>Conforme foi informado a quantidade de vinho que a sua empresa armazena é de ${armazenamento} litros, e o seu lucro anual é de R$${lucro}.<br><br>
-        A média de perda de vinho causada por falta de controle de temperatura é de cerda de 25%, o que para a sua empresa significa uma perda de aproximadamente ${perdaVinho} litros. Esses litros perdidos representam aproximadamente R$${Math.round(perdaDinheiro)}, por tanto seu lucro total poderia ser de R$${Math.round(lucroMaximo)}.<br><br>
-        Com a nossa solução sua empresa pode reduzir em até 60% a suas perdas, o que representa aproximadamente ${reduzirPerda} litros ou em dinheiro cerca de R$${Math.round(reduzirPerdaDinheiro)}.</p>
-        `
-    }
-</script>
+<script src="main.js"></script>
+<script src="calc.js"></script>
 

@@ -4,48 +4,66 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Questrial', sans-serif; 
+    font-family: 'Questrial', sans-serif;
 }
 
 body {
     width: 100vw;
-    height: 100vh;
-    background-color: black;
+    overflow-x: hidden;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    background-color: black;
 }
 
 ul {
-    width: 60%;
     list-style: none;
     display: flex;
     color: white;
-    justify-content: space-around;
 }
 
 li {
-    padding: 4px 6px 4px 6px;
+    padding: 4px 6px;
     display: flex;
-    justify-content: center;
     align-items: center;
 }
 
 a{
     text-decoration: none;
     color: white;
+    margin: 0px 10px;
+}
+
+span {
+    font-size: 100px;
+}
+
+button {
+    border: 0;
+    background-color: rgb(77, 17, 50);
+    color: white;
+    border-radius: 32px;
+    width: 180px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+button:hover {
+    transform: translateY(-5px);
+    border: 2px solid white;
 }
 
 .header {
     width: 100%;
-    height: 10%;
+    height: 60px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: fixed;
+    position: sticky;
     top: 0;
     background-color: #4d1132;
+    z-index: 1;
 }
 
 .header .container {
@@ -76,19 +94,258 @@ a{
     background-color: black;
 }
 
-button {
-    border: 0;
-    background-color: rgb(77, 17, 50);
+.navBar {
+    width: fit-content;
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+    opacity: 0;
+    right: -500px;
+    pointer-events: none;
+    transition: 0.2s;
+}
+
+.active.navBar {
+    pointer-events: fill;
+    opacity: 1;
+    right: 100px;
+}
+
+.icon_box {
+    width: fit-content;
+    height: auto;
+    margin: 30px;
+    position: absolute;
+    border-radius: 4px;
+    right: 0;
+    cursor: pointer;
+}
+
+.line1 , .line2, .line3 {
+    width: 40px;
+    height: 3px;
+    margin: 8px 5px;
+    background-color: white;
+    border-radius: 50px;
+    transition: 0.2s;
+}
+
+.active .line1 {
+    transform: translate(0px, 11.5px) rotate(45deg);
+}
+
+.active .line2 {
+    opacity: 0;
+}
+
+.active .line3 {
+    transform: translate(0px, -11.5px) rotate(-45deg);
+}
+
+.aqui {
+    border-radius: 16px;
+    border-bottom: 2px solid white;
+    background-color: black;
+}
+
+.home{
+    width: 100%;
+    height: 700px;
+    display: flex;
+}
+
+.home .banner {
+    display: flex;
+    width: 100%;
+    height: 80%;
+}
+
+.home .banner .container1 {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.home .banner .container1 h2 {
+    font-size: 30px;
+    text-align: center;
     color: white;
-    border-radius: 32px;
-    width: 180px;
-    height: 60px;
+}
+
+.home .banner .container1 p {
+    text-align: center;
+    color: white;
+}
+
+.home .botoes {
+    width: 100%;
+    height: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.home .banner .container1 button img {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+.home .container2 {
+    background-image: url(assets/img/fundoHome.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    align-items: end;
+    justify-content: center;
+    width: 50%;
+    height: 100%;
+}
+
+.sobre_nos {
+    width: 100%;
+    height: 700px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-button:hover {
-    transform: translateY(-5px);
-    border: 2px solid white;
+.sobre_nos .cardBranco {
+    width: 95%;
+    height: 80%;
+    background-image: url(assets/img/fundo-sobre-nos.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+}
+
+.sobre_nos .cardVinho {
+    width: 45%;
+    height: 75%;
+    background-color: #4d1132;
+    position: absolute;
+    left: 1%;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    color: white;
+}
+
+.sobre_nos .cardVinho h2{
+    width: 100%;
+    position: relative;
+    left: 10%;
+}
+
+.sobre_nos .cardVinho p {
+    width: 80%;
+    text-align: center;
+}
+
+.comoFunc {
+    width: 100%;
+    height: 700px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.comoFunc .cardBranco {
+    width: 90%;
+    height: 80%;
+    background-image: url(assets/img/fundo-como-funciona.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.comoFunc .cardBranco h2 {
+    font-size: 32px;
+    margin: 12px 0px 0px 75px;
+}
+
+.comoFunc .cardVinho {
+    width: 90%;
+    height: 65%;
+    background-color: #4d1132;
+    position: absolute;
+    right: 0;
+    border-radius: 20px 0px 0px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.comoFunc .card {
+    width: 330px;
+    height: 130px;
+    background-color: white;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.comoFunc .card p {
+    width: 60%;
+    text-align: center;
+}
+
+.comoFunc .card img {
+    width: 110px;
+    height: 100px;
+}
+
+.comoFunc .cima {
+    display: flex;
+    width: 95%;
+    height: 33%;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.comoFunc .meio {
+    width: 90%;
+    display: flex;
+    position: relative;
+    left: 78%;
+}
+
+.comoFunc .baixo {
+    display: flex;
+    width: 95%;
+    height: 33%;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.comoFunc .seta {
+    font-size: 60px;
+    color: white;
+}
+
+.footer {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    place-content: center;
+    justify-content: space-evenly;
+    border-top: white solid 2px;
+}
+
+.footer a{
+    color: white;
+    font: inherit;
+}
+
+::-webkit-scrollbar {
+    display: none;
 }

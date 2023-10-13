@@ -1,3 +1,17 @@
+body {
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.link a{
+    color: black;
+}
+
 .banner {
     width: 80%;
     height: 90%;
@@ -20,6 +34,19 @@
 .card img {
     height: 100%;
     width: 70%;
+}
+
+.logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.logo img {
+    width: 80px;
+    height: 80px;
 }
 
 .texto {
