@@ -1,0 +1,95 @@
+.armazem{
+    justify-content: center;
+    text-align: center;
+    margin-top: 1.5%;
+    margin-bottom: 1%;
+}
+.armazem select{
+    background-color:transparent;
+    color: white;
+    border: none;
+    font-size: 30px;
+}
+.armazem select:hover{
+  cursor: pointer;
+}
+.armazem option{
+    color: black;
+}
+.container-dashboard{
+    display: flex;
+    width: 85vw;
+    background-color: #4d1132;
+    border-radius: 10px;
+    color: black;
+    padding:1%;
+    justify-content: center; /* Alinha ao centro horizontalmente */
+    align-items: center; /* Alinha ao centro verticalmente */
+    margin: 0 auto;
+    gap: 3%; /*Espaço entre os itens do container*/
+}
+
+.temp-media{
+    background-color: white;
+    height: 130px;
+    border-radius: 10px;
+    padding: 7px;
+    text-align: center;
+}
+#medidor{
+    height: 100px;
+
+}
+
+.status-sensor{
+    background-color: white;
+    height: 130px;
+    border-radius: 10px;
+    padding: 7px;
+    margin-top: 5%;
+}
+
+.container-grafico{
+    padding: 5px;
+    width: 70%;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.sensor{
+    display: flex;
+    background-color: #4d1132;
+    margin-top: 5px;
+    color: white;
+    border-radius: 10px;
+    justify-content: space-around;
+    align-items: center;
+    gap: 1rem;
+    padding: 2px;
+    height: 25px;
+}
+.ativo{
+    background-color: green;
+    width: 80px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.inativo{
+    background-color: red;
+    width: 80px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.bola-ativo{
+    background-color: green;
+    width: 15px;
+    border-radius: 45%;
+}
+
+.bola-inativo{
+    background-color: red;
+    width: 15px;
+    border-radius: 45%;
+}
