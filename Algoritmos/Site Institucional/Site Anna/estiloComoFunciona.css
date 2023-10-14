@@ -1,0 +1,234 @@
+head title {
+    font-size: 200px;
+    color: #4D1132;
+}
+
+.body {
+    background-color: rgb(255, 255, 255);
+    margin: auto;
+    background-image: url(imgs/ComoFunciona.png);
+    background-repeat: no-repeat;
+    background-size: 1850px;
+}
+
+.header {
+    font-family: 'Questrial', sans-serif;
+    background-color: #350b23;
+    width: 120%;
+    height: 13vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.header ul #aqui {
+    color: #ffffff;
+    box-shadow: 0px 3px 0px white;
+    background-color: #4d1132;
+}
+
+.item {
+    border-radius: 70px;
+    padding: 10px;
+    list-style: none;
+    cursor: pointer;
+    position: relative;
+    transition: box-shadow 0.3s ease;
+}
+
+.item:hover {
+    box-shadow: 0px 3px 0px white;
+    background-color: #4D1132;
+}
+
+.item:focus {
+    outline: none;
+}
+
+.header h1 {
+    color: #ffffff;
+    width: fit-content;
+    font-weight: 300;
+    margin-left: -35%;
+    justify-content: center;
+    height: 36px;
+    text-align: center;
+
+}
+
+.logo {
+    float: left;
+    width: 150px;
+    height: auto;
+    margin-right: 20px;
+    margin-top: -70px;
+    margin-right: auto;
+
+}
+
+.header .container {
+    width: 60%;
+    margin: auto;
+    margin: right 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+}
+
+.header .container ul {
+    font-family: 'Questrial', sans-serif;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    width: 900px;
+    align-items: center;
+    height: 90%;
+    list-style-type: none;
+
+}
+
+.header ul #aqui {
+    color: #ffffff;
+    box-shadow: 0px 3px 0px white;
+    background-color: #4D1132;
+}
+
+.item {
+    border-radius: 70px;
+    padding: 10px;
+    list-style: none;
+    cursor: pointer;
+    position: relative;
+    transition: box-shadow 0.3s ease;
+}
+
+.item:hover {
+    box-shadow: 0px 3px 0px white;
+    background-color: #4D1132;
+}
+
+.item:focus {
+    outline: none;
+}
+
+.header ul li a {
+    color: #fbfbfb;
+    text-decoration: none;
+}
+
+.header h1 {
+    color: #ffffff;
+    width: fit-content;
+    font-weight: 300;
+    margin-left: -35%;
+    justify-content: center;
+    height: 36px;
+    text-align: center;
+
+}
+
+.conteudo .titulo h1 {
+    display: flex;
+    font-family: 'Questrial', sans-serif;
+    font-size: 50px;
+    margin-top: 30px;
+    margin-left: 40px;
+}
+
+.container1 {
+    display: grid;
+    margin-left: 400px;
+    background-color: #4D1132;
+    width: 94vw;
+    height: 70vh;
+    border-radius: 40px;
+    margin-top: 5px;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-content: center;
+}
+
+.box {
+    margin-left: 3%;
+    margin-top: 5%;
+    display: flex;
+    width: 75%;
+    height: 160px;
+    background-color: white;
+    border-radius: 75px 20px 20px 75px;
+}
+
+.box .image {
+    width: 45%;
+    height: 100%;
+    /* background-color: pink; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box .image img {
+    height: 100%;
+    margin-right: 10%;
+}
+
+.box .desc {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.box .desc {
+    margin-top: 20px;
+    width: 65%;
+    height: 100%;
+}
+
+/* .box1 {
+    display: inline-block;
+    background-color: white;
+    margin-top: 30px;
+    width: 450px;
+    border-radius: 60px;
+    margin-left: 30px;
+    height: 160px;
+}
+
+.box2 {
+    display:inline-block;
+    background-color: white;
+    margin-top: 30px;
+    width: 450px;
+    border-radius: 60px;
+    margin-left: 90px;
+    height: 160px;
+}
+
+.box3 {
+    display:inline-block;
+    background-color: white;
+    margin-top: 30px;
+    width: 450px;
+    border-radius: 60px;
+    margin-left: 120px;
+    height: 160px;
+}
+
+.box4 {
+    display: inline;
+    background-color: white;
+    margin-top: 400px;
+    height: 160px;
+    width: 450px;
+    align-self: baseline;
+    margin-right: 80px;
+    
+}
+
+.box5 {
+    display: inline;
+    background-color: white;
+}
+
+.box5 */
