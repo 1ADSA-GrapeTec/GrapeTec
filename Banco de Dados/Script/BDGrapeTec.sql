@@ -1,20 +1,18 @@
 create database GrapeTec;
-
+drop database GrapeTec;
 use GrapeTec;
 
-CREATE TABLE empresa
-(
+CREATE TABLE empresa(
 idEmpresa int primary key auto_increment,
 nomeEmpresa varchar(50) not null,
 CNPJ char(14) not null,
 email varchar(45) not null,
 telefone char(11) not null,
 CEP char(9) not null
-)auto_increment = 1;
+);
 
-CREATE TABLE endereço
-(
-idEndereco int primary key auto_increment,
+CREATE TABLE endereco(
+idEndereco INT PRIMARY KEY auto_increment,
 rua varchar(45) not null,
 numero int not null,
 bairro varchar(45),
@@ -26,18 +24,19 @@ pais varchar(45) not null
 CREATE TABLE vinho (
 idVinho int primary key auto_increment,
 tipoVinho varchar(30),
-tempIdeal float not null
+tempIdeal float not null,
+CONSTRAINT chkVinho CHECK (tipoVinho IN ('Tinto Leve', 'Branco','Espumante','Tinto Encorpado'))
 );
 
 CREATE TABLE armazem (
 idArmazem int primary key auto_increment,
 area int,
 fkEmpresa int, CONSTRAINT fkEmpresa foreign key (fkEmpresa) references empresa (idEmpresa),
-fkEndereco int, CONSTRAINT fkEndereco foreign key (fkEndereco) references endereço (idEndereco),
+fkEndereco int, CONSTRAINT fkEndereco foreign key (fkEndereco) references endereco (idEndereco),
 fkVinho int, CONSTRAINT fkVinho foreign key (fkVinho) references vinho (idVinho)
 )auto_increment = 100;
 
-CREATE TABLE usuarios (
+CREATE TABLE usuarios(
 idUsuarios int auto_increment,
 email varchar(50) not null,
 senha varchar(25) not null,
@@ -75,7 +74,7 @@ SELECT CNPJ FROM empresa WHERE nomeEmpresa = 'Vinhos Viana';
 SELECT email FROM empresa WHERE nomeEmpresa = 'Divinhos';
 SELECT telefone FROM empresa WHERE nomeEmpresa = 'Divinhos';
 
-INSERT INTO endereço (rua, numero, cidade, bairro, estado,pais) VALUES
+INSERT INTO endereco (rua, numero, cidade, bairro, estado,pais) VALUES
 ('Puxinana',100,'São Paulo','Vila rica','SP','Brasil'),
 ('Inajar de Souza',203,'Rio de Janeiro','Remédios','RJ','Brasil'),
 ('Penha Brasil',165,'Vitória',null,'ES', 'Brasil'),
@@ -83,7 +82,7 @@ INSERT INTO endereço (rua, numero, cidade, bairro, estado,pais) VALUES
 
 SELECT * FROM endereço;
 
-ALTER TABLE vinho ADD CONSTRAINT chkVinho CHECK (tipoVinho IN ('Tinto Leve', 'Branco','Espumante','Tinto Encorpado'));
+
 INSERT INTO vinho (tipoVinho,tempIdeal ) VALUES
 ('Tinto Leve','14' ),
 ('Branco','10'),
@@ -145,9 +144,33 @@ SELECT * FROM dadoSensor WHERE temperatura < 3;
 
 SELECT * FROM armazem JOIN empresa on fkEmpresa = idEmpresa JOIN endereço on fkEndereco = idEndereco;
 SELECT * FROM empresa JOiN usuarios ON fkEmpresa = idEmpresa JOIN armazem ON fkArmazem = idArmazem JOIN endereço ON fkEndereco = idEndereco;
-SELECT * FROM dadoSensor JOIN sensor ON idSensor = fkSensor JOIN armazem ON fkArmazem = idArmazem JOIN endereço ON fkEndereco = idEndereco JOIN usuarios ON 
-SELECT * FROM vinho;
-SELECT * FROM armazem;
-SELECT * FROM sensor;
-SELECT * FROM dadoSensor;
-SELECT * FROM armazem JOIN vinho ON idVinho = fkVinho;
+
+SELECT 
+d.temperatura AS 'Temperatura captada',
+d.dtAtual AS 'Data de captação',
+s.nome AS 'Nome do sensor',
+s.localizacao AS 'Localização do sensor',
+a.area AS 'Area do armazem',
+e.rua AS 'Rua do armazem',
+e.numero AS 'Número do armazem',
+e.bairro AS 'Bairro do armazem',
+e.estado AS 'Estado do armazem',
+e.cidade AS 'Cidade do armazem',
+e.pais AS 'País do armazem',
+u.nome AS 'Dono da conta responsável',
+u.email AS 'E-mail',
+u.senha AS 'Senha',
+u.tipoUsuario AS 'Tipo de usuário',
+emp.nomeEmpresa AS 'Empresa responsável',
+emp.CNPJ,
+emp.email AS 'E-mail de contato',
+emp.telefone AS 'Telefone de contato',
+emp.CEP
+FROM 
+dadoSensor AS d JOIN sensor AS s ON idSensor = fkSensor 
+	JOIN armazem AS a ON s.fkArmazem = a.idArmazem 
+		JOIN endereco AS e ON a.fkEndereco = e.idEndereco 
+			JOIN usuarios AS u ON  u.fkArmazem = a.idArmazem
+				JOIN empresa AS emp ON a.fkEmpresa = emp.idEmpresa;
+
+
