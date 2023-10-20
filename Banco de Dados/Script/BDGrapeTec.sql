@@ -1,87 +1,85 @@
-create database GrapeTec;
-drop database GrapeTec;
-use GrapeTec;
+CREATE DATABASE grapeTec;
+USE grapeTec;
 
 CREATE TABLE empresa(
-idEmpresa int primary key auto_increment,
-nomeEmpresa varchar(50) not null,
-CNPJ char(14) not null,
-email varchar(45) not null,
-telefone char(11) not null,
-CEP char(9) not null
-);
+idEmpresa INT PRIMARY KEY AUTO_INCREMENT,
+nomeEmpresa VARCHAR(50) NOT NULL,
+CNPJ CHAR(18) NOT NULL,
+email VARCHAR(45) NOT NULL,
+telefone CHAR(11) NOT NULL,
+CEP CHAR(9) NOT NULL
+)AUTO_INCREMENT = 1;
 
 CREATE TABLE endereco(
-idEndereco INT PRIMARY KEY auto_increment,
-rua varchar(45) not null,
-numero int not null,
-bairro varchar(45),
-estado char(2) not null,
-cidade varchar (45) not null,
-pais varchar(45) not null
-);
+idEndereco INT PRIMARY KEY AUTO_INCREMENT,
+rua VARCHAR(45) NOT NULL,
+numero INT NOT NULL,
+bairro VARCHAR(45) NOT NULL,
+estado CHAR(2) NOT NULL,
+cidade VARCHAR(45) NOT NULL,
+pais VARCHAR(45) NOT NULL
+)AUTO_INCREMENT = 1;
 
 CREATE TABLE vinho (
-idVinho int primary key auto_increment,
-tipoVinho varchar(30),
-tempIdeal float not null,
+idVinho INT PRIMARY KEY AUTO_INCREMENT,
+tipoVinho VARCHAR(30),
+tempIdeal FLOAT NOT NULL,
 CONSTRAINT chkVinho CHECK (tipoVinho IN ('Tinto Leve', 'Branco','Espumante','Tinto Encorpado'))
-);
+)AUTO_INCREMENT = 1;
 
 CREATE TABLE armazem (
-idArmazem int primary key auto_increment,
-area int,
-fkEmpresa int, CONSTRAINT fkEmpresa foreign key (fkEmpresa) references empresa (idEmpresa),
-fkEndereco int, CONSTRAINT fkEndereco foreign key (fkEndereco) references endereco (idEndereco),
-fkVinho int, CONSTRAINT fkVinho foreign key (fkVinho) references vinho (idVinho)
-)auto_increment = 100;
+idArmazem INT PRIMARY KEY AUTO_INCREMENT,
+area INT,
+fkEmpresa INT,
+fkEndereco INT, 
+fkVinho INT, 
+CONSTRAINT fkEmpresa FOREIGN KEY (fkEmpresa) REFERENCES empresa (idEmpresa),
+CONSTRAINT fkEndereco FOREIGN KEY (fkEndereco) REFERENCES endereco (idEndereco),
+CONSTRAINT fkVinho FOREIGN KEY (fkVinho) REFERENCES vinho (idVinho)
+)AUTO_INCREMENT = 100;
 
-CREATE TABLE usuarios(
-idUsuarios int auto_increment,
-email varchar(50) not null,
-senha varchar(25) not null,
-nome varchar(45) not null,
-tipoUsuario char(12) not null, CONSTRAINT ckTIpoUsuario CHECK (tipoUsuario in('adminstrador', 'comum')),
-fkEmpresa int, CONSTRAINT fkE foreign key (fkEmpresa) references empresa(idEmpresa),
-fkArmazem int, CONSTRAINT fkArmazemm foreign key (fkArmazem) references armazem (idArmazem),
-Primary key (idUsuarios, fkEmpresa)
-);
+CREATE TABLE usuario(
+idUsuarios INT AUTO_INCREMENT,
+email VARCHAR(50) NOT NULL,
+senha VARCHAR(25) NOT NULL,
+nome VARCHAR(45) NOT NULL,
+tipoUsuario CHAR(12) NOT NULL, 
+fkEmpresa INT NOT NULL, 
+fkArmazem INT NOT NULL, 
+CONSTRAINT ckTIpoUsuario CHECK (tipoUsuario IN('adminstrador', 'comum')),
+CONSTRAINT fkEmpresa_usuario FOREIGN KEY (fkEmpresa) REFERENCES empresa(idEmpresa),
+CONSTRAINT fkArmazem FOREIGN KEY(fkArmazem) REFERENCES armazem (idArmazem),
+CONSTRAINT pkUsuario PRIMARY KEY (idUsuarios, fkEmpresa)
+)AUTO_INCREMENT = 1;
 
 CREATE TABLE sensor(
-idSensor int primary key auto_increment,
-nome varchar (30) not null,
-localizacao varchar(20) not null,
-statusSensor varchar (10), constraint ckStatusSensor check (statusSensor in ('ligado','desligado')), 
-fkArmazem int, CONSTRAINT fkArmazem foreign key (fkArmazem) references armazem (idArmazem)
-);
+idSensor INT PRIMARY KEY AUTO_INCREMENT,
+nome VARCHAR(30) NOT NULL,
+localizacao VARCHAR(20) NOT NULL,
+statusSensor VARCHAR(9),
+fkArmazem INT,
+CONSTRAINT ckStatusSensor CHECK (statusSensor IN ('Ligado','Desligado')), 
+CONSTRAINT fkArmazem_sensor FOREIGN KEY(fkArmazem) REFERENCES armazem (idArmazem)
+)AUTO_INCREMENT = 1;
 
 CREATE TABLE dadoSensor(
-idDadoSensor int primary key auto_increment,
-temperatura float not null,
+idDadoSensor INT PRIMARY KEY AUTO_INCREMENT,
+temperatura FLOAT NOT NULL,
 dtAtual datetime default current_timestamp,
 fkSensor int, CONSTRAINT fkSensor foreign key (fkSensor) references sensor (idSensor)
-);
+)AUTO_INCREMENT = 1;
 
 INSERT INTO empresa (CNPJ, nomeEmpresa, email,telefone, CEP) VALUES
-('43.093.053/000','Vinhos Viana','Vinhos Viana@gmail.com','282232-4086', '123456781'),
-('78.581.354/000','YabutaWine','YabutaWine@gmail.com','692763-2911', '123456782'),
-('49.704.129/000','Divinhos','Divinhos@gmail.com','823652-7289', '123456783'),
-('52.478.266/000','VinhedosLoureiro','VinhedosLoureiro@gmail.com','823514-3717', '123456784');
-
-SELECT * FROM empresa;
-SELECT * FROM empresa WHERE nomeEmpresa= 'VinhedosLoureiro';
-SELECT CNPJ FROM empresa WHERE nomeEmpresa = 'Vinhos Viana';
-SELECT email FROM empresa WHERE nomeEmpresa = 'Divinhos';
-SELECT telefone FROM empresa WHERE nomeEmpresa = 'Divinhos';
+('43.093.053/0001-77','Vinhos Viana','Vinhos Viana@gmail.com','282232-4086', '123456781'),
+('78.581.354/0006-33','YabutaWine','YabutaWine@gmail.com','692763-2911', '123456782'),
+('49.704.129/0009-99','Divinhos','Divinhos@gmail.com','823652-7289', '123456783'),
+('52.478.266/0008-88','VinhedosLoureiro','VinhedosLoureiro@gmail.com','823514-3717', '123456784');
 
 INSERT INTO endereco (rua, numero, cidade, bairro, estado,pais) VALUES
 ('Puxinana',100,'São Paulo','Vila rica','SP','Brasil'),
 ('Inajar de Souza',203,'Rio de Janeiro','Remédios','RJ','Brasil'),
-('Penha Brasil',165,'Vitória',null,'ES', 'Brasil'),
-('Watannabe',543,'Belo Horizonte',null,'MG', 'Brasil');
-
-SELECT * FROM endereço;
-
+('Penha Brasil',165,'Vitória','Lajeado','ES', 'Brasil'),
+('Watannabe',543,'Belo Horizonte','Jardim Miriam','MG', 'Brasil');
 
 INSERT INTO vinho (tipoVinho,tempIdeal ) VALUES
 ('Tinto Leve','14' ),
@@ -95,60 +93,98 @@ INSERT INTO armazem VALUES
 (null, 560, 3, 2,3),
 (null, 700, 4, 3,4);
 
-SELECT * FROM armazem;
-SELECT * FROM armazem JOIN endereço on fkEndereco = idEndereco JOIN empresa on fkEmpresa = idEmpresa;
-
-
-INSERT INTO usuarios(email, senha, nome, tipoUsuario, fkEmpresa, fkArmazem) VALUES
+INSERT INTO usuario(email, senha, nome, tipoUsuario, fkEmpresa, fkArmazem) VALUES
 ('Anna.Marinho@exemplo.com', 'Anna123', 'Anna', 'adminstrador', 1, 100),
 ('Amanda.Ribeiro@exemplo.com', 'Amanda123', 'Amanda', 'comum', 2, 101),
 ('Jean.Rocha@exemplo.com', 'Jean123', 'Jean', 'adminstrador', 3, 102),
 ('Jacson.Lima@exemplo.com', 'Jacson123', 'Jacson', 'adminstrador', 2, 101);
 
-SELECT * FROM usuarios JOIN empresa on fkEmpresa = idEmpresa JOIN armazem ON fkArmazem = idArmazem;
-SELECT * FROM usuarios JOIN empresa on fkEmpresa = idEmpresa JOIN armazem ON fkArmazem = idArmazem where usuarios.nome = 'Anna';
-
-
-SELECT * FROM vinho;
-SELECT * FROM vinho JOIN armazem on fkvinho = idVinho;
-SELECT * FROM vinho JOIN armazem on fkvinho = idVinho JOIN empresa on fkEmpresa = idEmpresa;
-SELECT tempIdeal FROM vinho WHERE tipoVinho LIKE '%Tinto%';
-SELECT * FROM vinho WHERE tempIdeal < 10;
-
-INSERT INTO sensor(nome,localizacao, fkArmazem) VALUES
-('Sensor1','zona1', 100),
-('Sensor2','zona1', 100),
-('Sensor3','zona1', 100),
-('Sensor4','zona2', 101),
-('Sensor5','zona2', 102),
-('Sensor6','zona3', 103),
-('Sensor7','zona3', 102),
-('Sensor8','zona3', 103),
-('Sensor9','zona4', 101);
-
-SELECT * FROM sensor;
-SELECT * FROM sensor JOIN armazem on fkArmazem = idArmazem;
-SELECT * FROM sensor WHERE localizacao = 'zona1';
-SELECT * FROM sensor WHERE nome = 'Sensor5';
+INSERT INTO sensor(nome,statusSensor,localizacao, fkArmazem) VALUES
+('Sensor1','Ligado','zona1', 100),
+('Sensor2','Ligado','zona1', 100),
+('Sensor3','Ligado','zona1', 100),
+('Sensor4','Ligado','zona2', 101),
+('Sensor5','Ligado','zona2', 102),
+('Sensor6','Ligado','zona3', 103),
+('Sensor7','Ligado','zona3', 102),
+('Sensor8','Ligado','zona3', 103),
+('Sensor9','Ligado','zona4', 101);
 
 INSERT INTO dadoSensor (temperatura, fkSensor) VALUES
-('0', 1),
-('5', 2),
-('7', 3),
-('2', 4);
+('25', 1),
+('23', 2),
+('14', 3),
+('13', 4);
 
-SELECT * FROM dadoSensor;
-SELECT * FROM dadoSensor JOIN sensor on fkSensor = idSensor;
-SELECT * FROM dadoSensor WHERE temperatura > 4;
-SELECT * FROM dadoSensor WHERE temperatura < 3; 	
+SELECT 
+usuario.nome AS 'Nome do usuário',
+usuario.email AS 'E-mail do usuário',
+usuario.senha AS 'Senha do usuário',
+tipoUsuario AS 'Tipo de usuário',
+empresa.nomeEmpresa AS 'Nome da empresa responsável',
+empresa.CNPJ,
+empresa.email AS 'E-mail da empresa',
+empresa.telefone AS 'Telefone da empresa',
+empresa.cep
+FROM empresa JOIN usuario ON fkEmpresa = idEmpresa;
 
-SELECT * FROM armazem JOIN empresa on fkEmpresa = idEmpresa JOIN endereço on fkEndereco = idEndereco;
-SELECT * FROM empresa JOiN usuarios ON fkEmpresa = idEmpresa JOIN armazem ON fkArmazem = idArmazem JOIN endereço ON fkEndereco = idEndereco;
+SELECT 
+armazem.idArmazem AS 'identificação do armazem',
+armazem.area AS 'Área do armazem',
+empresa.nomeEmpresa AS 'Nome da empresa responsável',
+empresa.CNPJ,
+empresa.email AS 'E-mail da empresa',
+empresa.telefone AS 'Telefone da empresa',
+empresa.cep
+FROM empresa JOIN armazem ON fkEmpresa = idEmpresa;
+
+SELECT 
+armazem.idArmazem AS 'identificação do armazem',
+armazem.area AS 'Área do armazem',
+endereco.rua AS 'Rua do armazem',
+endereco.numero AS 'Número do armazem',
+endereco.bairro AS 'Bairro do armazem',
+endereco.cidade AS 'Cidade do armazem',
+endereco.estado AS 'Estado do armazem',
+endereco.pais AS 'País do armazem'
+FROM armazem JOIN endereco ON fkEndereco = idEndereco;
+
+SELECT 
+armazem.idArmazem AS 'identificação do armazem',
+armazem.area AS 'Área do armazem',
+usuario.nome AS 'Usuário associado',
+usuario.email AS 'E-mail do usuário',
+usuario.senha AS 'Senha do usuário',
+tipoUsuario AS 'Tipo de usuário'
+FROM armazem JOIN usuario ON fkArmazem = idArmazem;
+
+SELECT 
+armazem.idArmazem AS 'identificação do armazem',
+armazem.area AS 'Área do armazem',
+vinho.tipoVinho AS 'Tipo de vinho armazenado',
+vinho.tempIdeal AS 'Temperatura ideal do tipo de vinho'
+FROM armazem JOIN vinho ON fkVinho = idVinho;
+
+SELECT 
+sensor.nome AS 'Nome do sensor',
+sensor.localizacao AS 'Localização do sensor',
+sensor.statusSensor AS 'Status do sensor',
+armazem.idArmazem AS 'identificação do armazem',
+armazem.area AS 'Área do armazem'
+FROM sensor JOIN armazem ON fkArmazem = idArmazem;
+
+SELECT 
+dadoSensor.temperatura AS 'Temperatura captada',
+sensor.nome AS 'Nome do sensor',
+sensor.localizacao AS 'Localização do sensor',
+sensor.statusSensor AS 'Status do sensor'
+FROM dadoSensor JOIN sensor ON fkSensor = idSensor;
 
 SELECT 
 d.temperatura AS 'Temperatura captada',
 d.dtAtual AS 'Data de captação',
 s.nome AS 'Nome do sensor',
+s.statusSensor AS 'Status do sensor',
 s.localizacao AS 'Localização do sensor',
 a.area AS 'Area do armazem',
 e.rua AS 'Rua do armazem',
@@ -166,11 +202,8 @@ emp.CNPJ,
 emp.email AS 'E-mail de contato',
 emp.telefone AS 'Telefone de contato',
 emp.CEP
-FROM 
-dadoSensor AS d JOIN sensor AS s ON idSensor = fkSensor 
-	JOIN armazem AS a ON s.fkArmazem = a.idArmazem 
-		JOIN endereco AS e ON a.fkEndereco = e.idEndereco 
-			JOIN usuarios AS u ON  u.fkArmazem = a.idArmazem
-				JOIN empresa AS emp ON a.fkEmpresa = emp.idEmpresa;
-
-
+FROM dadoSensor AS d JOIN sensor AS s ON idSensor = fkSensor 
+JOIN armazem AS a ON s.fkArmazem = a.idArmazem 
+JOIN endereco AS e ON a.fkEndereco = e.idEndereco 
+JOIN usuario AS u ON  u.fkArmazem = a.idArmazem
+JOIN empresa AS emp ON a.fkEmpresa = emp.idEmpresa;
