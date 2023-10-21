@@ -1,37 +1,36 @@
 .container-sobreNos{
-    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+
+.cardBranco {
+    width: 95%;
+    height: 80%;
+    background-image: url(assets/images/fundo-sobre-nos.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    bottom: 4%;
+}
+
 .card{
     width: 50%;
-    height: 350px;
+    height: 400px;
     background-color: #4d1132;
-    margin: 2% 0;
     border-radius: 0px 30px 30px 0px;
-    position: relative;
-    z-index: 1;
-    padding: 20px;
-    text-align: start;
+    position: absolute;
+    left: 0;
 }
 
-.textoSobreNos{
-    align-self: center;
-    text-align: start;
-    font-size: 20px;
-}
-
-.card-sobreNos{
-    width: 90%;
-    height: 140%;
-    background-color: white;
+.textoSobreNos {
+    height: 100%;
+    width: 100%;
     display: flex;
-    justify-content: end;
-    align-items: center;
-    z-index:0;
-    top: -32px;
-    left: 70px;
-    position:absolute;
-}
-
-.card-sobreNos img{
-    width: 550px;
+    flex-direction: column;
+    justify-content: space-evenly;
+    font-size: 20px;
 }

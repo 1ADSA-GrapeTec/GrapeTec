@@ -1,3 +1,7 @@
+*{
+    font-size: 16px;
+}
+
 body {
     width: 100vw;
     height: 100vh;
@@ -5,7 +9,7 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-image: url(assets/img/fundoCalc.png);
+    background-image: url(assets/images/fundoCalc.png);
 }
 
 .main {
@@ -78,7 +82,7 @@ body {
 }
 
 .exibir {
-    width: 55%;
+    width: 25%;
     height: 75%;
     background-color: rgb(77, 17, 50);
     border-radius: 16px;
@@ -87,6 +91,8 @@ body {
     place-content: center;
     box-shadow: rgba(77, 17, 50, 0.7) 0px 10px 20px 10px;
     font-size: 20px;
+    position: absolute;
+    bottom: 7%;
 }
 
 .exibir p {

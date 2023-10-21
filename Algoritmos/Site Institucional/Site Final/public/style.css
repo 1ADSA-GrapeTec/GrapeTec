@@ -2,7 +2,10 @@
 *{
     font-family: 'Questrial', sans-serif;
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
+
 body{
     background-color: black;
     color: white;
@@ -15,7 +18,9 @@ body{
     width: 100%;
    display: flex;
    justify-content:space-between ;
-    /* position: fixed; */
+    position: fixed;
+    top: 0;
+    z-index: 2;
 }
 
 .header .container{
@@ -27,6 +32,7 @@ body{
     display: flex;
     align-items: center;
 }
+
 .container span{
     cursor: pointer;
     transition: transform 0.3s ease;
@@ -49,7 +55,7 @@ body{
     display: flex;
     justify-content: space-between;
     font-size:x-large;
-    height: 85vh;
+    height: 100vh;
 }
 
 .imagem-vinicola{
@@ -64,10 +70,10 @@ body{
     font-size: larger;
 }
 
-
 .bem-vindo h3:hover{
     color: #4d1132;
 }
+
 .botao{
     background-color: #4d1132;
     border-radius: 25px;
@@ -79,11 +85,13 @@ body{
     transition: background-color 0.3s;
     transition: transform 0.3s ease;
 }
-.botao:hover {
+
+.botao:hover{
     background-color: #720d83;
     cursor: pointer;
     transform: translateY(-8px);
 }
+
 .botao-orcamento{
     width: 180px;
 }
@@ -97,7 +105,8 @@ body{
     box-shadow:0px 5px  white;
     cursor: auto;
 }
-#pag-inic:hover {
+
+#pag-inic:hover{
     background-color: #720d83;
     transform: none;
 }
@@ -107,50 +116,41 @@ a{
     color: white;
 }
 
-
-footer
-{
+footer{
     bottom: 0px;
     width: 100%;
     color: #FFFDF2;
 }
 
-.main-content
-{
+.main-content{
     display: flex;
 }
 
-.main-content .box
-{
+.main-content .box{
     flex-basis: 50%; /* Definindo tamanho inicial do item em 50% */
     padding: 10px 20px;
 }
 
-.box h2
-{
+.box h2{
     font-size: 18px;
     font-weight: 600;
     text-transform: uppercase;
 }
 
-.box .content
-{
-      margin: 20px 0 0 0;
-}
-
-/* Box esquerda */
-.left .content .social
-{
+.box .content{
     margin: 20px 0 0 0;
 }
 
-.left .content .social a
-{
+/* Box esquerda */
+.left .content .social{
+    margin: 20px 0 0 0;
+}
+
+.left .content .social a{
    padding: 0 2px;
 }
 
-.left .content .social a span
-{
+.left .content .social a span{
    width: 40px;
    height: 40px;
    text-align: center;
@@ -162,16 +162,13 @@ footer
    cursor: pointer;
 }
 
-.left .content .social a span:hover
-{
+.left .content .social a span:hover{
     background: #882e5f;
 }
 /* fim */
 
 /* Bpx centro */
-
-.center .content .fas
-{
+.center .content .fas{
     font-size: 23;
     background: #4D1132;
     width: 45px;
@@ -182,33 +179,27 @@ footer
     cursor: pointer;
 }
 
-.center .content .fas:hover
-{
+.center .content .fas:hover{
     background: #882e5f;
 }
 
-.center .content text
-{
+.center .content text{
     font-size: 17px;
     font-weight: 500;
     padding-left: 10px;
 }
 
-.center .content .telefone
-{
+.center .content .telefone{
     margin:  10px 0;
 }
 
-.center .content .msg
-{
+.center .content .msg{
     margin-top:  10px;
 }
 /* fim */
 
 /* box direita */
-
-.right form input, .right form textarea
-{
+.right form input, .right form textarea{
     width: 100%;
     font-size: 17px;
     background: #FFFDF2;
@@ -217,26 +208,22 @@ footer
     outline-color: #4D1132;
 }
 
-.right form input
-{
+.right form input{
     height: 35px;
     margin-bottom: 10px;
 }
 
-.right form .text
-{
+.right form .text{
     font-size: 17px;
     margin-bottom: 2px;
     color: #FFFDF2;
 }
 
-.right form .botao-submit
-{
+.right form .botao-submit{
     margin-top: 10px;
 }
 
-.right form .botao-submit button
-{
+.right form .botao-submit button{
    height: 40px;
    width: 100%;
    background-color: #4D1132;
@@ -247,20 +234,17 @@ footer
    cursor: pointer;
 }
 
-.right form .botao-submit button:hover
-{
+.right form .botao-submit button:hover{
     background: #882e5f;
 }
 
-.bottom .center
-{
+.bottom .center{
     padding: 5px;
     font-size: 15px;
     margin-top: 10px;
     text-align: center;
 }
 
-.bottom .center span
-{
+.bottom .center span{
     color: #d7d7d7;
 }
