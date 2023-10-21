@@ -1,8 +1,19 @@
+.main{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 .armazem{
     justify-content: center;
     text-align: center;
     margin-top: 1.5%;
     margin-bottom: 1%;
+    position: absolute;
+    top: 18%;
 }
 .armazem select{
     background-color:transparent;
@@ -23,19 +34,19 @@
     border-radius: 10px;
     color: black;
     padding:1%;
-    justify-content: center; /* Alinha ao centro horizontalmente */
-    align-items: center; /* Alinha ao centro verticalmente */
-    margin: 0 auto;
     gap: 3%; /*Espaço entre os itens do container*/
+    position: absolute;
+    bottom: 2%;
 }
 
 .temp-media{
     background-color: white;
-    height: 130px;
+    height: 200px;
     border-radius: 10px;
     padding: 7px;
     text-align: center;
 }
+
 #medidor{
     height: 100px;
 
@@ -43,7 +54,7 @@
 
 .status-sensor{
     background-color: white;
-    height: 130px;
+    height: 200px;
     border-radius: 10px;
     padding: 7px;
     margin-top: 5%;
