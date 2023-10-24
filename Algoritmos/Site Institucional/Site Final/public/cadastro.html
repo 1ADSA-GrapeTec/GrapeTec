@@ -66,10 +66,12 @@
 </html>
 <script src="script.js"></script>
 
-<!-- <script>
+<script>
     function verificarCadastro(){
         var user = cadastroUsuario.value
         var cep = cadastroCEP.value
+        var cnpj = cadastroCNPJ.value
+        var tel = cadastroTelefone.value
         var email = cadastroEmail.value;
         var senha = cadastroSenha.value;
 
@@ -106,18 +108,19 @@
             user.indexOf('=') != -1 ||
             user.indexOf('+') != -1
             ) {
-            alert(`User contem algum caracteres inválidos`)
-        }else 
-        if(cep.indexOf(/[0-9]{5}[-][0-9]{3}/) == -1 && (cep.length <= 8 || cep.length >= 10)){
+            alert(`User contem algum caractere inválido`)
+        }else if((cep.length <= 8 || cep.length >= 10)){
             alert(`CEP inválido!!`)
-        }
-
-        if(email.indexOf('@') == -1 || email.indexOf('.') == -1 || email.endsWith("@") == true || email.endsWith(".") == true ){
-
+        }else if(cnpj.length <= 17 || cnpj >= 19) {
+            alert(`CNPJ inválido!!`)
+        }else if(tel.length <= 13 || tel,length >= 15){
+            alert(`Telefone inválido!!`)
+        }else if(email.indexOf('@') == -1 || email.indexOf('.') == -1 || email.endsWith("@") == true || email.endsWith(".") == true ){
+            alert(`Email inválido`)
         }else if(senha.length < 8 ){
-
+            alert(`Senha inválida`)
         }else {
-
+            window.location.href = 'login.html'
         }
     }
-</script> -->
+</script>
