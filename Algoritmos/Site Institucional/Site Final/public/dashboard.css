@@ -36,7 +36,7 @@
     padding:1%;
     gap: 3%; /*Espaço entre os itens do container*/
     position: absolute;
-    bottom: 2%;
+    bottom: 15%;
 }
 
 .temp-media{
