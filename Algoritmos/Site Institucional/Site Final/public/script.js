@@ -1,7 +1,6 @@
 function verificaEmail(){
     var email = id_email.value;
 
-
     id_erroEmail.innerHTML = ""
     if(email.indexOf('@') == -1 || email.indexOf('.') == -1 || email.endsWith("@") == true || email.endsWith(".") == true ){
         id_erroEmail.innerHTML = `Email invalido.`

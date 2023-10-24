@@ -39,20 +39,20 @@
                     <img src="assets/images/logo.png" alt="logo">
                     <h3>Cadastro</h3>
                     <br>
-                    <input type="text" placeholder="NOME">
+                    <input type="text" placeholder="USER" id="cadastroUsuario">
                     <br> <br>
-                    <input type="text" placeholder="CEP">
+                    <input type="text" placeholder="CEP" id="cadastroCEP">
                     <br> <br>
-                    <input type="text" placeholder="CNPJ">
+                    <input type="text" placeholder="CNPJ" id="cadastroCNPJ">
                     <br> <br>
-                    <input type="text" placeholder="TEL">
+                    <input type="text" placeholder="TEL" id="cadastroTelefone">
                     <br> <br>
-                    <input type="text" placeholder="EMAIL">
+                    <input type="text" placeholder="EMAIL" id="cadastroEmail">
                     <br> <br>
-                    <input type="text" placeholder="SENHA">
+                    <input type="text" placeholder="SENHA" id="cadastroSenha">
                     <br> <br>
                     <div class="botoes">
-                        <button><a href="">Cadastro</a></button>
+                        <button onclick="verificarCadastro()"><a href="">Cadastro</a></button>
                     </div>
                 </div>
 
@@ -63,5 +63,61 @@
     </div>
 
 </body>
-
 </html>
+<script src="script.js"></script>
+
+<!-- <script>
+    function verificarCadastro(){
+        var user = cadastroUsuario.value
+        var cep = cadastroCEP.value
+        var email = cadastroEmail.value;
+        var senha = cadastroSenha.value;
+
+        if(user.length < 10 || user.length > 30) {
+            alert(`Quantidade de caracteres do User insuficientes!!`)
+        }else if(
+            user.indexOf(1,2,3,4,5,6,7,8,9,0) != -1 || 
+            user.indexOf('@') != -1 || 
+            user.indexOf('.') != -1 || 
+            user.indexOf(',') != -1 || 
+            user.indexOf('!') != -1 || 
+            user.indexOf('"') != -1 || 
+            user.indexOf("'") != -1 || 
+            user.indexOf('#') != -1 || 
+            user.indexOf('$') != -1 || 
+            user.indexOf('%') != -1 || 
+            user.indexOf('&') != -1 || 
+            user.indexOf('*') != -1 || 
+            user.indexOf('(') != -1 || 
+            user.indexOf(')') != -1 ||
+            user.indexOf('/') != -1 ||
+            user.indexOf('|') != -1 ||
+            user.indexOf(';') != -1 ||
+            user.indexOf(':') != -1 ||
+            user.indexOf('?') != -1 ||
+            user.indexOf('[') != -1 ||
+            user.indexOf(']') != -1 ||
+            user.indexOf('{') != -1 ||
+            user.indexOf('}') != -1 ||
+            user.indexOf('<') != -1 ||
+            user.indexOf('>') != -1 ||
+            user.indexOf('-') != -1 ||
+            user.indexOf('_') != -1 ||
+            user.indexOf('=') != -1 ||
+            user.indexOf('+') != -1
+            ) {
+            alert(`User contem algum caracteres inválidos`)
+        }else 
+        if(cep.indexOf(/[0-9]{5}[-][0-9]{3}/) == -1 && (cep.length <= 8 || cep.length >= 10)){
+            alert(`CEP inválido!!`)
+        }
+
+        if(email.indexOf('@') == -1 || email.indexOf('.') == -1 || email.endsWith("@") == true || email.endsWith(".") == true ){
+
+        }else if(senha.length < 8 ){
+
+        }else {
+
+        }
+    }
+</script> -->
