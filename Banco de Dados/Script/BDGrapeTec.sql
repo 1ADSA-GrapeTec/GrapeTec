@@ -186,6 +186,7 @@ d.dtAtual AS 'Data de captação',
 s.nome AS 'Nome do sensor',
 s.statusSensor AS 'Status do sensor',
 s.localizacao AS 'Localização do sensor',
+a.idArmazem AS 'Identificador do armazem',
 a.area AS 'Area do armazem',
 e.rua AS 'Rua do armazem',
 e.numero AS 'Número do armazem',
@@ -207,3 +208,4 @@ JOIN armazem AS a ON s.fkArmazem = a.idArmazem
 JOIN endereco AS e ON a.fkEndereco = e.idEndereco 
 JOIN usuario AS u ON  u.fkArmazem = a.idArmazem
 JOIN empresa AS emp ON a.fkEmpresa = emp.idEmpresa;
+
