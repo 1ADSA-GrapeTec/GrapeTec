@@ -11,7 +11,7 @@ const SERVIDOR_PORTA = 3300;
 // configure a linha abaixo caso queira que os dados capturados sejam inseridos no banco de dados.
 // false -> nao insere
 // true -> insere
-const HABILITAR_OPERACAO_INSERIR = false;
+const HABILITAR_OPERACAO_INSERIR = true;
 
 // altere o valor da variável AMBIENTE para o valor desejado:
 // API conectada ao banco de dados remoto, SQL Server -> 'producao'
@@ -33,9 +33,9 @@ const serial = async (
                 // altere!
                 // CREDENCIAIS DO BANCO - MYSQL WORKBENCH
                 host: 'localhost',
-                user: 'USUARIO_DO_BANCO_LOCAL',
-                password: 'SENHA_DO_BANCO_LOCAL',
-                database: 'DATABASE_LOCAL'
+                user: 'GrapeTec',
+                password: 'GrapeTec123',
+                database: 'grapeTec'
             }
         ).promise();
     } else if (AMBIENTE == 'producao') {
@@ -61,17 +61,39 @@ const serial = async (
     });
     arduino.pipe(new serialport.ReadlineParser({ delimiter: '\r\n' })).on('data', async (data) => {
         //console.log(data);
-        const valores = data
-        // const dht11Umidade = parseFloat(valores[0]);
-        // const dht11Temperatura = parseFloat(valores[1]);
-        const lm35Temperatura = parseFloat(valores);
-        // const luminosidade = parseFloat(valores[3]);
-        // const chave = parseInt(valores[4]);
+        
+        const valores = data.split(';')
+        const tempNormal = parseFloat(valores[0]);
+        const tempTinto = parseFloat(valores[1]);
+        const tempRose = parseFloat(valores[2]);
+        const tempBranco = parseFloat(valores[3]);
+        const tempEspumante = parseFloat(valores[4]);
 
+        //sensores lógicos tinto
+        const tempTinto2 = tempTinto * 0.8
+        const tempTinto3 = tempTinto * 1.3
+        const tempTinto4 = tempTinto * 0.6
+        const tempTinto5 = tempTinto * 1.5
+        //sensores lógicos rose
+        const tempRose2 = tempRose * 0.8
+        const tempRose3 = tempRose * 1.3
+        const tempRose4 = tempRose * 0.6
+        const tempRose5 = tempRose * 1.5
+        //sensores lógicos branco
+        const tempBranco2 = tempBranco * 0.8
+        const tempBranco3 = tempBranco * 1.3
+        const tempBranco4 = tempBranco * 0.6
+        const tempBranco5 = tempBranco * 1.5
+        //sensores lógicos espumante
+        const tempEspumante2 = tempEspumante * 0.8
+        const tempEspumante3 = tempEspumante * 1.3
+        const tempEspumante4 = tempEspumante * 0.6
+        const tempEspumante5 = tempEspumante * 1.5
+
+        valoresLm35Temperatura.push(tempNormal);
         // valoresDht11Umidade.push(dht11Umidade);
         // valoresDht11Temperatura.push(dht11Temperatura);
         // valoresLuminosidade.push(luminosidade);
-        valoresLm35Temperatura.push(lm35Temperatura);
         // valoresChave.push(chave);
 
         if (HABILITAR_OPERACAO_INSERIR) {
@@ -105,8 +127,8 @@ const serial = async (
                 // Este insert irá inserir dados de fk_aquario id=1 (fixo no comando do insert abaixo)
                 // >> você deve ter o aquario de id 1 cadastrado.
                 await poolBancoDados.execute(
-                    'INSERT INTO medida (dht11_umidade, dht11_temperatura, luminosidade, lm35_temperatura, chave, momento, fk_aquario) VALUES (?, ?, ?, ?, ?, now(), 1)',
-                    [dht11Umidade, dht11Temperatura, luminosidade, lm35Temperatura, chave]
+                    'INSERT INTO dadosensor (temperatura, tdAtual, fkSensor) VALUES ( ?, now(), 1), (?,',
+                    [tempTinto, tempTinto2]
                 );
                 console.log("valores inseridos no banco: ", dht11Umidade + ", " + dht11Temperatura + ", " + luminosidade + ", " + lm35Temperatura + ", " + chave)
 
@@ -161,6 +183,7 @@ const servidor = (
     // const valoresDht11Temperatura = [];
     // const valoresLuminosidade = [];
     const valoresLm35Temperatura = [];
+     
     // const valoresChave = [];
     await serial(
         // valoresDht11Umidade,

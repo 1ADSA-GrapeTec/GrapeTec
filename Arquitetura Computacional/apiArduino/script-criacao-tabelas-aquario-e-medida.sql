@@ -14,7 +14,7 @@ para workbench - local - desenvolvimento
 
 -- USE aquatech;
 
-
+--Para nosso projeto essa seria a tabela sensor
 create table aquario (
 /* em nossa regra de negócio, um aquario tem apenas um sensor */
 	id INT PRIMARY KEY AUTO_INCREMENT,
@@ -25,7 +25,7 @@ create table aquario (
 esta tabela "medida" deve estar de acordo com o comando INSERT
 do ambiente de DESENVOLVIMENTO do arquivo "main.js"
 */
-
+--Para nosso projeto esssa seria a tabela dados sensor
 create table medida (
 	id INT PRIMARY KEY AUTO_INCREMENT,
 	dht11_umidade DECIMAL(10,2),
