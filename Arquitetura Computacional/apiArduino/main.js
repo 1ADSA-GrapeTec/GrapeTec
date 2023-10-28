@@ -127,8 +127,8 @@ const serial = async (
                 // Este insert irá inserir dados de fk_aquario id=1 (fixo no comando do insert abaixo)
                 // >> você deve ter o aquario de id 1 cadastrado.
                 await poolBancoDados.execute(
-                    'INSERT INTO dadosensor (temperatura, dtAtual, fkSensor) VALUES ( ?, now(), 1), ( ?, now(), 2), ( ?, now(), 3), ( ?, now(), 4), ( ?, now(), 5), ( ?, now(), 6), ( ?, now(), 7), ( ?, now(), 8), ( ?, now(), 9), ( ?, now(), 10), ( ?, now(), 11), ( ?, now(), 12), ( ?, now(), 13), ( ?, now(), 14), ( ?, now(), 15), ( ?, now(), 16), ( ?, now(), 17), ( ?, now(), 18), ( ?, now(), 19), ( ?, now(), 20)',
-                    [tempTinto, tempTinto2, tempTinto3, tempTinto4, tempTinto5, tempRose, tempRose2, tempRose3, tempRose4, tempRose5, tempBranco, tempBranco2, tempBranco3, tempBranco4, tempBranco5, tempEspumante, tempEspumante2, tempEspumante3, tempEspumante4, tempEspumante5]
+                    'INSERT INTO dadoSensor (temperatura, dtAtual, fkSensor) VALUES ( ?, now(), 1), ( ?, now(), 2), ( ?, now(), 3), ( ?, now(), 4), ( ?, now(), 5), ( ?, now(), 6), ( ?, now(), 7), ( ?, now(), 8), ( ?, now(), 9), ( ?, now(), 10), ( ?, now(), 11), ( ?, now(), 12), ( ?, now(), 13), ( ?, now(), 14), ( ?, now(), 15), ( ?, now(), 16), ( ?, now(), 17), ( ?, now(), 18), ( ?, now(), 19), ( ?, now(), 20), ( ?, now(), 21)',
+                    [tempNormal, tempTinto, tempTinto2, tempTinto3, tempTinto4, tempTinto5, tempRose, tempRose2, tempRose3, tempRose4, tempRose5, tempBranco, tempBranco2, tempBranco3, tempBranco4, tempBranco5, tempEspumante, tempEspumante2, tempEspumante3, tempEspumante4, tempEspumante5]
                 );
                 console.log("valores inseridos no banco: ", dht11Umidade + ", " + dht11Temperatura + ", " + luminosidade + ", " + lm35Temperatura + ", " + chave)
 
