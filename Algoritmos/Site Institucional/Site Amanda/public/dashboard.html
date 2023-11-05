@@ -26,44 +26,54 @@
             <span>| Calculadora Orçamental</span>
         </div>
     </div>
-    <div class="armazem">
-        <select id="id_armazem">
-            <option value="">Armazem 1</option>
-            <option value="">Armazem 2</option>
-            <option value="">Armazem 3</option>
-            <option value="">Armazem 4</option>
-        </select>
-    </div>
+
 
     <div class="container-dashboard">
         <div class="container-kpis">
-            <div class="temp-media">
-                <h2> Temperatura Média é de 14ºC</h2>
-                <img src="assets/images/medidor.png" id="medidor">
-            </div>
-            <div class="status-sensor">
-                <h2>STATUS</h2>
-                <div class="sensor">
-                    <h5>Sensor 1</h5>
-                    <span class="bola-ativo">&nbsp;</span>
-                    <p class="ativo">Ativo</p>
-                </div>
-                <div class="sensor">
-                    <h5>Sensor 2</h5>
-                    <span class="bola-ativo">&nbsp;</span>
-                    <p class="ativo">Ativo</p>
-                </div>
-                <div class="sensor">
-                    <h5>Sensor 3</h5>
-                    <span class="bola-inativo">&nbsp;</span>
-                    <p class="inativo">Inativo</p>
-                </div>
-            </div>
-        </div>
 
+            <div class="empresa-armazem card">
+                <br>
+                <h2>Empresa X</h2>
+                <br>
+                <div class="armazem">
+                    <select id="id_armazem">
+                        <option value="">Armazem 1</option>
+                        <option value="">Armazem 2</option>
+                        <option value="">Armazem 3</option>
+                        <option value="">Armazem 4</option>
+                    </select>
+                </div>
+                <br>
+                <h2>Vinho Tinto</h2>
+            </div>
+
+            <div class="temp-media card">
+                <br>
+                <h2> Temperatura Média</h2>
+                <br>
+                <h1>25ºC</h1>
+                <!-- <h2>15ºC</h2><img src="assets/images/medidor.png" id="medidor"> -->
+            </div>
+
+            <div class="status-temp card">
+                <br>
+                <h2>Status:</h2>
+                <br>
+                <h1>Critico Quente</h1>
+            </div>
+
+        </div>
+        <br><br>
         <div class="container-grafico">
+
             <div class="grafico">
+                <h1>Temperatura nas últimas 24 horas</h1>
                 <canvas id="myChart"></canvas>
+            </div>
+
+            <div class="grafico">
+                <h1>Temperatura nos últimos meses </h1>
+                <canvas id="myChart2"></canvas>
             </div>
         </div>
 
@@ -74,39 +84,75 @@
 </html>
 
 <script>
-     const ctx = document.getElementById('myChart');
+    const ctx = document.getElementById('myChart');
+
+    const ctx2 = document.getElementById('myChart2');
     new Chart(ctx, {
-      type: 'line',
-      data: {
-        labels: ['00:00','01:00','02:00','03:00','04:00','05:00','06:00','07:00','08:00','09:00','10:00','11:00','12:00', '13:00', '14:00', '15:00', '16:00', '17:00','18:00','19:00','20:00','21:00','22:00','23:00'],
-        datasets: [{
-          label: 'Sensor 1',
-          borderColor:'rgb(79, 0, 128)',
-          backgroundColor:'rgb(79, 0, 128)',
-          data: [15,15,15,16,18,16,15,16,15,18,17,15,15,15,16,18,16,15,16,21,18,17,19,20],
-          borderWidth: 1
+        type: 'line',
+        data: {
+            labels: ['00:00', '01:00', '02:00', '03:00', '04:00', '05:00', '06:00', '07:00', '08:00', '09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00', '20:00', '21:00', '22:00', '23:00'],
+            datasets: [{
+                label: 'Critico Quente',
+                borderColor: 'rgb(255, 25, 0)',
+                backgroundColor: 'rgb(255, 25, 0)',
+                data: [19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19],
+                borderWidth: 1
+            },
+            {
+                label: 'Sensor 1',
+                borderColor: 'rgb(79, 0, 128)',
+                backgroundColor: 'rgb(79, 0, 128)',
+                data: [15, 15, 15, 16, 18, 16, 15, 16, 15, 18, 17, 15, 15, 15, 16, 18, 16, 15, 16, 21, 18, 17, 19, 20],
+                borderWidth: 1
+            },
+            {
+                label: 'Sensor 2',
+                borderColor: 'rgb(255, 57, 162)',
+                backgroundColor: 'rgb(255, 57, 162)',
+                data: [8, 10, 12, 11, 11, 14, 14, 19, 19, 19, 12, 11, 11, 11, 10, 11, 11, 10, 11, 11, 11, 13, 13, 12],
+                borderWidth: 1
+            },
+            {
+                label: 'Sensor 3',
+                borderColor: 'rgb(119, 7, 48)',
+                backgroundColor: 'rgb(119, 7, 48)',
+                data: [18, 18, 19, 17, 15, 15, 15, 14, 14, 14, 14, 14, 13, 13, 12, 12, 11, 11, 12, 13, 14, 14, 14, 14],
+                borderWidth: 1
+            },
+            {
+                label: 'Critico Frio',
+                borderColor: 'rgb(255, 25, 0)',
+                backgroundColor: 'rgb(255, 25, 0)',
+                data: [10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10],
+                borderWidth: 1
+            }]
         },
-        {
-          label: 'Sensor 2',
-          borderColor:'rgb(255, 57, 162)',
-          backgroundColor:'rgb(255, 57, 162)',
-          data: [8,10,12,11,11,14,14,19,19,19,12,11,11,11,10,9,9,10,11,11,11,13,13,12],
-          borderWidth: 1
-        },
-        {
-          label: 'Sensor 3',
-          borderColor:'rgb(119, 7, 48)',
-          backgroundColor:'rgb(119, 7, 48)',
-          data: [18,18,19,17,15,15,15,14,14,14,14,14,13,13,12,12,11,11,12,13,0,0,0,0],
-          borderWidth: 1
-        }]
-      },
-      options: {
-        scales: {
-          y: {
-            beginAtZero: true
-          }
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
         }
-      }
+    });
+
+    new Chart(ctx2, {
+        type: 'bar',
+        data: {
+            labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
+            datasets: [{
+                label: 'Temperatura Média',
+                backgroundColor: 'rgb(245, 93, 182)',
+                data: [16, 17, 16, 15, 15, 12, 12, 14, 14, 15, 14, 16],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
     });
 </script>

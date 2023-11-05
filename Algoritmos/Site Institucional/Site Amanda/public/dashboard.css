@@ -4,9 +4,14 @@
     margin-top: 1.5%;
     margin-bottom: 1%;
 }
+
+.container-kpis{
+    display: flex;
+    gap: 35px;
+    justify-content: center;
+}
 .armazem select{
     background-color:transparent;
-    color: white;
     border: none;
     font-size: 30px;
 }
@@ -17,79 +22,51 @@
     color: black;
 }
 .container-dashboard{
-    display: flex;
     width: 85vw;
-    background-color: #4d1132;
+    background-color: rgba(98, 56, 78, 0.53);
     border-radius: 10px;
     color: black;
     padding:1%;
     justify-content: center; /* Alinha ao centro horizontalmente */
     align-items: center; /* Alinha ao centro verticalmente */
     margin: 0 auto;
-    gap: 3%; /*Espaço entre os itens do container*/
+ 
 }
 
-.temp-media{
-    background-color: white;
+.card{
+    background-color: whitesmoke;
     height: 130px;
     border-radius: 10px;
     padding: 7px;
     text-align: center;
+    box-shadow: 10px 10px 8px black;
 }
 #medidor{
     height: 100px;
 
 }
 
-.status-sensor{
-    background-color: white;
-    height: 130px;
-    border-radius: 10px;
-    padding: 7px;
-    margin-top: 5%;
-}
 
 .container-grafico{
     padding: 5px;
     width: 70%;
-    background-color: white;
-    border-radius: 10px;
-}
-
-.sensor{
     display: flex;
-    background-color: #4d1132;
-    margin-top: 5px;
-    color: white;
     border-radius: 10px;
-    justify-content: space-around;
-    align-items: center;
-    gap: 1rem;
-    padding: 2px;
-    height: 25px;
+    gap: 5px;
+  
 }
-.ativo{
-    background-color: green;
-    width: 80px;
+
+.temp-media h1{
+    font-size: 55px;
+}
+
+.grafico{
+    background-color: whitesmoke;
+    width: 640px;
     text-align: center;
-    border-radius: 10px;
+    border-radius: 15px;
 }
 
-.inativo{
-    background-color: red;
-    width: 80px;
-    text-align: center;
-    border-radius: 10px;
-}
-
-.bola-ativo{
-    background-color: green;
-    width: 15px;
-    border-radius: 45%;
-}
-
-.bola-inativo{
-    background-color: red;
-    width: 15px;
-    border-radius: 45%;
+.status-temp{
+    background-color: rgba(236, 41, 41, 0.678);
 }
