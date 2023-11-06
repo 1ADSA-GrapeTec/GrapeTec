@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="teste.css">
+    <title>Teste</title>
+</head>
+<body>
+    <div class="banner">
+        <div class="armazem">
+            <select name="armazem" id="armazens" onchange="mostrarGrafico()">
+                <option value=""></option>
+                <option value="tinto">Armazem Tinto</option>
+                <option value="rose">Armazem Rose</option>
+            </select>
+        </div>
+        <div class="container-dashboard">
+            <div class="graficoTinto">
+                <div class="graficoLinha"><canvas id="myChart"></canvas></div>
+                <div class="graficoBarra"><canvas id="myChart3"></canvas></div>
+            </div>
+            <div class="graficoRose">
+                <div class="graficoLinha"><canvas id="myChart2"></canvas></div>
+                <div class="graficoBarra"><canvas id="myChart4"></canvas></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<script src="teste.js"></script>
