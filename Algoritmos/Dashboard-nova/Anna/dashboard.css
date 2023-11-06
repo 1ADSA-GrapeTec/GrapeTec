@@ -1,0 +1,125 @@
+.main{
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.armazem{
+    justify-content: center;
+    text-align: center;
+    margin-top: 1.5%;
+    margin-bottom: 1%;
+    position: absolute;
+    top: 18%;
+}
+.armazem select{
+    background-color:transparent;
+    color: white;
+    border: none;
+    font-size: 30px;
+}
+.armazem select:hover{
+  cursor: pointer;
+}
+.armazem option{
+    color: black;
+}
+.container-dashboard{
+    display: flex;
+    width: 90vw;
+    background-color: #4d1132;
+    border-radius: 10px;
+    color: black;
+    padding:1%;
+    gap: 3%; 
+    position: absolute;
+    bottom: 8%;
+}
+
+.dia-temp{
+    background-color: white;
+    height: 90px;
+    border-radius: 10px;
+    padding: 9px;
+    text-align: center;
+}
+.temp-media{
+    background-color: white;
+    height: 200px;
+    border-radius: 10px;
+    padding: 7px;
+    text-align: center;
+    margin-top: 5%;
+}
+
+#medidor{
+    height: 100px;
+
+}
+
+.status-sensor{
+    background-color: white;
+    height: 200px;
+    border-radius: 10px;
+    padding: 7px;
+    margin-top: 5%;
+}
+
+.container-grafico{
+    display: flex;
+    width: 50%;
+    background-color: white;
+    border-radius: 30px;
+    margin: 0 auto; 
+    margin-bottom: 2%;
+    justify-content: center;
+    align-items: center;
+}
+
+.grafico {
+    width: 90%;
+
+}
+
+
+.sensor{
+    display: flex;
+    background-color: #4d1132;
+    margin-top: 5px;
+    color: white;
+    border-radius: 10px;
+    justify-content: space-around;
+    align-items: center;
+    gap: 1rem;
+    padding: 2px;
+    height: 25px;
+}
+.ativo{
+    background-color: green;
+    width: 80px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.inativo{
+    background-color: green;
+    width: 80px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.bola-ativo{
+    background-color: green;
+    width: 15px;
+    border-radius: 50%;
+}
+
+.bola-inativo{
+    background-color: red;
+    width: 15px;
+    border-radius: 45%;
+}
+
