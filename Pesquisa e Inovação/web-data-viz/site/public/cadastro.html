@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GrapeTec | Cadastro</title>
+    <link rel="shortcut icon" href="assets/images/fav.ico" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="cadastro.css">
+</head>
+
+<body>
+    <div class="header">
+        <div class="logo">
+            <img src="assets/images/fav.ico" alt="Logo GrapeTec">
+            <h2><a href="index.html">GRAPETEC</a></h2>
+        </div>
+        <div class="container">
+            <span><a href="index.html">| Página Inicial</a></span>
+            <span id="aqui"><a href="login.html">Login/Cadastro</a></span>
+            <span><a href="sobreNos.html">| Sobre Nós</a></span>
+            <span><a href="comoFunciona.html">| Como Funciona</a></span>
+            <span><a href="calculadora.html">| Calculadora Orçamental</a></span>
+        </div>
+    </div>
+    <div class="container-cadastro">
+        <div class="cardBranco"></div>
+        <div class="card">
+            <img src="assets/images/img-cadastro.png" alt="cadastro">
+            <div class="textoBoasVindas">
+                <h2>GRAPETEC</h2>
+                <br>
+                <p>Estendemos a você a cordial solicitação de criar uma conta conosco, tornando-se assim um membro
+                    distinto e privilegiado da nossa comunidade.</p>
+            </div>
+
+            <div class="cadastro">
+                <div class="formulario">
+                    <img src="assets/images/logo.png" alt="logo">
+                    <h3>Cadastro</h3>
+                    <br>
+                    <input type="text" placeholder="USER" id="cadastroUsuario">
+                    <br> <br>
+                    <input type="text" placeholder="CEP" id="cadastroCEP">
+                    <br> <br>
+                    <input type="text" placeholder="CNPJ" id="cadastroCNPJ">
+                    <br> <br>
+                    <input type="text" placeholder="TEL" id="cadastroTelefone">
+                    <br> <br>
+                    <input type="text" placeholder="EMAIL" id="cadastroEmail">
+                    <br> <br>
+                    <input type="text" placeholder="SENHA" id="cadastroSenha">
+                    <br> <br>
+                    <div class="botoes">
+                        <button onclick="verificarCadastro()"><a href="">Cadastro</a></button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+    </div>
+
+</body>
+
+</html>
+<script src="script.js"></script>
+
+<script>
+    function verificarCadastro() {
+        var userVar = cadastroUsuario.value
+        var cepVar = cadastroCEP.value
+        var cnpjVar = cadastroCNPJ.value
+        var telVar = cadastroTelefone.value
+        var emailVar = cadastroEmail.value;
+        var senhaVar = cadastroSenha.value;
+
+        // if(user.length < 10 || user.length > 30) {
+        //     alert(`Quantidade de caracteres do User insuficientes!!`)
+        // }else if(
+        //     user.indexOf(1,2,3,4,5,6,7,8,9,0) != -1 || 
+        //     user.indexOf('@') != -1 || 
+        //     user.indexOf('.') != -1 || 
+        //     user.indexOf(',') != -1 || 
+        //     user.indexOf('!') != -1 || 
+        //     user.indexOf('"') != -1 || 
+        //     user.indexOf("'") != -1 || 
+        //     user.indexOf('#') != -1 || 
+        //     user.indexOf('$') != -1 || 
+        //     user.indexOf('%') != -1 || 
+        //     user.indexOf('&') != -1 || 
+        //     user.indexOf('*') != -1 || 
+        //     user.indexOf('(') != -1 || 
+        //     user.indexOf(')') != -1 ||
+        //     user.indexOf('/') != -1 ||
+        //     user.indexOf('|') != -1 ||
+        //     user.indexOf(';') != -1 ||
+        //     user.indexOf(':') != -1 ||
+        //     user.indexOf('?') != -1 ||
+        //     user.indexOf('[') != -1 ||
+        //     user.indexOf(']') != -1 ||
+        //     user.indexOf('{') != -1 ||
+        //     user.indexOf('}') != -1 ||
+        //     user.indexOf('<') != -1 ||
+        //     user.indexOf('>') != -1 ||
+        //     user.indexOf('-') != -1 ||
+        //     user.indexOf('_') != -1 ||
+        //     user.indexOf('=') != -1 ||
+        //     user.indexOf('+') != -1
+        //     ) {
+        //     alert(`User contem algum caractere inválido`)
+        // }else if((cep.length <= 8 || cep.length >= 10)){
+        //     alert(`CEP inválido!!`)
+        // }else if(cnpj.length <= 17 || cnpj >= 19) {
+        //     alert(`CNPJ inválido!!`)
+        // }else if(tel.length <= 13 || tel,length >= 15){
+        //     alert(`Telefone inválido!!`)
+        // }else if(email.indexOf('@') == -1 || email.indexOf('.') == -1 || email.endsWith("@") == true || email.endsWith(".") == true ){
+        //     alert(`Email inválido`)
+        // }else if(senha.length < 8 ){
+        //     alert(`Senha inválida`)
+        // }else {
+        //     window.location.href = 'login.html'
+        // }
+        // Enviando o valor da nova input
+        fetch("/usuario/cadastrar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                nomeServer: userVar,
+                emailServer: emailVar,
+                senhaServer: senhaVar
+                // empresaServer: empresaVar,
+            }),
+        })
+            .then(function (resposta) {
+                console.log("resposta: ", resposta);
+
+                if (resposta.ok) {
+                    // cardErro.style.display = "block";
+
+                    // mensagem_erro.innerHTML =
+                    //     "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+
+                        window.location = "login.html"
+                    // limparFormulario();
+                    // finalizarAguardar();
+                } else {
+                    throw "Houve um erro ao tentar realizar o cadastro!";
+                }
+
+            })
+            .catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+                // finalizarAguardar();
+            });
+
+        return false;
+    }
+
+    function listar() {
+        fetch("/empresas/listar", {
+            method: "GET",
+        })
+            .then(function (resposta) {
+                resposta.json().then((empresas) => {
+                    empresas.forEach((empresa) => {
+                        listaEmpresas.innerHTML += `<option value='${empresa.id}'>${empresa.cnpj}</option>`;
+                    });
+                });
+            })
+            .catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+            });
+    }
+
+
+</script>

@@ -1,0 +1,89 @@
+.comoFunciona {
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+}
+
+.comoFunciona h1 {
+    display: flex;
+    font-size: 40px;
+    position: absolute;
+    top: 20%;
+    left: 3%;
+    color: black;
+}
+
+.cardBranco {
+    width: 95%;
+    height: 82%;
+    background-image: url(assets/images/fundo-como-funciona.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    position: absolute;
+    bottom: 1%;
+}
+
+.comoFunciona .bannerComofunciona {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 90%;
+    background-color: #4D1132;
+    height: 65%;
+    border-radius: 40px 0px 0px 40px;
+    position: absolute;
+    right: 0;
+    bottom: 7%;
+}
+
+.comoFunciona .bannerComofunciona .boxes {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+.comoFunciona .bannerComofunciona .box {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 130px;
+    width: 330px;
+    background-color: white;
+    border-radius: 20px;
+    font-size: 10px;
+}
+
+.comoFunciona .bannerComofunciona .mid {
+    width: 100%;
+    overflow: hidden;
+}
+
+.comoFunciona .bannerComofunciona .mid .seta {
+    position: relative;
+    left: 85%;
+}
+
+.comoFunciona .bannerComofunciona .box p {
+    font-size: 13px;
+    color: black;
+    text-align: center;
+}
+
+.comoFunciona .bannerComofunciona .box img {
+    width: 130px;
+    height: 120px;
+}
+
+.cardFunc {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.comoFunciona .seta {
+    font-size: 60px;
+    color: white;
+}

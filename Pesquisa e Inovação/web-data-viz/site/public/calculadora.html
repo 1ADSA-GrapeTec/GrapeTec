@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>GrapeTec | Calculadora Orçamental</title>
+        <link rel="shortcut icon" href="assets/images/fav.ico" type="image/x-icon">
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <link rel="stylesheet" href="calculadora.css">
+    </head>
+<body>
+    <div class="header">
+        <div class="logo">
+            <img src="assets/images/fav.ico" alt="Logo GrapeTec">
+            <h2><a href="index.html">GRAPETEC</a></h2>
+        </div>
+        <div class="container">
+            <span ><a href="index.html">| Página Inicial</a></span>
+            <span><a href="login.html">| Login/Cadastro</a></span>
+            <span><a href="#footer">| Contate-nos</a></span>
+            <span><a href="sobreNos.html">| Sobre Nós</a></span>
+            <span><a href="comoFunciona.html">| Como Funciona</a></span>
+            <span id="aqui"><a href="calculadora.html">Calculadora Orçamental</a></span>
+        </div>
+    </div>
+
+    <div class="main">
+        <div class="inputs">
+            <h2>| Calculadora Orçamental</h2>
+            <div class="cards">
+                <div class="card">
+                    <label for="litrosArmazenados">Informe quantos litros são armazenados:</label>
+                    <input type="text" id="litrosArmazenados" required>
+                </div>
+                <div class="card">
+                    <label for="lucroAnual">Informe seu lucro anual:</label>
+                    <input type="text" id="lucroAnual" required>
+                </div>
+            </div>
+            <button class="botao" onclick="calcular()">Calcular Perdas</button>
+        </div>
+        <div class="resultado">
+            <div class="exibir"  id="exibirPerda"></div>
+        </div>
+    </div>
+
+</body>
+</html>
+
+
+<script src="script.js"></script>
