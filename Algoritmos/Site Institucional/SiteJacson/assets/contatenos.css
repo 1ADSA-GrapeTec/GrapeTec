@@ -1,0 +1,163 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+footer
+{
+    bottom: 0px;
+    width: 100%;
+    color: #FFFDF2;
+}
+
+.main-content
+{
+    display: flex;
+}
+
+.main-content .box
+{
+    flex-basis: 50%; /* Definindo tamanho inicial do item em 50% */
+    padding: 10px 20px;
+}
+
+.box h2
+{
+    font-size: 18px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.box .content
+{
+      margin: 20px 0 0 0;
+}
+
+/* Box esquerda */
+.left .content .social
+{
+    margin: 20px 0 0 0;
+}
+
+.left .content .social a
+{
+   padding: 0 2px;
+}
+
+.left .content .social a span
+{
+   width: 40px;
+   height: 40px;
+   text-align: center;
+   line-height: 40px;
+   border-radius: 5px;
+   background: #4D1132;
+   font-size: 18px;
+   color: #FFFDF2;
+   cursor: pointer;
+}
+
+.left .content .social a span:hover
+{
+    background: #882e5f;
+}
+/* fim */
+
+/* Bpx centro */
+
+.center .content .fas
+{
+    font-size: 23;
+    background: #4D1132;
+    width: 45px;
+    height: 45px;
+    line-height: 45px;
+    text-align: center;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.center .content .fas:hover
+{
+    background: #882e5f;
+}
+
+.center .content text
+{
+    font-size: 17px;
+    font-weight: 500;
+    padding-left: 10px;
+}
+
+.center .content .telefone
+{
+    margin:  10px 0;
+}
+
+.center .content .msg
+{
+    margin-top:  10px;
+}
+/* fim */
+
+/* box direita */
+
+.right form input, .right form textarea
+{
+    width: 100%;
+    font-size: 17px;
+    background: #FFFDF2;
+    padding-left: 1px;
+    border: 1px solid;
+    outline-color: #4D1132;
+}
+
+.right form input
+{
+    height: 35px;
+    margin-bottom: 10px;
+}
+
+.right form .text
+{
+    font-size: 17px;
+    margin-bottom: 2px;
+    color: #FFFDF2;
+}
+
+.right form .botao
+{
+    margin-top: 10px;
+}
+
+.right form .botao button
+{
+   height: 40px;
+   width: 100%;
+   background-color: #4D1132;
+   color: #FFFDF2;
+   text-transform: uppercase;
+   font-size: 17px;
+   font-weight: 700;
+   cursor: pointer;
+}
+
+.right form .botao button:hover
+{
+    background: #882e5f;
+}
+
+.bottom .center
+{
+    padding: 5px;
+    font-size: 15px;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.bottom .center span
+{
+    color: #d7d7d7;
+}
