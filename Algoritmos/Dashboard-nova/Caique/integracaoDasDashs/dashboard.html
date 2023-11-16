@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilo.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <style>
+        .descricaoAlerta{
+            width: 0;
+            height: 0;
+            overflow: hidden;
+            position: absolute;
+            background-color: rgba(0,0,0,0.8);
+            color: #fff;
+            text-align: center;
+        }
+    </style>
+
+    <title>Monitoramento em tempo real</title>
+</head>
+
+<body onload="verificarTemperatura()">
+    <div class="container">
+        <div class="menuLateral">
+            <div class="links">
+                <ul>
+                    <li class="itemMenu">
+                        <a href="visaoGeral.html">
+                            <span class="icon"><span class="bi bi-bar-chart-line"></span></span>
+                            <span class="link">Visão geral</span>
+                        </a>
+                    </li>
+                    <li class="itemMenu" style="background-color:#85275a;">
+                        <a>
+                            <span class="icon"><span class="bi bi-stopwatch"></span></span>
+                            <span class="link">Monitoramento em tempo real</span>
+                        </a>
+                    </li>
+                    <li class="itemMenu">
+                        <a href="#">
+                            <span class="icon"><span class="bi bi-exclamation-triangle"></span></span>
+                            <span class="link">Alertas</span>
+                        </a>
+                    </li>
+                    <li class="itemMenu">
+                        <a href="cadastro.html">
+                            <span class="icon"><span class="bi bi-plus-circle"></span></span>
+                            <span class="link">Adicionar novo usuário</span>
+                        </a>
+                    </li>
+                    <li class="itemMenu">
+                        <a href="#">
+                            <span class="icon"><span class="bi bi-box-arrow-left"></span></span>
+                            <span class="link">Sair</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="info">
+            <!-- inico HEADER -->
+            <div class="navbar">
+                <div class="BarraIcon">
+                    <img src="assets/img/fav.png" alt="">
+                    <h2>GRAPETEC</h2>
+                </div>
+
+                <div class="user">
+                    <img src="assets/img/IconPessoa.png" alt="">
+                    <h3>Olá, UserName</h3>
+                </div>
+            </div>
+            <!-- fim HEADER -->
+            <!-- CONTEÚDO -->
+            <div class="container02">
+                <div class="armazem">
+                    <select id="id_armazem">
+                        <option value="">Armazém 1</option>
+                        <option value="">Armazém 2</option>
+                        <option value="">Armazém 3</option>
+                        <option value="">Armazém 4</option>
+                    </select>
+                </div>
+
+                <div class="container-grafico">
+                    <div class="grafico">
+                        <canvas id="myChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="container-kpis">
+                    <div class="temp-media">
+                        <div class="info-armazem">
+                            <h2>Informações do armazém</h2>
+                            <span>
+                                <b>Estado:</b> SP <br>
+                                <b>Rua:</b> Lajeado <br>
+                                <b>Número:</b> 537 <br>
+                                <b>Tipo de vinho:</b> Tinto
+                            </span>
+                        </div>
+                        <div class="info-armazem">
+                            <h2>Temperatura Média do armazém</h2>
+                            <h1 id="h1_tempMedia"></h1>
+                            <img src="assets/img/medidor.png" id="medidor">
+                        </div>
+                    </div>
+                    <div class="alertas">
+                        <div id="critQuente" class="alerta">
+                            Alerta crítico quente
+                        </div>
+                        <div id="alertaQuente" class="alerta">
+                            Alerta quente
+                        </div>
+                        <div id="alertaFrio" class="alerta">
+                            Alerta frio
+                        </div>
+                        <div id="critFrio" class="alerta">
+                            Alerta crítico frio
+                        </div>
+                    </div>
+                    <div class="status-sensor">
+                        <h2>STATUS</h2>
+                        <div class="sensor">
+                            <h5>Sensor 1</h5>
+                            <span class="bola-ativo">&nbsp;</span>
+                            <p class="ativo">Ativo</p>
+                        </div>
+                        <div class="sensor">
+                            <h5>Sensor 2</h5>
+                            <span class="bola-ativo">&nbsp;</span>
+                            <p class="ativo">Ativo</p>
+                        </div>
+                        <div class="sensor">
+                            <h5>Sensor 3</h5>
+                            <span class="bola-ativo">&nbsp;</span>
+                            <p class="ativo">Ativo</p>
+                        </div>
+                        <div class="sensor">
+                            <h5>Sensor 4</h5>
+                            <span class="bola-ativo">&nbsp;</span>
+                            <p class="ativo">Ativo</p>
+                        </div>
+                        <div class="sensor">
+                            <h5>Sensor 5</h5>
+                            <span class="bola-ativo">&nbsp;</span>
+                            <p class="ativo">Ativo</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- DESCRIÇÕES DOS ALERTAS -->
+    <div class="descricaoAlerta" id="descAlertaCritQuente">
+        <h2 style="color: red;">Alerta vermelho</h2>
+        Se este alerta estiver ativo, significa que a temperatura atual de seu armazém está <b style="color: red;">acima do ideal</b> para o processo de armazenamento. Procure formas de diminuir a temperatura.
+    </div>
+
+    <div class="descricaoAlerta" id="descAlertaQuente">
+        <h2 style="color: yellow;">Alerta amarelo</h2>
+        Se este alerta estiver ativo, significa que a temperatura atual de seu armazém <b style="color: orangered;">está próxima de ficar quente</b> a ponto de prejudicar a qualidade de seus produtos. É recomendável que medidas sejam tomadas para que esta temperatura volte ao ideal.
+    </div>
+
+    <div class="descricaoAlerta" id="descAlertaFrio">
+        <h2 style="color: yellow;">Alerta amarelo</h2>
+        Se este alerta estiver ativo, significa que a temperatura atual de seu armazém <b style="color: aqua;">está próxima de ficar fria</b> a ponto de prejudicar a qualidade de seus produtos. É recomendável que medidas sejam tomadas para que esta temperatura volte ao ideal.
+    </div>
+
+    <div class="descricaoAlerta" id="descCritFrio">
+        <h2 style="color: red;">Alerta vermelho</h2>
+        Se este alerta estiver ativo, significa que a temperatura atual de seu armazém está <b style="color: red;">abaixo do ideal</b> para o processo de armazenamento. Procure formas de aumentar a temperatura.
+    </div>
+</body>
+
+</html>
+
+<script>
+    var temp = [];
+    for (; temp.length < 24;) {
+        var temperatura = (Math.random() * 9) + 9;
+        temp.push(temperatura);
+    }
+    var temp2 = [];
+    var temp3 = [];
+    var temp4 = [];
+    var temp5 = [];
+    //criando as temperaturas dos outros sensores
+    for (var index = 0; index <= temp.length - 1; index += 1) {
+        temp2.push(temp[index] * 1.25);
+        temp3.push(temp[index] * 0.90);
+        temp4.push(temp[index] * 1.10);
+        temp5.push(temp[index] * 0.60);
+    }
+
+    //calculo de media
+    var tempMedia = (temp[temp.length - 1] + temp2[temp.length - 1] + temp3[temp.length - 1] + temp4[temp.length - 1] + temp5[temp.length - 1]) / 5;
+
+    function verificarTemperatura() {
+        if (tempMedia <= 13.9) {
+
+            var elemento = document.getElementById('critFrio');
+            elemento.classList.remove('alerta');
+            elemento.classList.add('alertaVermelho');
+            var mediaExibida = `<b style="color: red;">${tempMedia.toFixed(1)}ºC</b>`;
+
+        } else if (tempMedia <= 15.4) {
+
+            var elemento = document.getElementById('alertaFrio');
+            elemento.classList.remove('alerta');
+            elemento.classList.add('alertaAmarelo');
+            var mediaExibida = `<b style="color: yellow;">${tempMedia.toFixed(1)}ºC</b>`;
+
+        } else if (tempMedia <= 15.6) {
+
+            var mediaExibida = `<b style="color: green;">${tempMedia.toFixed(1)}ºC</b>`;
+
+        } else if (tempMedia <= 15.8) {
+
+            var elemento = document.getElementById('alertaQuente');
+            elemento.classList.remove('alerta');
+            elemento.classList.add('alertaAmarelo');
+            var mediaExibida = `<b style="color: yellow;">${tempMedia.toFixed(1)}ºC</b>`;
+
+        } else {
+            var elemento = document.getElementById('critQuente');
+            elemento.classList.remove('alerta');
+            elemento.classList.add('alertaVermelho');
+            var mediaExibida = `<b style="color: red;">${tempMedia.toFixed(1)}ºC</b>`;
+        };
+
+        h1_tempMedia.innerHTML = mediaExibida;
+    };
+
+    const ctx = document.getElementById('myChart');
+
+    new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: ['00:00', '01:00', '02:00', '03:00', '04:00', '05:00', '06:00', '07:00', '08:00', '09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00', '20:00', '21:00', '22:00', '23:00'],
+            datasets: [{
+                label: 'Sensor 1',
+                borderColor: 'rgb(79, 0, 128)',
+                backgroundColor: 'rgb(79, 0, 128)',
+                data: temp,
+                borderWidth: 1
+            },
+            {
+                label: 'Sensor 2',
+                borderColor: 'rgb(255, 57, 162)',
+                backgroundColor: 'rgb(255, 57, 162)',
+                data: temp2,
+                borderWidth: 1
+            },
+            {
+                label: 'Sensor 3',
+                borderColor: 'rgb(119, 7, 48)',
+                backgroundColor: 'rgb(119, 7, 48)',
+                data: temp3,
+                borderWidth: 1
+            },
+            {
+                label: 'Sensor 4',
+                borderColor: 'rgb(77, 207, 80)',
+                backgroundColor: 'rgb(77, 207, 80)',
+                data: temp4,
+                borderWidth: 1
+            },
+            {
+                label: 'Sensor 5',
+                borderColor: 'rgb(255, 7, 208)',
+                backgroundColor: 'rgb(255, 7, 208)',
+                data: temp5,
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+
+    //Exibindo descrição dos alertas
+
+    var critQuente = document.getElementById('critQuente');
+    var descCritQuente = document.getElementById('descAlertaCritQuente');
+
+    critQuente.addEventListener("mouseover", function(e){
+        var x = e.clientX;
+        var y = e.clientY;
+
+        descCritQuente.style.height = 'fit-content';
+        descCritQuente.style.padding = 5 + 'px';
+        descCritQuente.style.width = 200 + 'px';
+        descCritQuente.style.left = (x + 10) + 'px'
+        descCritQuente.style.border = 'solid 1px #fff';
+        descCritQuente.style.top = (y - 150) + 'px'
+    });
+
+    critQuente.addEventListener("mouseout", function(){
+
+        descCritQuente.style.height = 0;
+        descCritQuente.style.width = 0;
+        descCritQuente.style.border = 'none';
+        descCritQuente.style.padding = 0;
+    });
+
+    // alerta quente
+
+    var descAlertaQuente = document.getElementById('descAlertaQuente');
+    var alertaQuente = document.getElementById('alertaQuente');
+
+    alertaQuente.addEventListener("mouseover", function(e){
+        var x = e.clientX;
+        var y = e.clientY;
+
+        descAlertaQuente.style.height = 'fit-content';
+        descAlertaQuente.style.padding = 5 + 'px';
+        descAlertaQuente.style.width = 200 + 'px';
+        descAlertaQuente.style.left = (x + 10) + 'px'
+        descAlertaQuente.style.border = 'solid 1px #fff';
+        descAlertaQuente.style.top = (y - 200) + 'px'
+    });
+
+    alertaQuente.addEventListener("mouseout", function(){
+
+        descAlertaQuente.style.height = 0;
+        descAlertaQuente.style.padding = 0;
+        descAlertaQuente.style.width = 0;
+        descAlertaQuente.style.border = 'none';
+
+    });
+
+    //alerta frio
+
+    var alertaFrio = document.getElementById('alertaFrio');
+    var descAlertaFrio = document.getElementById('descAlertaFrio');
+
+    alertaFrio.addEventListener("mouseover", function(e){
+        var x = e.clientX;
+        var y = e.clientY;
+
+        descAlertaFrio.style.height = 'fit-content';
+        descAlertaFrio.style.padding = 5 + 'px';
+        descAlertaFrio.style.width = 200 + 'px';
+        descAlertaFrio.style.left = (x + 10) + 'px'
+        descAlertaFrio.style.border = 'solid 1px #fff';
+        descAlertaFrio.style.top = (y - 200) + 'px'
+    });
+
+    alertaFrio.addEventListener("mouseout", function(){
+
+        descAlertaFrio.style.height = 0;
+        descAlertaFrio.style.padding = 0;
+        descAlertaFrio.style.width = 0;
+        descAlertaFrio.style.border = 'none';
+    });
+
+    // alerta critico frio
+
+    var critFrio = document.getElementById('critFrio');
+    var descCritFrio = document.getElementById('descCritFrio');
+
+    critFrio.addEventListener("mouseover", function(e){
+        var x = e.clientX;
+        var y = e.clientY;
+
+        descCritFrio.style.height = 'fit-content';
+        descCritFrio.style.padding = 5 + 'px';
+        descCritFrio.style.width = 200 + 'px';
+        descCritFrio.style.left = (x + 10) + 'px'
+        descCritFrio.style.border = 'solid 1px #fff';
+        descCritFrio.style.top = (y - 150) + 'px'
+    });
+
+    critFrio.addEventListener("mouseout", function(){
+        
+        descCritFrio.style.height = 0;
+        descCritFrio.style.padding = 0;
+        descCritFrio.style.width = 0;
+        descCritFrio.style.border = 'none';
+    });
+
+
+
+</script>

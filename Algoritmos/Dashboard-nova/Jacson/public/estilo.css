@@ -98,7 +98,7 @@ body {
 }
 
 .itemMenu:hover {
-    background-color: #85275a;;
+    background-color: #85275a;
 }
 
 
@@ -126,93 +126,10 @@ body {
     margin-left: 20px;
 }
 
-.sensor {
-    height: 150px;
-    width: 200px;
-    margin-top: 41px;
-    background-color: #4d1132;
-    border-radius: 15px;
-}
-
-.armazem {
-    height: 150px;
-    width: 200px;
-    background-color: #85275a;
-    margin-right: 25px;
-    margin-left: 25px;
-    margin-top: 41px;
-    border-radius: 15px;
-}
-
-.qtdAcessos {
-    height: 150px;
-    width: 200px;
-    background-color: #4d1132;
-    margin-top: 41px;
-    border-radius: 15px;
-}
-
-.caixa {
-    height: 520px;
-    width: 250px;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    margin-left: 45px;
-    padding: 10px 0px 0px;
-}
-
-.caixa h3 {
-    color: #4d1132;
-}
-
 .atualizacoes {
     height: 230px;
     width: 300px;
     background-color: #4d1132;
     margin-top: 12px;
     border-radius: 15px;
-}
-
-.AlertaEstoque {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-    height: 230px;
-    width: 300px;
-    margin-top: 12px;
-}
-
-.estoque01 {
-    height: 50px;
-    width: 300px;
-    background-color: #85275a;
-    border-radius: 10px;
-}
-
-.estoque02 {
-    width: 300px;
-    height: 50px;
-    background-color: #85275a;
-    border-radius: 10px;
-}
-
-.btnCriar button {
-    width: 300px;
-    height: 50px;
-    background-color: #85275a;
-    border-radius: 10px;
-    font-size: 15px;
-    font-weight: 800;
-    cursor: pointer;
-    color: white;
-    text-transform: uppercase;
-    transition: 1s;
-    outline: none;
-    border: none;
-}
-
-.btnCriar button:hover {
-    background-color: #b05386;
 }

@@ -5,16 +5,20 @@
     margin-bottom: 1%;
 }
 .armazem select{
-    background-color:transparent;
+    background-color: rgba(125, 18, 77, 0.846);
+    padding: 3%;
+    height: 45px;
+    border: #4d1132 solid 3px;
+    border-radius: 19em;
+    overflow: visible;
     color: white;
-    border: none;
     font-size: 30px;
 }
 .armazem select:hover{
   cursor: pointer;
 }
 .armazem option{
-    color: black;
+    color: #fff;
 }
 .container-dashboard{
     display: flex;
@@ -29,9 +33,18 @@
     gap: 3%; /*Espaço entre os itens do container*/
 }
 
-.temp-media{
-    background-color: white;
+.container-kpis{
+    width: 100%;
     height: fit-content;
+    display: flex;
+    justify-content: space-between;
+}
+.temp-media{
+    background-color: #85275a;
+    color: #fff;
+    width: 30%;
+    height: 10%;
+    overflow: hidden;
     border-radius: 10px;
     padding: 7px;
     text-align: center;
@@ -45,14 +58,22 @@
     justify-content: space-evenly;
     flex-direction: column;
 }
-#medidor{
-    height: 100px;
 
+.info-armazem h1{
+    font-size: 30px;
+}
+
+.info-armazem h2{
+    font-size: 20px;
+}
+#medidor{
+    height: 40px;
 }
 
 .alertas{
+    width: 30%;
     margin-top: 5%;
-    background-color: white;
+    background-color: #85275a;
     height: fit-content;
     border-radius: 10px;
     padding: 7px;
@@ -65,6 +86,7 @@
 
 .alerta{
     width: 90%;
+    background-color: #fff;
     height: 30px;
     border: solid #000 2px;
     border-radius: 7px;
@@ -75,7 +97,7 @@
 
 @keyframes vermelho {
     from{
-        
+       background-color: #fff; 
     }
     to{
         background-color: red;
@@ -85,7 +107,7 @@
 
 @keyframes amarelo {
     from{
-        
+        background-color: #fff; 
     }
     to{
         background-color: yellow;
@@ -120,25 +142,39 @@
 
 
 .status-sensor{
-    background-color: white;
+    background-color:#85275a;
+    width: 30%;
     height: 130px;
+    color: #fff;
     border-radius: 10px;
     padding: 7px;
     margin-top: 5%;
+    overflow-y: scroll;
+}
+
+.status-sensor::-webkit-scrollbar{
+    width: 5px;
+}
+
+.status-sensor::-webkit-scrollbar-thumb{
+    background-color: #000;
+    border-radius: 5em;
 }
 
 .container-grafico{
     padding: 5px;
-    width: 70%;
+    width: 55%;
+    margin-bottom: 1%;
     background-color: white;
+    border: rgba(69, 69, 69, 0.504) solid 3px;
     border-radius: 10px;
 }
 
 .sensor{
     display: flex;
-    background-color: #4d1132;
+    background-color: #fff;
     margin-top: 5px;
-    color: white;
+    color: #000;
     border-radius: 10px;
     justify-content: space-around;
     align-items: center;
@@ -149,6 +185,7 @@
 .ativo{
     background-color: green;
     width: 80px;
+    color: #fff;
     text-align: center;
     border-radius: 10px;
 }
@@ -171,3 +208,4 @@
     width: 15px;
     border-radius: 45%;
 }
+
