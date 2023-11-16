@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <title>GrapeTec|VisãoGeral</title>
+</head>
+<body>
+    <div class="menu">
+        <div class="links">
+            <ul>
+                <li class="itemMenu">
+                    <a href="#">
+                        <span class="icon"><span  class="bi bi-bar-chart-line"></span></span>
+                        <span class="link">Visão geral</span>
+                    </a>
+                </li>
+                <li class="itemMenu">
+                    <a href="meusArmazens.html">
+                        <span class="icon"><span  class="bi bi-house-door"></span></span>
+                        <span class="link">Meus armazéns</span>
+                    </a>
+                </li>
+                <li class="itemMenu">
+                    <a href="#">
+                        <span class="icon"><span  class="bi bi-calendar-week"></span></span>
+                        <span class="link">Calendário</span>
+                    </a>
+                </li>
+                <li class="itemMenu">
+                    <a href="#">
+                        <span class="icon"><span  class="bi bi-exclamation-triangle"></span></span>
+                        <span class="link">Alertas</span>
+                    </a>
+                </li>
+                <li class="itemMenu">
+                    <a href="#">
+                        <span class="icon"><span class="bi bi-box-arrow-left"></span></span>
+                        <span class="link">Sair</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="main">
+        <div class="header">
+            <div class="logo-marca">
+                <img src="" alt="logoEmpresa">
+                <h1>GrapeTec</h1>
+            </div>
+            <div class="perfil-nome">
+                <h2>Olá ...</h2>
+                <img src="" alt="InconPerfil">
+            </div>
+        </div>
+        <div class="banner">
+            <div class="cards">
+                <div class="cardSensor">
+                    <h3>Quantidade de Sensores</h3>
+                    <p>5</p>
+                </div>
+                <div class="cardArmazem">
+                    <h3>Identificação Armazem</h3>
+                    <p>Armazem 1</p>
+                </div>
+                <div class="cardAcessos">
+                    <h3>Quantidade de Acessos ao Armazem</h3>
+                    <p>Nenhum</p>
+                </div>
+                <div class="cardNoticias">
+                    <h3>Atualizações Recentes</h3>
+                    <p>Nenhuma</p>
+                </div>
+            </div>
+            <div class="infos">
+                <div class="cardInfoArmazem">
+                    <div class="info-armazem">
+                        <h2>Informações do armazém</h2><br>
+                        <span>
+                            <b>Estado:</b> SP <br>
+                            <b>Rua:</b> Lajeado <br>
+                            <b>Número:</b> 537 <br>
+                            <b>Tipo de vinho:</b> Tinto
+                        </span>
+                    </div>
+                    <div class="info-armazem">
+                        <h2>Temperatura Média do armazém</h2>
+                        <h1 id="h1_tempMedia"></h1>
+                        <img src="assets/images/medidor.png" id="medidor">
+                    </div>
+                </div>
+                <div class="estoques">
+                    <h3>Armazens</h3>
+                    <div class="cardEstoque">
+                        <select name="armazens" id="armazemCadastrado">
+                            <option value="armazem1">Armazem 1</option>
+                            <option value="armazem2">Armazem 2</option>
+                            <option value="armazem3">Armazem 3</option>
+                            <option value="armazem4">Armazem 4</option>
+                        </select>
+                    </div>
+                    <button>Adicionar Armazem</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<script src="dash.js"></script>
