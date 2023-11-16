@@ -1,0 +1,71 @@
+.armazem{
+    justify-content: center;
+    text-align: center;
+    margin-top: 1.5%;
+    margin-bottom: 1%;
+}
+
+.container-kpis{
+    display: flex;
+    gap: 35px;
+    justify-content: center;
+}
+.armazem select{
+    background-color:transparent;
+    border: none;
+    font-size: 30px;
+}
+.armazem select:hover{
+  cursor: pointer;
+}
+.armazem option{
+    color: black;
+}
+.container-dashboard{
+    width: 85vw;
+    border-radius: 10px;
+    color: black;
+    padding:1%;
+    justify-content: center; /* Alinha ao centro horizontalmente */
+    align-items: center; /* Alinha ao centro verticalmente */
+    margin: 0 auto;
+ 
+}
+
+.card{
+    background-color: whitesmoke;
+    height: 130px;
+    border-radius: 10px;
+    padding: 7px;
+    text-align: center;
+    box-shadow: 10px 10px 8px black;
+}
+#medidor{
+    height: 100px;
+
+}
+
+
+.container-grafico{
+    padding: 5px;
+    width: 100%;
+    display: flex;
+    border-radius: 10px;
+    gap: 5px;
+  
+}
+
+.temp-media h1{
+    font-size: 55px;
+}
+
+.grafico{
+    background-color: whitesmoke;
+    width: 640px;
+    text-align: center;
+    border-radius: 15px;
+}
+
+#g1 {
+    margin-right: 40px;
+}

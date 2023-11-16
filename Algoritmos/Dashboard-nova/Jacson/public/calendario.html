@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GrapeTec | Dashboard</title>
+    <link rel="shortcut icon" href="assets/img/fav.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="calendario.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <div class="header">
+        <div class="logo">
+            <img src="assets/images/fav.ico" alt="Logo GrapeTec">
+            <h2><a href="index.html">GRAPETEC</a></h2>
+        </div>
+        <div class="container">
+            <span><a href="index.html">| Página Inicial</a></span>
+            <span><a href="login.html">| Login/Cadastro</a></span>
+            <span><a href="contatos.html">| Contate-nos</a></span>
+            <span><a href="sobreNos.html">| Sobre Nós</a></span>
+            <span>| Como Funciona</span>
+            <span>| Calculadora Orçamental</span>
+        </div>
+    </div>
+
+
+    <div class="container-dashboard">
+        <div class="container-kpis">
+
+            <div class="empresa-armazem card">
+                <br>
+                <h2>Empresa X</h2>
+                <br>
+                <div class="armazem">
+                    <select id="id_armazem">
+                        <option value="">Armazem 1</option>
+                        <option value="">Armazem 2</option>
+                        <option value="">Armazem 3</option>
+                        <option value="">Armazem 4</option>
+                    </select>
+                </div>
+                <br>
+                <h2>Vinho Tinto</h2>
+            </div>
+
+            <div class="temp-media card">
+                <br>
+                <h2> Temperatura Média</h2>
+                <br>
+                <h1>25ºC</h1>
+            </div>
+        </div>
+        <br><br>
+        <div class="container-grafico">
+
+            <div class="grafico" id="g1">
+                <h1>Temperatura nas últimas 24 horas</h1>
+                <canvas id="myChart"></canvas>
+            </div>
+
+            <div class="grafico">
+                <h1>Temperatura nos últimos meses </h1>
+                <canvas id="myChart2"></canvas>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
+
+<script>
+    const ctx = document.getElementById('myChart');
+
+    const ctx2 = document.getElementById('myChart2');
+    new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: ['00:00', '01:00', '02:00', '03:00', '04:00', '05:00', '06:00', '07:00', '08:00', '09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00', '20:00', '21:00', '22:00', '23:00'],
+            datasets: [{
+                label: 'Critico Quente',
+                borderColor: 'rgb(255, 25, 0)',
+                backgroundColor: 'rgb(255, 25, 0)',
+                data: [19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19],
+                borderWidth: 1
+            },
+            {
+                label: 'Sensor 1',
+                borderColor: 'rgb(79, 0, 128)',
+                backgroundColor: 'rgb(79, 0, 128)',
+                data: [15, 15, 15, 16, 18, 16, 15, 16, 15, 18, 17, 15, 15, 15, 16, 18, 16, 15, 16, 21, 18, 17, 19, 20],
+                borderWidth: 1
+            },
+            {
+                label: 'Sensor 2',
+                borderColor: 'rgb(255, 57, 162)',
+                backgroundColor: 'rgb(255, 57, 162)',
+                data: [8, 10, 12, 11, 11, 14, 14, 19, 19, 19, 12, 11, 11, 11, 10, 11, 11, 10, 11, 11, 11, 13, 13, 12],
+                borderWidth: 1
+            },
+            {
+                label: 'Sensor 3',
+                borderColor: 'rgb(119, 7, 48)',
+                backgroundColor: 'rgb(119, 7, 48)',
+                data: [18, 18, 19, 17, 15, 15, 15, 14, 14, 14, 14, 14, 13, 13, 12, 12, 11, 11, 12, 13, 14, 14, 14, 14],
+                borderWidth: 1
+            },
+            {
+                label: 'Critico Frio',
+                borderColor: 'rgb(255, 25, 0)',
+                backgroundColor: 'rgb(255, 25, 0)',
+                data: [10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+
+    new Chart(ctx2, {
+        type: 'bar',
+        data: {
+            labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
+            datasets: [{
+                label: 'Temperatura Média',
+                backgroundColor: 'rgb(245, 93, 182)',
+                data: [16, 17, 16, 15, 15, 12, 12, 14, 14, 15, 14, 16],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+</script>
