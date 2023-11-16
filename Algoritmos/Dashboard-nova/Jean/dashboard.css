@@ -1,28 +1,14 @@
-.main{
-    width: 100%;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    
-}
-
 .armazem{
     justify-content: center;
     text-align: center;
     margin-top: 1.5%;
     margin-bottom: 1%;
-    position: absolute;
-    top: 18%;
-    
 }
 .armazem select{
     background-color:transparent;
     color: white;
     border: none;
     font-size: 30px;
-    margin: 0px;
 }
 .armazem select:hover{
   cursor: pointer;
@@ -32,44 +18,118 @@
 }
 .container-dashboard{
     display: flex;
-    width: 95vw;
-    /* height: 60%; */
+    width: 85vw;
     background-color: #4d1132;
     border-radius: 10px;
     color: black;
     padding:1%;
+    justify-content: center; /* Alinha ao centro horizontalmente */
+    align-items: center; /* Alinha ao centro verticalmente */
+    margin: 0 auto;
     gap: 3%; /*Espaço entre os itens do container*/
-    position: absolute;
-    bottom: 8%;
-    
 }
 
 .temp-media{
     background-color: white;
-    height: 180px;
+    height: fit-content;
     border-radius: 10px;
     padding: 7px;
     text-align: center;
-    
 }
 
+.info-armazem{
+    height: 50%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+}
 #medidor{
     height: 100px;
 
 }
 
+.alertas{
+    margin-top: 5%;
+    background-color: white;
+    height: fit-content;
+    border-radius: 10px;
+    padding: 7px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    text-align: center;
+}
+
+.alerta{
+    width: 90%;
+    height: 30px;
+    border: solid #000 2px;
+    border-radius: 7px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@keyframes vermelho {
+    from{
+        
+    }
+    to{
+        background-color: red;
+        border: solid 2px red;
+    }
+}
+
+@keyframes amarelo {
+    from{
+        
+    }
+    to{
+        background-color: yellow;
+        border: solid 2px yellow;
+    }
+}
+.alertaVermelho{
+    width: 90%;
+    height: 30px;
+    border: solid #000 2px;
+    border-radius: 7px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: vermelho;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+}
+
+.alertaAmarelo{
+    width: 90%;
+    height: 30px;
+    border: solid #000 2px;
+    border-radius: 7px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: amarelo;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+}
+
+
 .status-sensor{
     background-color: white;
-    height: 230px;
+    height: 130px;
     border-radius: 10px;
     padding: 7px;
     margin-top: 5%;
 }
 
 .container-grafico{
-    /* margin: -20px; */
     padding: 5px;
-    width: 60%;
+    width: 70%;
     background-color: white;
     border-radius: 10px;
 }
@@ -110,10 +170,4 @@
     background-color: red;
     width: 15px;
     border-radius: 45%;
-}
-.alerta {
-    color: white;
-    background-color: red;
-   border-radius: 20px ;
-   /* font-size: 22px; */
 }

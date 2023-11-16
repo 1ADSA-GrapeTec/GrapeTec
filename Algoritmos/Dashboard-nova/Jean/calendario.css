@@ -1,0 +1,153 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+}
+
+.calendar {
+    max-width: 600px;
+    margin: 20px auto;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.month {
+    background-color: #3498db;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+}
+
+.weekdays {
+    display: flex;
+    justify-content: space-around;
+    background-color: #eee;
+    padding: 10px 0;
+}
+
+.days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+    padding: 20px;
+}
+
+.days div {
+    text-align: center;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.days div:hover {
+    background-color: #3498db;
+    color: #fff;
+}
+
+/* Estilizando dias do mês */
+.days .blank {
+    visibility: hidden;
+}
+
+.days .day {
+    background-color: #fff;
+    border: 1px solid #ddd;
+}
+
+/* Estilizando dias passados */
+.days .past-day {
+    color: #888;
+}
+
+/* Estilizando dia atual */
+.days .today {
+    background-color: #3498db;
+    color: #fff;
+}
+.mes {
+    width: 1120px;
+    height: 80%;
+    background-color: cadetblue;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    color: white;
+    border-radius: 15px;
+    font-size: 25px;
+}
+.cardMes{
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+}
+.semana1 {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    height: 20%;
+    background-color: #85275a;
+    align-self: center;
+
+}
+.semana2 {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    height: 20%;
+    background-color: #b05386;
+    align-self: center;
+}
+.semana3 {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    height: 20%;
+    background-color:#85275a;
+    align-self: center;
+}
+.semana4 {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    height: 20%;
+    background-color:#b05386 ;
+    align-self: center;
+}
+.semana5 {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    height: 20%;
+    background-color:#85275a ;
+    align-self: center;
+}
+.semana {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    height: 8%;
+    background-color:#b05386 ;
+    align-self: center;
+}
+.checagem {
+    display: flex;
+    width: 50px;
+    height: 50px;
+    align-self: flex-end;
+    justify-content: end;
+    position: relative;
+    bottom: 10px;
+}
+.dia {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    
+    border:1px black solid;
+}
+.textMes {
+    font-size: 50px;
+}

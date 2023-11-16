@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Questrial&display=swap');
 
-* {
+*{
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
@@ -10,16 +10,15 @@
 body {
     height: 100vh;
 }
-
 .container {
     display: flex;
     flex-direction: row;
 }
 
 .info {
-    height: 100vh;
-    width: 100vw;
-    background-color: #F1F1F1;
+        height: 100vh;
+        width: 100vw;
+        background-color: #F1F1F1;
 }
 
 .navbar {
@@ -99,24 +98,23 @@ body {
 }
 
 .itemMenu:hover {
-    background-color: #85275a;
-    ;
+    background-color: #85275a;;
 }
 
 
-.itemMenu a {
+.itemMenu a{
     display: flex;
     color: white;
     text-decoration: none;
 }
 
-.itemMenu a .link {
+.itemMenu a .link{
     font-size: 20px;
     display: flex;
     align-items: center;
 }
 
-.itemMenu a .icon {
+.itemMenu a .icon{
     font-size: 30px;
     margin-left: 30px;
     margin-right: 30px;
@@ -126,7 +124,9 @@ body {
     display: flex;
     flex-direction: row;
     margin-left: 20px;
-    width: auto;
+    height: 200px;
+    width: 95%;
+    justify-content: space-between;
 }
 
 .sensor {
@@ -135,6 +135,9 @@ body {
     margin-top: 41px;
     background-color: #4d1132;
     border-radius: 15px;
+    display: flex;
+    align-items: center;
+
 }
 
 .armazem {
@@ -145,6 +148,9 @@ body {
     margin-left: 25px;
     margin-top: 41px;
     border-radius: 15px;
+    justify-content: center;
+    align-items: center;
+    
 }
 
 .qtdAcessos {
@@ -153,6 +159,8 @@ body {
     background-color: #4d1132;
     margin-top: 41px;
     border-radius: 15px;
+    display: flex;
+    align-items: center;
 }
 
 .caixa {
@@ -170,18 +178,15 @@ body {
 }
 
 .atualizacoes {
-    height: 230px;
+    height: 150px;
     width: 300px;
     background-color: #4d1132;
     margin-top: 12px;
     border-radius: 15px;
     display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    color: white;
-    align-items: center;
+    justify-content: space-between;
+    
 }
-
 
 .AlertaEstoque {
     display: flex;
@@ -193,6 +198,19 @@ body {
     margin-top: 12px;
 }
 
+.estoque01 {
+    height: 50px;
+    width: 300px;
+    background-color: #85275a;
+    border-radius: 10px;
+}
+
+.estoque02 {
+    width: 300px;
+    height: 50px;
+    background-color: #85275a;
+    border-radius: 10px;
+}
 
 .btnCriar button {
     width: 300px;
@@ -212,52 +230,78 @@ body {
 .btnCriar button:hover {
     background-color: #b05386;
 }
-
-.atualizacoes .atualizacoesAlerta   {
-    animation: mudarCor2 0.5 infinite;
-    font-size: 15px;
+a {
+    text-decoration: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: white;
+}
+.texto
+{
+    display: flex;
+    font-size: 35px;
+    color: white;
     
 }
-.mensagemAlerta {
-    background-color: red;
-    border-radius: 7px;
+.check4 {
+    width: 70px;
+    height: 70px;
+    justify-content: end;
+    align-self: self-end;
+    position: relative;
+    
 }
-/* .atualizacoesAlerta  {
-
-} */
-
-@keyframes mudarCor2 {
-    0% {
-        background-color: transparent;
-    }
-
-    100% {
-        background-color: red;
-    }
+.check1 {
+    width: 100px;
+    height: 100px;
+    position: relative;
+    left: 47px;
 }
-.estoques{
-    text-decoration: none;
+.container-grafico{
+    width: 100%;
+    height: 400px;
+    background-color: rgb(255, 255, 255);
+    align-self: center;
+    position: relative;
+    border-radius: 25px;
     display: flex;
-    justify-content: center;
-    width: 300px;
-    font-size: 25px;
-    height: 50px;
-    background-color: #85275a;
-    border-radius: 10px;
-    color: white;
-    text-decoration: none;
+    justify-content: space-evenly;
     align-items: center;
-    text-transform: uppercase;
-    transition: 1s;
-    outline: none;
-    border: none;
-
+    top: 15px;
+    
+    
 }
-.AlertaEstoque #alerta {
-    width: 350px;
-    font-size: 30px;
-    height: 50px;
-    background-color: #85275a;
-    /* border-radius: 10px; */
-    color: white;
+.grafico1 {
+    width: 40%;
+    height: 300px;
+    border: black solid;
+}
+.grafico2{
+    width: 40%;
+    height: 300px;
+    border: black solid;
+}
+.armazemVinho {
+    display: flex;
+    /* justify-content: center; */
+    width: 150px;
+    align-self: flex-end;
+    align-self: center;
+    border-radius: 10px;
+    height: 25px;
+}
+.cardTemperatura {
+    display: flex;
+    flex-direction: column;
+    height: 250px;
+    /* justify-content: space-between; */
+    align-items: center;
+}
+.iconTemp {
+    display: flex;
+    width: 90px;
+    position: relative;
+    bottom: 60px;
+    right: 100px;
+
 }
