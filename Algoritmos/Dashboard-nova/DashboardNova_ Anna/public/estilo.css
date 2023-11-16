@@ -1,0 +1,536 @@
+@import url('https://fonts.googleapis.com/css2?family=Questrial&display=swap');
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Questrial', sans-serif;
+}
+
+body {
+    height: 100vh;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+}
+
+.info {
+    height: 100vh;
+    width: 100vw;
+    background-color: #F1F1F1;
+}
+
+.navbar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    height: 70px;
+    width: 100%;
+    background-color: white;
+}
+
+.user {
+    width: 220px;
+    height: 70px;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.user img {
+    height: 50px;
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+.BarraPesquisar input {
+    height: 30px;
+    width: 250px;
+    background-color: #F1F1F1;
+    border: none;
+    outline: none;
+    border-radius: 2px;
+    padding-left: 10px;
+}
+
+.BarraIcon {
+    margin-left: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+}
+
+.BarraIcon h2 {
+    color: #4d1132;
+    margin-left: 15px;
+}
+
+.user h3 {
+    color: #4d1132;
+}
+
+.menuLateral {
+    width: 350px;
+    height: 100vh;
+    background-color: #4d1132;
+    padding: 45px 0px 0px;
+}
+
+.links {
+    width: 100%;
+    height: 100%;
+}
+
+.links ul {
+    list-style-type: none;
+}
+
+.itemMenu {
+    display: flex;
+    height: 80px;
+    align-items: center;
+    margin-bottom: 35px;
+    transition: .3s;
+}
+
+.itemMenu:hover {
+    background-color: #85275a;
+    ;
+}
+
+
+.itemMenu a {
+    display: flex;
+    color: white;
+    text-decoration: none;
+}
+
+.itemMenu a .link {
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.itemMenu a .icon {
+    font-size: 30px;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+.container02 {
+    display: flex;
+    flex-direction: row;
+    margin-left: 20px;
+}
+
+.ola {
+    height: 120px;
+    width: 1550px;
+    margin-top: 41px;
+    background-color: #4d1132;
+    border-radius: 15px;
+    color: white;
+    font-family: 'Questrial', sans-serif;
+    text-align: justify;
+    position: relative;
+    left: 25px;
+}
+
+.hand {
+    position: absolute;
+    top: 10px;
+    left: 20px;
+}
+
+.texto {
+    position: relative;
+    top: 30px;
+    left: 150px;
+}
+#id_armazem{
+    position: relative;
+    border: none;
+    background-color:#4d1132;
+    font-size: 30px;
+    font-family:'Questrial', sans-serif ;
+    color: white;
+    font-weight: bold;
+    top: 55px;
+    left: 50px;
+}
+.rose{
+    position: relative;
+    background-color: #4d1132;
+}
+.sensor {
+    height: 150px;
+    width: 200px;
+    margin-top: 41px;
+    background-color: #4d1132;
+    border-radius: 15px;
+    color: white;
+    font-family: 'Questrial', sans-serif;
+}
+
+.titulo-sensor {
+    position: relative;
+    font-family: 'Questrial', sans-serif;
+    top: 20px;
+    left: 14px;
+}
+
+.temperatura {
+    position: relative;
+    top: 40px;
+    left: 30px;
+    font-size: 60px;
+}
+
+.data {
+    height: 150px;
+    width: 200px;
+    background-color: #85275a;
+    margin-right: 25px;
+    margin-left: 25px;
+    margin-top: 41px;
+    border-radius: 15px;
+    border-width: 3px;
+    border-color: #380622;
+    border-style: solid;
+}
+
+.dta {
+    position: relative;
+    color: white;
+    left: 20px;
+    font-size: 30px;
+    top: 40px;
+    font-weight: bold;
+}
+
+.titulo-data {
+    position: relative;
+    color: white;
+    font-family: 'Questrial', sans-serif;
+    top: 20px;
+    left: 70px;
+
+}
+
+.qtdAcessos {
+    height: 150px;
+    width: 200px;
+    background-color: #4d1132;
+    margin-top: 41px;
+    border-radius: 15px;
+    border-width: 3px;
+    border-color: #380622;
+    border-style: solid;
+}
+
+.caixa {
+    height: 520px;
+    width: 250px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-left: 45px;
+    padding: 10px 0px 0px;
+}
+
+.caixa h3 {
+    color: #ffffff;
+}
+
+.img-end {
+    position: absolute;
+    top: 20px;
+    left: 50px;
+}
+
+.endereco {
+    position: relative;
+    height: 150px;
+    width: 500px;
+    background-color: #4d1132;
+    margin-right: 25px;
+    margin-left: 25px;
+    margin-top: 41px;
+    border-radius: 15px;
+}
+
+.titulo-end {
+    position: relative;
+    top: 10px;
+    left: 160px;
+    color: white;
+    font-size: 15px;
+}
+
+.info-end {
+    position: relative;
+    color: white;
+    left: 210px;
+    top: 22px;
+    font-size: 22px;
+}
+
+.tipo-vinho {
+    position: relative;
+    color: white;
+    top: 60px;
+    left: 25px;
+    font-size: 30px;
+}
+
+.AlertaEstoque {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: 230px;
+    width: 300px;
+    margin-top: 12px;
+}
+
+.estoque01 {
+    position: relative;
+    top: 42px;
+    height: 600px;
+    width: 340px;
+    left: 15px;
+    background-color: #85275a;
+    border-radius: 10px;
+}
+
+.titulo-status{
+ position: relative;
+ top: 40px;
+ left: 70px;
+ color: white;
+}
+.sensor1{
+ background-color: white;
+ position: relative;
+ top: 150px;
+ left: 30px;
+ width: 200px;
+ height: 40px;
+ border-radius: 20px;
+ font-size: 20px;
+ text-align: center;
+ 
+}
+.sensor2{
+    background-color: white;
+    position: relative;
+    top: 190px;
+    left: 30px;
+    width: 200px;
+    height: 40px;
+    border-radius: 20px;
+    font-size: 20px;
+    text-align: center;
+}
+.sensor3{
+    background-color: white;
+    position: relative;
+    top: 220px;
+    left: 30px;
+    width: 200px;
+    height: 40px;
+    border-radius: 20px;
+    font-size: 20px;
+    text-align: center;
+}
+.sensor4{
+    background-color: white;
+    position: relative;
+    top: 250px;
+    left: 30px;
+    width: 200px;
+    height: 40px;
+    border-radius: 20px;
+    font-size: 20px;
+    text-align: center;
+}
+.word{
+    position: relative;
+    top: 10px;
+    font-weight: bold;
+}
+.status-{
+    position: relative;
+    width: 50px;
+    height: 50px;
+    background-color: green;
+    border-radius: 50%;
+    left: 230px;
+    top: -30px;
+}
+
+.btnCriar button {
+    width: 300px;
+    height: 50px;
+    background-color: #85275a;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 800;
+    cursor: pointer;
+    color: white;
+    text-transform: uppercase;
+    transition: 1s;
+    outline: none;
+    border: none;
+}
+
+.btnCriar button:hover {
+    background-color: #b05386;
+}
+
+.container-grafico {
+    top: 440px;
+    position: absolute;
+    left: 310px;
+    width: 1190px;
+    height: 350px;
+    background-color: #240115;
+    border-radius: 10px;
+}
+
+/* .alerta {
+    position: relative;
+    width: 250px;
+    height: 250px;
+    background-color: green;
+    border-radius: 50%;
+    left: 1270px;
+    top: 80px;
+} */
+
+.grafico {
+    position: absolute;
+    top: 50px;
+    left: 20px;
+    width: 50%;
+    height: 270px;
+}
+
+.grafico2 {
+    position: relative;
+    top: 50px;
+    left: 600px;
+    width: 50%;
+    height: 270px;
+}
+
+.alertas {
+    position: absolute;
+    border-radius: 30px;
+    flex-direction: row;
+    top: 450px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.frio1 {
+    position: absolute;
+    background-color: rgb(181, 0, 0);
+    color: white;
+    width: 160px;
+    height: 50px;
+    top: 400px;
+    left: 100px;
+    border-radius: 30px;
+    font-size: 30px;
+}
+
+.frio2 {
+    position: absolute;
+    background-color: rgb(239, 239, 34);
+    color: white;
+    width: 160px;
+    height: 50px;
+    top: 400px;
+    left: 300px;
+    border-radius: 30px;
+    font-size: 30px;
+}
+
+.ideal {
+    position: absolute;
+    background-color: green;
+    color: white;
+    width: 160px;
+    height: 50px;
+    top: 400px;
+    left: 500px;
+    border-radius: 30px;
+    font-size: 30px;
+}
+
+.quente1 {
+    position: absolute;
+    background-color: rgb(239, 239, 34);
+    color: white;
+    width: 160px;
+    height: 50px;
+    top: 400px;
+    left: 700px;
+    border-radius: 30px;
+    font-size: 30px;
+}
+
+.quente2 {
+    position: absolute;
+    background-color: rgb(181, 0, 0);
+    color: white;
+    width: 160px;
+    height: 50px;
+    top: 400px;
+    left: 900px;
+    border-radius: 30px;
+    font-size: 30px;
+
+
+}
+
+.vermelho2 {
+    position: relative;
+    top: 10px;
+}
+
+.amarelo2 {
+    position: relative;
+    top: 10px;
+}
+
+.verde {
+    position: relative;
+    top: 10px
+}
+
+.amarelo1 {
+    position: relative;
+    top: 10px
+}
+
+.vermelho1 {
+    position: relative;
+    top: 10px
+}
+#myChart{
+    color: rgb(0, 0, 0);
+    background-color: white;
+    border-radius: 10px;
+}
+
+#myChart2{
+ background-color: white;
+ border-radius: 10px;
+}
