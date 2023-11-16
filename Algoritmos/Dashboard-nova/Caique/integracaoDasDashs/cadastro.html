@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="formulario.css">
+</head>
+
+<body>
+    <section class="main">
+        <div class="card">
+            <div class="title">
+                <h1 style="display: flex; align-items: end; color: rgb(69, 69, 69);"><img
+                        src="assets/img/fav.png">GRAPETEC</h1>
+            </div>
+            <div id="div_field" class="field">
+                <div>
+                    <h2>E-mail</h2>
+                    <input id="input_email" placeholder="usuario@exemplo.com">
+                    <span id="span_errormsg" style="color: red;"></span>
+                </div>
+                <button class="next" onclick="campoSenha()">Próximo</button>
+            </div>
+        </div>
+    </section>
+</body>
+
+<script>
+    email = '';
+    senha = '';
+    nome = '';
+    var field = document.getElementById('div_field');
+
+    function campoSenha() {
+        var emailVar = input_email.value;
+        var posicaoArroba = false;
+        for (var index = 0; index < emailVar.length; index++) {
+            if (emailVar[index] == '@') {
+                posicaoArroba = true;
+                break;
+            };
+        };
+        if (
+            emailVar.indexOf('.com') < emailVar.length - 4 ||
+            posicaoArroba == false ||
+            index < 1
+        ) {
+            span_errormsg.innerHTML = `E-mail inválido`;
+        } else {
+            field.classList.remove('field');
+            div_field.innerHTML = `
+            <div>
+                <h2>Senha</h2>
+                <input id="input_password" onkeyup="verificarSenha()" type="password" placeholder="********">
+                <span id="span_errormsg" style="color: red;"></span>
+            </div>
+            <div class="buttons">
+                <button class="back" onclick="voltarCampoEmail()">Voltar</button>
+                <button class="next" onclick="campoConfirmarSenha()">Próximo</button>
+            </div>
+        `;
+            field.classList.add('field');
+
+            email = emailVar;
+        };
+    };
+
+    function voltarCampoEmail() {
+        field.classList.remove('field');
+        div_field.innerHTML = `
+                <div>
+                    <h2>E-mail</h2>
+                    <input id="input_email" placeholder="usuario@exemplo.com">
+                    <span id="span_errormsg" style="color: red;"></span>
+                </div>
+                <button class="next" onclick="campoSenha()">Próximo</button>
+                
+        `;
+        field.classList.add('field');
+        email = "";
+    };
+
+    var temEspaco = false
+    function verificarSenha() {
+        var senhaVar = input_password.value;
+        span_errormsg.innerHTML = "";
+        temEspaco = false;
+        for (var index = 0; index < senhaVar.length; index++) {
+            if (senhaVar[index] == " ") {
+                temEspaco = true;
+                break;
+            };
+        };
+
+        if (senhaVar.length < 8) {
+            span_errormsg.innerHTML = `A senha deve ter no mínimo 8 caracteres`;
+        } else if (temEspaco == true) {
+            span_errormsg.innerHTML = `A senha não pode conter espaços`;
+        };
+    };
+
+    function campoConfirmarSenha() {
+        var senhaVar = input_password.value;
+
+        temEspaco = false
+        for (var index = 0; index < senhaVar.length; index++) {
+            if (senhaVar[index] == " ") {
+                temEspaco = true;
+                break;
+            };
+        };
+
+        if (senhaVar < 8 || temEspaco == true) {
+
+            span_errormsg.innerHTML = `Senha inválida`
+
+        } else {
+
+            field.classList.remove('field');
+            div_field.innerHTML = `
+                <div>
+                    <h2>Confirmar senha</h2>
+                    <input id="input_passwordConfirm" type="password" placeholder="********">
+                    <span id="span_errormsg" style="color: red;"></span>
+                </div>
+                <div class="buttons">
+                    <button class="back" onclick="voltarCampoSenha()">Voltar</button>
+                    <button class="next" onclick="campoNome()">Próximo</button>
+                </div>
+            `;
+            field.classList.add('field');
+            senha = senhaVar;
+        };
+    };
+
+    function voltarCampoSenha() {
+        field.classList.remove('field');
+        div_field.innerHTML = `
+                <div>
+                    <h2>Senha</h2>
+                    <input id="input_password" onkeyup="verificarSenha()" type="password" placeholder="********">
+                    <span id="span_errormsg" style="color: red;"></span>
+                </div>
+                <div class="buttons">
+                    <button class="back" onclick="voltarCampoEmail()">Voltar</button>
+                    <button class="next" onclick="campoConfirmarSenha()">Próximo</button>
+                </div>
+            `;
+        field.classList.add('field');
+        senha = "";
+    };
+
+    function campoNome() {
+        var confSenha = input_passwordConfirm.value;
+
+        if (confSenha != senha) {
+            span_errormsg = `As senhas devem ser iguais`
+        } else {
+            var nomePH = ['Caio', 'Fernando', 'Vivian', 'Thiago', 'Mônica', 'Eduardo'];
+            var index = parseInt(Math.random() * nomePH.length)
+            field.classList.remove('field');
+            div_field.innerHTML = `
+                <div>
+                    <h2>Nome</h2>
+                    <input id="input_nome" placeholder="${nomePH[index]}">
+
+                    <span id="span_errormsg" style="color: red;"></span>
+                </div>
+                <div class="buttons">
+                    <button class="back" onclick="voltarCampoSenha()">Voltar</button>
+                    <button class="next" onclick="campoTipoUsuario()">Próximo</button>
+                </div>
+            `;
+            field.classList.add('field');
+        };
+    };
+
+    function campoTipoUsuario() {
+        var nomeVar = input_nome.value;
+        if (
+            nomeVar.indexOf('0') > -1 ||
+            nomeVar.indexOf('1') > -1 ||
+            nomeVar.indexOf('2') > -1 ||
+            nomeVar.indexOf('3') > -1 ||
+            nomeVar.indexOf('4') > -1 ||
+            nomeVar.indexOf('5') > -1 ||
+            nomeVar.indexOf('6') > -1 ||
+            nomeVar.indexOf('7') > -1 ||
+            nomeVar.indexOf('8') > -1 ||
+            nomeVar.indexOf('9') > -1
+        ) {
+            span_errormsg.innerHTML = `Não pode conter números`
+        } else if (
+            nomeVar.length < 2
+        ) {
+            span_errormsg.innerHTML = `Nome muito curto`
+        } else {
+            field.classList.remove('field')
+            div_field.innerHTML = `
+                <div>
+                    <h2>Tipo de usuário</h2>
+                    <select id="select_tipoUsuario">
+                        <option value="comum">comum</option>
+                        <option value= "administrador">administrador</option>
+                    </select>
+                    <span id="span_errormsg" style="color: red;"></span>
+                </div>
+                <div class="buttons">
+                    <button class="back" onclick="voltarCampoNome()">Voltar</button>
+                    <button class="next" onclick="enviarBanco()">Enviar</button>
+                </div>
+            `;
+            field.classList.add('field');
+            nome = nomeVar;
+        }
+    };
+
+    function voltarCampoNome() {
+        nome = "";
+        var nomePH = ['Caio', 'Fernando', 'Vivian', 'Thiago', 'Mônica', 'Eduardo'];
+        var index = parseInt(Math.random() * nomePH.length)
+        field.classList.remove('field');
+        div_field.innerHTML = `
+                <div>
+                    <h2>Nome</h2>
+                    <input id="input_nome" placeholder="${nomePH[index]}">
+
+                    <span id="span_errormsg" style="color: red;"></span>
+                </div>
+                <div class="buttons">
+                    <button class="back" onclick="voltarCampoSenha()">Voltar</button>
+                    <button class="next" onclick="campoTipoUsuario()">Próximo</button>
+                </div>
+            `;
+        field.classList.add('field');
+    };
+    
+    function enviarBanco() {
+        var tipoUsuario = select_tipoUsuario.value;
+            fetch("/usuario/cadastrar", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    // crie um atributo que recebe o valor recuperado aqui
+                    // Agora vá para o arquivo routes/usuario.js
+                    nomeServer: nome,
+                    emailServer: email,
+                    senhaServer: senha,
+                    tipoUsuarioServer: tipoUsuario
+                })
+            }) .then(function(resposta){
+                if(resposta.ok){
+                    
+                    setTimeout(function(){
+                        consol.log(resposta)
+                    },3000)
+                    window.location.href = "login.html"
+                }
+            }) 
+        };
+</script>
