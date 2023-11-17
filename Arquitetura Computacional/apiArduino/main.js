@@ -33,8 +33,8 @@ const serial = async (
                 // altere!
                 // CREDENCIAIS DO BANCO - MYSQL WORKBENCH
                 host: 'localhost',
-                user: 'insertGrupo1',
-                password: 'grapetec123',
+                user: 'usuario',
+                password: 'usuario',
                 database: 'grapeTec'
             }
         ).promise();
@@ -60,35 +60,35 @@ const serial = async (
         console.log(`A leitura do arduino foi iniciada na porta ${portaArduino.path} utilizando Baud Rate de ${SERIAL_BAUD_RATE}`);
     });
     arduino.pipe(new serialport.ReadlineParser({ delimiter: '\r\n' })).on('data', async (data) => {
-        //console.log(data);
+        // console.log(data);
         
         const valores = data.split(';')
-        const tempNormal = parseFloat(valores[0]);
-        const tempTinto = parseFloat(valores[1]);
-        const tempRose = parseFloat(valores[2]);
-        const tempBranco = parseFloat(valores[3]);
-        const tempEspumante = parseFloat(valores[4]);
+        const tempNormal = Math.round(parseFloat(valores[0]), 2);
+        const tempTinto = Math.round(parseFloat(valores[1]), 2);
+        const tempRose = Math.round(parseFloat(valores[2]), 2);
+        const tempBranco = Math.round(parseFloat(valores[3]), 2);
+        const tempEspumante = Math.round(parseFloat(valores[4]), 2);
 
         //sensores lógicos tinto
-        const tempTinto2 = tempTinto * 0.8
-        const tempTinto3 = tempTinto * 1.3
-        const tempTinto4 = tempTinto * 0.6
-        const tempTinto5 = tempTinto * 1.5
+        const tempTinto2 = Math.round(tempTinto * 0.8, 2)
+        const tempTinto3 = Math.round(tempTinto * 1.3, 2)
+        const tempTinto4 = Math.round(tempTinto * 0.6, 2)
+        const tempTinto5 = Math.round(tempTinto * 1.5, 2)
         //sensores lógicos rose
-        const tempRose2 = tempRose * 0.8
-        const tempRose3 = tempRose * 1.3
-        const tempRose4 = tempRose * 0.6
-        const tempRose5 = tempRose * 1.5
+        const tempRose2 = Math.round(tempRose * 0.8, 2)
+        const tempRose3 = Math.round(tempRose * 1.3, 2)
+        const tempRose4 = Math.round(tempRose * 0.6, 2)
+        const tempRose5 = Math.round(tempRose * 1.5, 2)
         //sensores lógicos branco
-        const tempBranco2 = tempBranco * 0.8
-        const tempBranco3 = tempBranco * 1.3
-        const tempBranco4 = tempBranco * 0.6
-        const tempBranco5 = tempBranco * 1.5
+        const tempBranco2 = Math.round(tempBranco * 0.8, 2)
+        const tempBranco3 = Math.round(tempBranco * 1.3, 2)
+        const tempBranco4 = Math.round(tempBranco * 0.6, 2)
+        const tempBranco5 = Math.round(tempBranco * 1.5, 2)
         //sensores lógicos espumante
-        const tempEspumante2 = tempEspumante * 0.8
-        const tempEspumante3 = tempEspumante * 1.3
-        const tempEspumante4 = tempEspumante * 0.6
-        const tempEspumante5 = tempEspumante * 1.5
+        const tempEspumante2 = Math.round(tempEspumante * 0.8, 2)
+        const tempEspumante3 = Math.round(tempEspumante * 1.3, 2)
+        const tempEspumante4 =Math.round( tempEspumante * 0.6, 2)
+        const tempEspumante5 = Math.round(tempEspumante * 1.5, 2)
 
         valoresLm35Temperatura.push(tempNormal);
         // valoresDht11Umidade.push(dht11Umidade);
@@ -120,17 +120,16 @@ const serial = async (
                     .catch(err => console.log("erro! " + err));
 
             } else if (AMBIENTE == 'desenvolvimento') {
-
+                console.log(tempNormal, tempTinto, tempTinto2, tempTinto3, tempTinto4, tempTinto5, tempRose, tempRose2, tempRose3, tempRose4, tempRose5, tempBranco, tempBranco2, tempBranco3, tempBranco4, tempBranco5, tempEspumante, tempEspumante2, tempEspumante3, tempEspumante4, tempEspumante5);
                 // altere!
                 // Este insert irá inserir os dados na tabela "medida"
                 // -> altere nome da tabela e colunas se necessário
                 // Este insert irá inserir dados de fk_aquario id=1 (fixo no comando do insert abaixo)
                 // >> você deve ter o aquario de id 1 cadastrado.
                 await poolBancoDados.execute(
-                    'INSERT INTO dadoSensor (temperatura, dtAtual, fkSensor) VALUES ( ?, now(), 1), ( ?, now(), 2), ( ?, now(), 3), ( ?, now(), 4), ( ?, now(), 5), ( ?, now(), 6), ( ?, now(), 7), ( ?, now(), 8), ( ?, now(), 9), ( ?, now(), 10), ( ?, now(), 11), ( ?, now(), 12), ( ?, now(), 13), ( ?, now(), 14), ( ?, now(), 15), ( ?, now(), 16), ( ?, now(), 17), ( ?, now(), 18), ( ?, now(), 19), ( ?, now(), 20), ( ?, now(), 21)',
-                    [tempNormal, tempTinto, tempTinto2, tempTinto3, tempTinto4, tempTinto5, tempRose, tempRose2, tempRose3, tempRose4, tempRose5, tempBranco, tempBranco2, tempBranco3, tempBranco4, tempBranco5, tempEspumante, tempEspumante2, tempEspumante3, tempEspumante4, tempEspumante5]
+                    `INSERT INTO dadosensor (temperatura, fkSensor, fkArmazem, fkEmpresa) VALUES (${tempTinto}, 1, 200, 1000), (${tempTinto2}, 2, 200, 1000),(${tempTinto3}, 3, 200, 1000),(${tempTinto4}, 4, 200, 1000),(${tempTinto5}, 5, 200, 1000),(${tempRose}, 1, 201, 1000),(${tempRose2}, 2, 201, 1000),(${tempRose3}, 3, 201, 1000),(${tempRose4}, 4, 201, 1000),(${tempRose5}, 5, 201, 1000),(${tempBranco}, 1, 202, 1001),(${tempBranco2}, 2, 202, 1001),(${tempBranco3}, 3, 202, 1001),(${tempBranco4}, 4, 202, 1001),(${tempBranco5}, 5, 202, 1001),(${tempEspumante}, 1, 203, 1002),(${tempEspumante2}, 2, 203, 1002),(${tempEspumante3}, 3, 203, 1002),(${tempEspumante4}, 4, 203, 1002),(${tempEspumante5}, 5, 203, 1002);`
+                    // [tempNormal, tempTinto, tempTinto2, tempTinto3, tempTinto4, tempTinto5, tempRose, tempRose2, tempRose3, tempRose4, tempRose5, tempBranco, tempBranco2, tempBranco3, tempBranco4, tempBranco5, tempEspumante, tempEspumante2, tempEspumante3, tempEspumante4, tempEspumante5]
                 );
-                console.log("valores inseridos no banco: ", dht11Umidade + ", " + dht11Temperatura + ", " + luminosidade + ", " + lm35Temperatura + ", " + chave)
 
             } else {
                 throw new Error('Ambiente não configurado. Verifique o arquivo "main.js" e tente novamente.');
