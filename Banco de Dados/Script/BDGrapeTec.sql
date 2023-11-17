@@ -121,7 +121,7 @@ CONSTRAINT pkSensor PRIMARY KEY (idSensor, fkArmazem, fkEmpresa)
 );
 
 select * from Armazem;
-
+select * from sensor order by fkEmpresa;
 INSERT INTO sensor (idSensor, fkArmazem, fkEmpresa, localizacao, statusSensor, nome) VALUES
 -- 5 sensores armazem 1
 (1, 200, 1000, 'zona 1', 'Ligado', 'sensor 1'),
@@ -161,7 +161,34 @@ CONSTRAINT fkEmpresaDado FOREIGN KEY (fkEmpresa) REFERENCES sensor(fkEmpresa),
 CONSTRAINT pkDadoSensor PRIMARY KEY (idDadoSensor, fkSensor, fkArmazem, fkEmpresa)
 ) auto_increment = 1;
 
---  INSERT INTO dadoSensor (temperatura, fkSensor, fkArmazem, fkEmpresa) VALUES
+SELECT sensor.*, vinho.tipoVinho FROM sensor join armazem on fkArmazem = idArmazem join vinho on fkVinho = idVinho;
+
+INSERT INTO dadoSensor (temperatura, fkSensor, fkArmazem, fkEmpresa) VALUES
+-- tinto
+(10, 1, 200, 1000),
+(12, 2, 200, 1000),
+(11, 3, 200, 1000),
+(13, 4, 200, 1000),
+-- rosê
+(9, 1, 201, 1000),
+(10, 2, 201, 1000),
+(11, 3, 201, 1000),
+(10, 4, 201, 1000),
+(8, 5, 201, 1000),
+-- branco
+(9, 1, 202, 1001),
+(5, 2, 202, 1001),
+(6, 3, 202, 1001),
+(7, 4, 202, 1001),
+(7.5, 5, 202, 1001),
+-- espumante
+(10, 1, 203, 1002),
+(11, 2, 203, 1002),
+(9, 3, 203, 1002),
+(5, 4, 203, 1002),
+(6, 5, 203, 1002);
+
+select * from dadosensor;
 
 CREATE USER 'usuario'@'localhost' IDENTIFIED BY 'usuario';
 GRANT insert, select, update, delete on grapetec.* TO 'usuario'@'localhost';
