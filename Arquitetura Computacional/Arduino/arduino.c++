@@ -18,8 +18,6 @@ tinto = 0.20470829 * temperatura + 10.49744115;
 rose = 0.40941658 * temperatura  +0.99488231;
 branco = 0.20470829 * temperatura + 6.49744115;
 espumante = 0.20470829 * temperatura+2.49744115;
-Serial.print(";");
-Serial.print(";");
 Serial.print(temperatura);
 Serial.print(";");
 Serial.print(tinto);
@@ -28,5 +26,6 @@ Serial.print(rose);
 Serial.print(";");
 Serial.print(branco);
 Serial.print(";");
-Serial.print(espumante);
-delay(1000);
+Serial.println(espumante);
+delay(3000);
+}
