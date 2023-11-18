@@ -15,6 +15,11 @@ INSERT INTO empresa (CNPJ, nomeEmpresa, email,telefone, CEP) VALUES
 ('78.581.354/0006-33','YabutaWine','YabutaWine@gmail.com','692763-2911', '123456782'),
 ('49.704.129/0009-99','Divinhos','Divinhos@gmail.com','823652-7289', '123456783');
 
+truncate table dadosensor;
+select * from dadosensor;
+drop user 'usuario'@'localhost';
+
+
 CREATE TABLE usuario(
 idUsuario INT auto_increment,
 email VARCHAR(50) NOT NULL,
@@ -188,8 +193,10 @@ INSERT INTO dadoSensor (temperatura, fkSensor, fkArmazem, fkEmpresa) VALUES
 (5, 4, 203, 1002),
 (6, 5, 203, 1002);
 
+select * from usuario;
+delete from usuario where idUsuario=7;
 select * from dadosensor;
 
-CREATE USER 'usuario'@'localhost' IDENTIFIED BY 'usuario';
-GRANT insert, select, update, delete on grapetec.* TO 'usuario'@'localhost';
+CREATE USER 'usuario'@'10.18.33.116' IDENTIFIED BY 'usuario';
+GRANT insert, select, update, delete on grapetec.* TO 'usuario'@'10.18.33.116';
 FLUSH PRIVILEGES;
