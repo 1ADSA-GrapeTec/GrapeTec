@@ -1,130 +1,269 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GrapeTec | Cadastro</title>
-    <link rel="shortcut icon" href="assets/images/fav.ico" type="image/x-icon">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="cadastro.css">
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="formulario.css">
 </head>
 
 <body>
-    <div class="header">
-        <div class="logo">
-            <img src="assets/images/fav.ico" alt="Logo GrapeTec">
-            <h2><a href="index.html">GRAPETEC</a></h2>
-        </div>
-        <div class="container">
-            <span><a href="index.html">| Página Inicial</a></span>
-            <span id="aqui"><a href="login.html">Login/Cadastro</a></span>
-            <span><a href="sobreNos.html">| Sobre Nós</a></span>
-            <span><a href="comoFunciona.html">| Como Funciona</a></span>
-            <span><a href="calculadora.html">| Calculadora Orçamental</a></span>
-        </div>
-    </div>
-    <div class="container-cadastro">
-        <div class="cardBranco"></div>
+    <section class="main">
         <div class="card">
-            <img src="assets/images/img-cadastro.png" alt="cadastro">
-            <div class="textoBoasVindas">
-                <h2>GRAPETEC</h2>
-                <br>
-                <p>Estendemos a você a cordial solicitação de criar uma conta conosco, tornando-se assim um membro
-                    distinto e privilegiado da nossa comunidade.</p>
+            <div class="title">
+                <h1 style="display: flex; align-items: end; color: rgb(69, 69, 69);"><img
+                        src="assets/images/fav.png">GRAPETEC</h1>
             </div>
-
-            <div class="cadastro">
-                <div class="formulario">
-                    <img src="assets/images/logo.png" alt="logo"><br>
-                    <h3>Cadastro</h3>
-                    <br>
-                    <input type="text" placeholder="USER" id="cadastroUsuario">
-                    <br> <br>
-                    <!-- <input type="text" placeholder="CEP" id="cadastroCEP"> -->
-                    
-                    <input type="text" placeholder="CNPJ" id="cadastroCNPJ">
-                    <br> <br>
-                    <!-- <input type="text" placeholder="TEL" id="cadastroTelefone"> -->
-                    
-                    <input type="text" placeholder="EMAIL" id="cadastroEmail">
-                    <br> <br>
-                    <input type="text" placeholder="SENHA" id="cadastroSenha">
-                    <br> <br>
-                    <div class="botoes">
-                        <button onclick="verificarCadastro()"><a href="">Cadastro</a></button>
-                    </div>
+            <div id="div_field" class="field">
+                <div>
+                    <h2>E-mail</h2>
+                    <input id="input_email" placeholder="usuario@exemplo.com">
+                    <span id="span_errormsg" style="color: red;"></span>
                 </div>
-
+                <button class="next" onclick="campoSenha()">Próximo</button>
             </div>
         </div>
-
-
-    </div>
-
+    </section>
 </body>
 
-</html>
-<script src="script.js"></script>
-
 <script>
-    function verificarCadastro() {
-        var userVar = cadastroUsuario.value
-        // var cepVar = cadastroCEP.value
-        var cnpjVar = cadastroCNPJ.value
-        // var telVar = cadastroTelefone.value
-        var emailVar = cadastroEmail.value;
-        var senhaVar = cadastroSenha.value;
+    email = '';
+    senha = '';
+    nome = '';
+    var field = document.getElementById('div_field');
 
-        // if(user.length < 10 || user.length > 30) {
-        //     alert(`Quantidade de caracteres do User insuficientes!!`)
-        // }else if(
-        //     user.indexOf(1,2,3,4,5,6,7,8,9,0) != -1 || 
-        //     user.indexOf('@') != -1 || 
-        //     user.indexOf('.') != -1 || 
-        //     user.indexOf(',') != -1 || 
-        //     user.indexOf('!') != -1 || 
-        //     user.indexOf('"') != -1 || 
-        //     user.indexOf("'") != -1 || 
-        //     user.indexOf('#') != -1 || 
-        //     user.indexOf('$') != -1 || 
-        //     user.indexOf('%') != -1 || 
-        //     user.indexOf('&') != -1 || 
-        //     user.indexOf('*') != -1 || 
-        //     user.indexOf('(') != -1 || 
-        //     user.indexOf(')') != -1 ||
-        //     user.indexOf('/') != -1 ||
-        //     user.indexOf('|') != -1 ||
-        //     user.indexOf(';') != -1 ||
-        //     user.indexOf(':') != -1 ||
-        //     user.indexOf('?') != -1 ||
-        //     user.indexOf('[') != -1 ||
-        //     user.indexOf(']') != -1 ||
-        //     user.indexOf('{') != -1 ||
-        //     user.indexOf('}') != -1 ||
-        //     user.indexOf('<') != -1 ||
-        //     user.indexOf('>') != -1 ||
-        //     user.indexOf('-') != -1 ||
-        //     user.indexOf('_') != -1 ||
-        //     user.indexOf('=') != -1 ||
-        //     user.indexOf('+') != -1
-        //     ) {
-        //     alert(`User contem algum caractere inválido`)
-        // }else if((cep.length <= 8 || cep.length >= 10)){
-        //     alert(`CEP inválido!!`)
-        // }else if(cnpj.length <= 17 || cnpj >= 19) {
-        //     alert(`CNPJ inválido!!`)
-        // }else if(tel.length <= 13 || tel,length >= 15){
-        //     alert(`Telefone inválido!!`)
-        // }else if(email.indexOf('@') == -1 || email.indexOf('.') == -1 || email.endsWith("@") == true || email.endsWith(".") == true ){
-        //     alert(`Email inválido`)
-        // }else if(senha.length < 8 ){
-        //     alert(`Senha inválida`)
-        // }else {
-        //     window.location.href = 'login.html'
-        // }
-        // Enviando o valor da nova input
+    function campoSenha() {
+        var emailVar = (input_email.value).toLowerCase();
+        var posicaoArroba = false;
+        for (var index = 0; index < emailVar.length; index++) {
+            if (emailVar[index] == '@') {
+                posicaoArroba = true;
+                break;
+            };
+        };
+        if (
+            emailVar.indexOf('.com') < emailVar.length - 4 ||
+            posicaoArroba == false ||
+            index < 1
+        ) {
+            span_errormsg.innerHTML = `E-mail inválido`;
+        } else {
+
+            fetch("/usuario/verificarEmail", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    // crie um atributo que recebe o valor recuperado aqui
+                    // Agora vá para o arquivo routes/usuario.js
+                    emailServer: emailVar,
+                })
+            }).then(function (resposta) {
+                if (resposta.status == 400) {
+                    span_errormsg.innerHTML = `Este e-mail já está em uso!`
+                } else if (resposta.status == 500) {
+                    span_errormsg.innerHTML = `Erro ao se conectar com o servidor`
+                } else {
+                    
+                    field.classList.remove('field');
+                    div_field.innerHTML = `
+                    <div>
+                        <h2>Senha</h2>
+                        <input id="input_password" onkeyup="verificarSenha()" type="password" placeholder="********">
+                        <span id="span_errormsg" style="color: red;"></span>
+                    </div>
+                    <div class="buttons">
+                        <button class="back" onclick="voltarCampoEmail()">Voltar</button>
+                        <button class="next" onclick="campoConfirmarSenha()">Próximo</button>
+                    </div>
+                    `;
+                    field.classList.add('field');
+
+                    email = emailVar;
+
+                }
+            })
+        };
+    };
+
+    function voltarCampoEmail() {
+        field.classList.remove('field');
+        div_field.innerHTML = `
+                <div>
+                    <h2>E-mail</h2>
+                    <input id="input_email" placeholder="usuario@exemplo.com">
+                    <span id="span_errormsg" style="color: red;"></span>
+                </div>
+                <button class="next" onclick="campoSenha()">Próximo</button>
+                
+        `;
+        field.classList.add('field');
+        email = "";
+    };
+
+    var temEspaco = false
+    function verificarSenha() {
+        var senhaVar = input_password.value;
+        span_errormsg.innerHTML = "";
+        temEspaco = false;
+        for (var index = 0; index < senhaVar.length; index++) {
+            if (senhaVar[index] == " ") {
+                temEspaco = true;
+                break;
+            };
+        };
+
+        if (senhaVar.length < 8) {
+            span_errormsg.innerHTML = `A senha deve ter no mínimo 8 caracteres`;
+        } else if (temEspaco == true) {
+            span_errormsg.innerHTML = `A senha não pode conter espaços`;
+        };
+    };
+
+    function campoConfirmarSenha() {
+        var senhaVar = input_password.value;
+
+        temEspaco = false
+        for (var index = 0; index < senhaVar.length; index++) {
+            if (senhaVar[index] == " ") {
+                temEspaco = true;
+                break;
+            };
+        };
+
+        if (senhaVar < 8 || temEspaco == true) {
+
+            span_errormsg.innerHTML = `Senha inválida`
+
+        } else {
+
+            field.classList.remove('field');
+            div_field.innerHTML = `
+                <div>
+                    <h2>Confirmar senha</h2>
+                    <input id="input_passwordConfirm" type="password" placeholder="********">
+                    <span id="span_errormsg" style="color: red;"></span>
+                </div>
+                <div class="buttons">
+                    <button class="back" onclick="voltarCampoSenha()">Voltar</button>
+                    <button class="next" onclick="campoNome()">Próximo</button>
+                </div>
+            `;
+            field.classList.add('field');
+            senha = senhaVar;
+        };
+    };
+
+    function voltarCampoSenha() {
+        field.classList.remove('field');
+        div_field.innerHTML = `
+                <div>
+                    <h2>Senha</h2>
+                    <input id="input_password" onkeyup="verificarSenha()" type="password" placeholder="********">
+                    <span id="span_errormsg" style="color: red;"></span>
+                </div>
+                <div class="buttons">
+                    <button class="back" onclick="voltarCampoEmail()">Voltar</button>
+                    <button class="next" onclick="campoConfirmarSenha()">Próximo</button>
+                </div>
+            `;
+        field.classList.add('field');
+        senha = "";
+    };
+
+    function campoNome() {
+        var confSenha = input_passwordConfirm.value;
+
+        if (confSenha != senha) {
+            span_errormsg.innerHTML = `As senhas devem ser iguais`
+        } else {
+            var nomePH = ['Caio', 'Fernando', 'Vivian', 'Thiago', 'Mônica', 'Eduardo'];
+            var index = parseInt(Math.random() * nomePH.length)
+            field.classList.remove('field');
+            div_field.innerHTML = `
+                <div>
+                    <h2>Nome</h2>
+                    <input id="input_nome" placeholder="${nomePH[index]}">
+
+                    <span id="span_errormsg" style="color: red;"></span>
+                </div>
+                <div class="buttons">
+                    <button class="back" onclick="voltarCampoSenha()">Voltar</button>
+                    <button class="next" onclick="campoTipoUsuario()">Próximo</button>
+                </div>
+            `;
+            field.classList.add('field');
+        };
+    };
+
+    function campoTipoUsuario() {
+        var nomeVar = input_nome.value;
+        if (
+            nomeVar.indexOf('0') > -1 ||
+            nomeVar.indexOf('1') > -1 ||
+            nomeVar.indexOf('2') > -1 ||
+            nomeVar.indexOf('3') > -1 ||
+            nomeVar.indexOf('4') > -1 ||
+            nomeVar.indexOf('5') > -1 ||
+            nomeVar.indexOf('6') > -1 ||
+            nomeVar.indexOf('7') > -1 ||
+            nomeVar.indexOf('8') > -1 ||
+            nomeVar.indexOf('9') > -1
+        ) {
+            span_errormsg.innerHTML = `Não pode conter números`
+        } else if (
+            nomeVar.length < 2
+        ) {
+            span_errormsg.innerHTML = `Nome muito curto`
+        } else {
+            field.classList.remove('field')
+            div_field.innerHTML = `
+                <div>
+                    <h2>Tipo de usuário</h2>
+                    <select id="select_tipoUsuario">
+                        <option value="comum">comum</option>
+                        <option value="administrador">administrador</option>
+                    </select>
+                    <span id="span_errormsg" style="color: red;"></span>
+                </div>
+                <div class="buttons">
+                    <button class="back" onclick="voltarCampoNome()">Voltar</button>
+                    <button class="next" onclick="enviarBanco()">Enviar</button>
+                </div>
+            `;
+            field.classList.add('field');
+            nome = nomeVar;
+        }
+    };
+
+    function voltarCampoNome() {
+        nome = "";
+        var nomePH = ['Caio', 'Fernando', 'Vivian', 'Thiago', 'Mônica', 'Eduardo'];
+        var index = parseInt(Math.random() * nomePH.length)
+        field.classList.remove('field');
+        div_field.innerHTML = `
+                <div>
+                    <h2>Nome</h2>
+                    <input id="input_nome" placeholder="${nomePH[index]}">
+
+                    <span id="span_errormsg" style="color: red;"></span>
+                </div>
+                <div class="buttons">
+                    <button class="back" onclick="voltarCampoSenha()">Voltar</button>
+                    <button class="next" onclick="campoTipoUsuario()">Próximo</button>
+                </div>
+            `;
+        field.classList.add('field');
+    };
+
+    function enviarBanco() {
+
+        var tipoUsuario = select_tipoUsuario.value;
+        nome = nome.toLowerCase();
+        nome = nome.replace(nome[0], nome[0].toUpperCase());
+
         fetch("/usuario/cadastrar", {
             method: "POST",
             headers: {
@@ -133,52 +272,19 @@
             body: JSON.stringify({
                 // crie um atributo que recebe o valor recuperado aqui
                 // Agora vá para o arquivo routes/usuario.js
-                nomeServer: userVar,
-                emailServer: emailVar,
-                senhaServer: senhaVar
-                // empresaServer: empresaVar,
-            }),
-        })
-            .then(function (resposta) {
-                console.log("resposta: ", resposta);
-
-                if (resposta.ok) {
-                    // cardErro.style.display = "block";
-
-                    // mensagem_erro.innerHTML =
-                    //     "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
-
-                        window.location = "login.html"
-                    // limparFormulario();
-                    // finalizarAguardar();
-                } else {
-                    throw "Houve um erro ao tentar realizar o cadastro!";
-                }
-
+                nomeServer: nome,
+                emailServer: email,
+                senhaServer: senha,
+                tipoUsuarioServer: tipoUsuario
             })
-            .catch(function (resposta) {
-                console.log(`#ERRO: ${resposta}`);
-                // finalizarAguardar();
-            });
+        }).then(function (resposta) {
+            if (resposta.ok) {
 
-        return false;
-    }
-
-    function listar() {
-        fetch("/empresas/listar", {
-            method: "GET",
+                setTimeout(function () {
+                    consol.log(resposta)
+                }, 3000)
+                window.location.href = "login.html"
+            }
         })
-            .then(function (resposta) {
-                resposta.json().then((empresas) => {
-                    empresas.forEach((empresa) => {
-                        listaEmpresas.innerHTML += `<option value='${empresa.id}'>${empresa.cnpj}</option>`;
-                    });
-                });
-            })
-            .catch(function (resposta) {
-                console.log(`#ERRO: ${resposta}`);
-            });
-    }
-
-
+    };
 </script>

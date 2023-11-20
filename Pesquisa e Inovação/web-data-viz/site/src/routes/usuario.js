@@ -12,4 +12,8 @@ router.post("/autenticar", function (req, res) {
     usuarioController.autenticar(req, res);
 });
 
+router.post("/verificarEmail", function (req, res) {
+    usuarioController.verificarEmail(req, res);
+});
+
 module.exports = router;
