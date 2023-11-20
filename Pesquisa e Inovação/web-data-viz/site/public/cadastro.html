@@ -124,7 +124,7 @@
 
     function campoConfirmarSenha() {
         var senhaVar = input_password.value;
-
+        
         temEspaco = false
         for (var index = 0; index < senhaVar.length; index++) {
             if (senhaVar[index] == " ") {
@@ -262,7 +262,7 @@
 
         var tipoUsuario = select_tipoUsuario.value;
         nome = nome.toLowerCase();
-        nome = nome.replace(nome[0], nome[0].toUpperCase());
+        // nome = nome.replace(nome[0], nome[0].toUpperase());
 
         fetch("/usuario/cadastrar", {
             method: "POST",
@@ -276,15 +276,19 @@
                 emailServer: email,
                 senhaServer: senha,
                 tipoUsuarioServer: tipoUsuario
+                
             })
         }).then(function (resposta) {
+            if (resposta.status==400){
+                alert ("CAMPOS INVÁLIDOS")
+            }else {
             if (resposta.ok) {
 
                 setTimeout(function () {
                     consol.log(resposta)
                 }, 3000)
                 window.location.href = "login.html"
-            }
+            }}
         })
     };
 </script>
