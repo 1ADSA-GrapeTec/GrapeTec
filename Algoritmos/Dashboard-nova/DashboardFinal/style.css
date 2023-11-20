@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Questrial&display=swap');
 
-*{
+* {
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
@@ -10,15 +10,16 @@
 body {
     height: 100vh;
 }
+
 .container {
     display: flex;
     flex-direction: row;
 }
 
 .info {
-        height: 100vh;
-        width: 100vw;
-        background-color: #f1f1f19c;
+    height: 100vh;
+    width: 100vw;
+    background-color: #f1f1f19c;
 }
 
 .navbar {
@@ -82,6 +83,10 @@ body {
     list-style-type: none;
 }
 
+#aqui {
+    color: #00ff33;
+}
+
 .itemMenu {
     display: flex;
     height: 80px;
@@ -91,23 +96,24 @@ body {
 }
 
 .itemMenu:hover {
-    background-color: #85275a;;
+    background-color: #85275a;
+    ;
 }
 
 
-.itemMenu a{
+.itemMenu a {
     display: flex;
     color: white;
     text-decoration: none;
 }
 
-.itemMenu a .link{
+.itemMenu a .link {
     font-size: 20px;
     display: flex;
     align-items: center;
 }
 
-.itemMenu a .icon{
+.itemMenu a .icon {
     font-size: 30px;
     margin-left: 30px;
     margin-right: 30px;
@@ -139,6 +145,7 @@ body {
     color: white;
     transition: 0.3s;
 }
+
 .armazem .text {
     display: flex;
     flex-direction: row;
@@ -148,16 +155,17 @@ body {
     margin-left: 25px;
     height: 40px;
 }
-.armazem h1{
+
+.armazem h1 {
     margin-left: 10px;
 }
 
-.armazem h1 hr{
+.armazem h1 hr {
     color: 4px solid #F1F1F1;
 
 }
 
-.armazem p{
+.armazem p {
     margin-left: 25px;
 }
 
@@ -192,16 +200,17 @@ body {
     margin-left: 25px;
     height: 40px;
 }
-.alerta h1{
+
+.alerta h1 {
     margin-left: 10px;
 }
 
-.alerta h1 hr{
+.alerta h1 hr {
     color: 4px solid #F1F1F1;
 
 }
 
-.alerta p{
+.alerta p {
     margin-left: 25px;
 }
 
@@ -232,16 +241,16 @@ body {
     flex-direction: column;
 }
 
-.tempMedia h3{
+.tempMedia h3 {
     margin-left: 25px;
 }
 
-.alerta h1 hr{
+.alerta h1 hr {
     color: 4px solid #F1F1F1;
 
 }
 
-.tempMedia p{
+.tempMedia p {
     margin-left: 25px;
     font-size: 20px;
 }
