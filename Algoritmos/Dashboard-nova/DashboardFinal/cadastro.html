@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="pt-br">
 
 <head>
@@ -13,7 +13,7 @@
         <div class="card">
             <div class="title">
                 <h1 style="display: flex; align-items: end; color: rgb(69, 69, 69);"><img
-                        src="assets/img/fav.png">GRAPETEC</h1>
+                        src="public/assets/img/fav.png">GRAPETEC</h1>
             </div>
             <div id="div_field" class="field">
                 <div>
@@ -21,7 +21,10 @@
                     <input id="input_email" placeholder="usuario@exemplo.com">
                     <span id="span_errormsg" style="color: red;"></span>
                 </div>
-                <button class="next" onclick="campoSenha()">Próximo</button>
+                <div class="btn">
+                    <a href="index.html"><button class="backD">Voltar</button></a>
+                    <button class="next" onclick="campoSenha()">Próximo</button>
+                </div>
             </div>
         </div>
     </section>
@@ -75,6 +78,7 @@
                     <input id="input_email" placeholder="usuario@exemplo.com">
                     <span id="span_errormsg" style="color: red;"></span>
                 </div>
+                <a href="index.html"><button class="backD">Voltar</button></a>
                 <button class="next" onclick="campoSenha()">Próximo</button>
                 
         `;
