@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="meusArmazens.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="shortcut icon" href="public/assets/img/fav.png" type="image/x-icon">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>GrapeTec</title>
+</head>
+
+<body>
+    <!-- Menu Lateral -->
+    <div class="container">
+        <div class="menuLateral">
+            <div class="links">
+                <ul>
+                    <li class="itemMenu">
+                        <a href="index.html">
+                            <span class="icon"><span class="bi bi-bar-chart-line"></span></span>
+                            <span class="link">Visão geral</span>
+                        </a>
+                    </li>
+                    <li class="itemMenu">
+                        <a href="meusArmazens.html">
+                            <span id="aqui" class="icon"><span class="bi bi-house-door"></span></span>
+                            <span id="aqui" class="link">Meus armazéns</span>
+                        </a>
+                    </li>
+                    <li class="itemMenu">
+                        <a href="cadastro.html">
+                            <span class="icon"><span class="bi bi-plus-circle"></span></span>
+                            <span class="link">Adicionar novo usuário</span>
+                        </a>
+                    </li>
+                    <li class="itemMenu">
+                        <a href="#">
+                            <span class="icon"><span class="bi bi-exclamation-triangle"></span></span>
+                            <span class="link">Alertas</span>
+                        </a>
+                    </li>
+                    <li class="itemMenu">
+                        <a href="#">
+                            <span class="icon"><span class="bi bi-box-arrow-left"></span></span>
+                            <span class="link">Sair</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- NAVBAR -->
+        <div class="info">
+            <div class="navbar">
+                <div class="BarraIcon">
+                    <img src="public/assets/img/fav.png" alt="">
+                    <h2>GRAPETEC</h2>
+                </div>
+                <div class="user">
+                    <img src="public/assets/img/IconPessoa.png" alt="">
+                    <h3>Olá, Jacson</h3>
+                </div>
+            </div>
+            <!-- HOME -->
+            <div class="container02">
+                <div class="armazem">
+                    <p>Informações do <br>
+                        armazém
+                    </p>
+
+                    <div class="text">
+                        <h1 id="linha">|</h1>
+                        <h1>
+                            <b>Estado:</b> SP <br>
+                            <b>Rua:</b> Lajeado <br>
+                            <b>Número: </b> 537 <br>
+                            <b>Tipo de vinho:</b> Tinto
+                        </h1>
+                    </div>
+                </div>
+                <div id="A">
+                    <div class="alerta">
+                        <p id="p">
+                            Status
+                        </p>
+
+                        <div class="text">
+                            <h1 id="linha"></h1>
+                            <h1></h1>
+                        </div>
+                    </div>
+                </div>
+                <div id="B">
+                    <div class="tempMedia">
+                        <p>Temperatura Média</p>
+
+                        <div class="text">
+                            <p>O armázem está com temperatura média de <span
+                                    style="font-size: 20px; font-weight: 700; color: rgb(255, 255, 255);"></span><br>
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+                <div id="C">
+                    <div class="armazens">
+                        <p id="p">
+                            Armazens
+                        </p>
+
+                        <div class="text">
+                            <h1 id="linha"></h1>
+                            <h1>
+                                <select id="id_armazem">
+                                    <option value="">Armazém 1</option>
+                                    <option value="">Armazém 2</option>
+                                    <option value="">Armazém 3</option>
+                                    <option value="">Armazém 4</option>
+                                </select>
+                            </h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container_grafico">
+                <div class="grafico">
+                    <canvas id="myChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+
+<script>
+    var temp = [];
+    for (; temp.length < 24;) {
+        var temperatura = (Math.random() * 9) + 9;
+        temp.push(temperatura);
+    }
+    var temp2 = [];
+    var temp3 = [];
+    var temp4 = [];
+    var temp5 = [];
+    //criando as temperaturas dos outros sensores
+    for (var index = 0; index <= temp.length - 1; index += 1) {
+        temp2.push(temp[index] * 1.25);
+        temp3.push(temp[index] * 0.90);
+        temp4.push(temp[index] * 1.10);
+        temp5.push(temp[index] * 0.60);
+    }
+    //Criando alguns sensores para teste
+    var idSensor = parseInt((Math.random() * 3) + 1);
+    var Sensores = ['14ºC', '14.5ºC', '13ºC', '13.5ºC'];
+    //calculo de media
+    var tempMedia = (temp[temp.length - 1] + temp2[temp.length - 1] + temp3[temp.length - 1] + temp4[temp.length - 1] + temp5[temp.length - 1]) / 5;
+
+    if (tempMedia <= 13.9) {
+        for (var index = 0; index < Sensores.length; index += 1) {
+            if (idSensor == index + 1) {
+                A.innerHTML = `<div class="alerta" > 
+                    <p>
+                        Status
+                    </p>
+
+                    <div class="text">
+                        <h1 id="linha">|</h1>
+                        <h1>
+                            Crítico frio!
+                        </h1>
+                    </div>
+                    
+                    <style> 
+                    .alerta {
+                        background-color: red;
+                    }
+                </style>`;
+                B.innerHTML = `<div class="tempMedia">
+                                <p>
+                                    Temperatura Média
+                                </p> 
+                                <div class="text">
+                                <p>
+                                    O armázem está com temperatura média de <span style="font-size: 20px; font-weight: 700; color: red;">${Sensores[index]}</span><br>
+                                </p>
+                                </div>
+                            </div>`
+            }
+        }
+    } else if (tempMedia <= 15.4) {
+        for (var index = 0; index < Sensores.length; index += 1) {
+            if (idSensor == index + 1) {
+                A.innerHTML = `<div class="alerta" > 
+                    <p>
+                        Status
+                    </p>
+
+                    <div class="text">
+                        <h1 id="linha">|</h1>
+                        <h1>
+                           Alerta Frio!
+                        </h1>
+                    </div>
+                    
+                    <style> 
+                    .alerta {
+                        background-color: yellow;
+                    }
+                    .alerta p {
+                        color: #4d1132; 
+                    }
+                    .alerta h1 {
+                        color: #4d1132;
+                    }
+                </style>`;
+                B.innerHTML = `<div class="tempMedia">
+                                <p>
+                                    Temperatura Média
+                                </p> 
+                                <div class="text">
+                                <p>
+                                    O armázem está com temperatura média de <span style="font-size: 20px; font-weight: 700; color: yellow;">${Sensores[index]}</span><br>
+                                </p>
+                                </div>
+                            </div>`
+            }
+        }
+    } else if (tempMedia <= 15.6) {
+        for (var index = 0; index < Sensores.length; index += 1) {
+            if (idSensor == index + 1) {
+                A.innerHTML = `<div class="alerta" > 
+                    <p>
+                        Status
+                    </p>
+
+                    <div class="text">
+                        <h1 id="linha">|</h1>
+                        <h1>
+                            Temperatura estável.
+                        </h1>
+                    </div>
+                    
+                    <style> 
+                    .alerta {
+                        background-color: green;
+                    }
+                </style>`;
+
+                B.innerHTML = `<div class="tempMedia">
+                                <p>
+                                    Temperatura Média
+                                </p> 
+                                <div class="text">
+                                <p>
+                                    O armázem está com temperatura média de <span style="font-size: 20px; font-weight: 700; color: green;">${Sensores[index]}</span><br>
+                                </p>
+                                </div>
+                            </div>`
+            }
+        }
+
+    } else if (tempMedia <= 15.8) {
+        for (var index = 0; index < Sensores.length; index += 1) {
+            if (idSensor == index + 1) {
+                A.innerHTML = `<div class="alerta" > 
+                    <p>
+                        Status
+                    </p>
+
+                    <div class="text">
+                        <h1 id="linha">|</h1>
+                        <h1>
+                            Alerta quente!
+                        </h1>
+                    </div>
+                    
+                    <style> 
+                    .alerta {
+                        background-color: yellow;
+                    }
+                    .alerta p {
+                        color: #4d1132; 
+                    }
+                    .alerta h1 {
+                        color: #4d1132;
+                    }
+                </style>`;
+
+                B.innerHTML = `<div class="tempMedia">
+                                 <p>
+                                    Temperatura Média
+                                </p> 
+                                <div class="text">
+                                <p>
+                                    O armázem está com temperatura média de <span style="font-size: 20px; font-weight: 700; color: yellow;">${Sensores[index]}</span><br>
+                                </p>
+                                </div>
+                            </div>`
+            }
+        }
+
+    } else {
+        for (var index = 0; index < Sensores.length; index += 1) {
+            if (idSensor == index + 1) {
+                A.innerHTML = `<div class="alerta" > 
+                    <p>
+                        Status
+                    </p>
+
+                    <div class="text">
+                        <h1 id="linha">|</h1>
+                        <h1>
+                            Crítico quente!
+                        </h1>
+                    </div>
+                    
+                    <style> 
+                    .alerta {
+                        background-color: red;
+                    }
+                </style>`;
+                B.innerHTML = `<div class="tempMedia">
+                                <p>
+                                    Temperatura Média
+                                </p> 
+                                <div class="text">
+                                <p>
+                                    O armázem está com temperatura média de <span style="font-size: 20px; font-weight: 700; color: red;">${Sensores[index]}</span><br>
+                                </p>
+                                </div>
+                            </div>`
+            }
+        }
+    };
+
+    const ctx = document.getElementById('myChart');
+
+    new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: ['00:00', '01:00', '02:00', '03:00', '04:00', '05:00', '06:00', '07:00', '08:00', '09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00', '20:00', '21:00', '22:00', '23:00'],
+            datasets: [{
+                label: '',
+                borderColor: 'rgb(79, 0, 128)',
+                backgroundColor: 'rgb(79, 0, 128)',
+                data: temp,
+                borderWidth: 3,
+                borderJoinStyle: 'round',
+                pointBackgroundColor: 'rgba(75, 192, 192, 1)',
+                pointBorderColor: '#fff',
+                pointHoverBackgroundColor: '#fff',
+                pointHoverBorderColor: 'rgba(75, 192, 192, 1)',
+                pointRadius: 0, // Removendo os pontos
+                pointHoverRadius: 0,
+                borderCapStyle: 'round'
+            },
+            {
+                label: '',
+                borderColor: 'rgb(255, 57, 162)',
+                backgroundColor: 'rgb(255, 57, 162)',
+                data: temp2,
+                borderWidth: 3,
+                borderJoinStyle: 'round',
+                pointBackgroundColor: 'rgba(75, 192, 192, 1)',
+                pointRadius: 0, 
+                pointHoverRadius: 0,
+                borderCapStyle: 'round'
+            },
+            {
+                label: '',
+                borderColor: 'rgb(119, 7, 48)',
+                backgroundColor: 'rgb(119, 7, 48)',
+                data: temp3,
+                borderWidth: 3,
+                borderJoinStyle: 'round',
+                pointBackgroundColor: 'rgba(75, 192, 192, 1)',
+                pointBorderColor: '#fff',
+                pointRadius: 0, 
+                pointHoverRadius: 0,
+                borderCapStyle: 'round'
+            },
+            {
+                label: '',
+                borderColor: 'rgb(77, 207, 80)',
+                backgroundColor: 'rgb(77, 207, 80)',
+                data: temp4,
+                borderWidth: 3,
+                borderJoinStyle: 'round',
+                pointBackgroundColor: 'rgba(75, 192, 192, 1)',
+                pointBorderColor: '#fff',
+                pointRadius: 0, 
+                pointHoverRadius: 0,
+                borderCapStyle: 'round'
+            },
+            {
+                label: '',
+                borderColor: 'rgb(255, 7, 208)',
+                backgroundColor: 'rgb(255, 7, 208)',
+                data: temp5,
+                borderWidth: 3,
+                borderJoinStyle: 'round',
+                pointBackgroundColor: 'rgba(75, 192, 192, 1)',
+                pointBorderColor: '#fff',
+                pointRadius: 0, 
+                pointHoverRadius: 0,
+                borderCapStyle: 'round'
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+        
+    });
+
+    
+</script>

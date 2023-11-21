@@ -18,7 +18,7 @@
         </div>
         <div class="container">
             <span ><a href="index.html">| Página Inicial</a></span>
-            <span id="aqui"><a href="cadastro.html">Login/Cadastro</a></span>
+            <!-- <span id="aqui"><a href="cadastro.html">Login/Cadastro</a></span> -->
             <span><a href="sobreNos.html">| Sobre Nós</a></span>
             <span><a href="comoFunciona.html">| Como Funciona</a></span>
             <span><a href="calculadora.html">| Calculadora Orçamental</a></span>
@@ -56,7 +56,7 @@
                     <p><a href="">Esqueceu a senha?</a></p>
                 </div>
                 <div class="botoes">
-                    <button><a href="cadastro.html">Cadastro</a></button>
+                    <!-- <button><a href="cadastro.html">Cadastro</a></button> -->
                     <button onclick="login()">Login</button>
                 </div>
                 <div class="redes">
@@ -74,7 +74,7 @@
 
 <script>
     function login() {
-        var email = id_email.value;
+        var email = (id_email.value).toLowerCase()
         var senha = id_senha.value;
 
         fetch("/usuario/autenticar", {
