@@ -11,12 +11,12 @@
     <title>GrapeTec</title>
 </head>
 
-<body>
+<body onload="tipoAdm()">
     <!-- Menu Lateral -->
     <div class="container">
         <div class="menuLateral">
             <div class="links">
-                <ul>
+                <ul id="ul_navBar">
                     <li class="itemMenu">
                         <a href="#">
                             <span id="aqui" class="icon"><span class="bi bi-bar-chart-line"></span></span>
@@ -29,24 +29,6 @@
                             <span class="link">Meus armazéns</span>
                         </a>
                     </li>
-                    <li class="itemMenu">
-                        <a href="cadastro.html">
-                            <span class="icon"><span class="bi bi-plus-circle"></span></span>
-                            <span class="link">Adicionar novo usuário</span>
-                        </a>
-                    </li>
-                    <li class="itemMenu">
-                        <a href="#">
-                            <span class="icon"><span class="bi bi-exclamation-triangle"></span></span>
-                            <span class="link">Alertas</span>
-                        </a>
-                    </li>
-                    <li class="itemMenu">
-                        <a href="#">
-                            <span class="icon"><span class="bi bi-box-arrow-left"></span></span>
-                            <span class="link">Sair</span>
-                        </a>
-                    </li>
                 </ul>
             </div>
         </div>
@@ -54,12 +36,12 @@
         <div class="info">
             <div class="navbar">
                 <div class="BarraIcon">
-                    <img src="public/assets/img/fav.png" alt="">
+                    <img src="assets/images/fav.png" alt="">
                     <h2>GRAPETEC</h2>
                 </div>
                 <div class="user">
-                    <img src="public/assets/img/IconPessoa.png" alt="">
-                    <h3>Olá, Jacson</h3>
+                    <img src="assets/images/IconPessoa.png" alt="">
+                    <h3>Olá, <span id="span_nomeUsuario"></span></h3>
                 </div>
             </div>
             <!-- HOME -->
@@ -76,7 +58,7 @@
                         </h1>
                     </div>
                 </div>
-                
+
             </div>
 
         </div>
@@ -87,5 +69,38 @@
 </html>
 
 <script>
-   
+    var fkEmpresa = sessionStorage.FKEMPRESA_USUARIO;
+
+    function tipoAdm() {
+        var tipoUsuario = sessionStorage.TIPO_USUARIO;
+        var nomeUsuario = sessionStorage.NOME_USUARIO;
+
+        span_nomeUsuario.innerHTML = nomeUsuario;
+
+        if (tipoUsuario == 'administrador') {
+            ul_navBar.innerHTML += `
+        <li class="itemMenu">
+            <a href="cadastro.html">
+                <span class="icon"><span class="bi bi-plus-circle"></span></span>
+                <span class="link">Adicionar novo usuário</span>
+            </a>
+        </li>
+        <li class="itemMenu">
+            <a href="#">
+                <span class="icon"><span class="bi bi-box-arrow-left"></span></span>
+                <span class="link">Sair</span>
+            </a>
+        </li>
+        `
+        } else {
+            ul_navBar.innerHTML += `
+        <li class="itemMenu">
+            <a href="#">
+                <span class="icon"><span class="bi bi-box-arrow-left"></span></span>
+                <span class="link">Sair</span>
+            </a>
+        </li>
+        `
+        }
+    }
 </script>
