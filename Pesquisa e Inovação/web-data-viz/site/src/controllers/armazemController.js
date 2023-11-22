@@ -13,9 +13,24 @@ function buscarArmazemPorEmpresa(req, res) {
         console.log(erro);
         console.log("Houve um erro ao buscar os aquarios: ", erro.sqlMessage);
         res.status(500).json(erro.sqlMessage);
-    })
-}
+    });
+};
+
+function visaoGeral(req, res){
+    console.log('Estou no visão geral do controller')
+    var idEmpresa = req.body.idEmpresa;
+    var idUsuario = req.body.idUsuario;
+
+    armazemModel.visaoGeral(idEmpresa, idUsuario)
+    .then(
+        function(resultadoSelect){
+            console.log(resultadoSelect);
+            res.status(201).json(resultadoSelect);
+        }
+    );
+};
 
 module.exports = {
-    buscarArmazemPorEmpresa
+    buscarArmazemPorEmpresa,
+    visaoGeral
 }

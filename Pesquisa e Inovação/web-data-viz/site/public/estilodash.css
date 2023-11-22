@@ -123,11 +123,13 @@ body {
 
 /* VISÃO GERAL */
 .container02 {
+    height: calc(100% - 70px);
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
     margin-left: 20px;
+    overflow-y: scroll;
 }
 
 /* CARD ARMAZEM */
@@ -171,6 +173,41 @@ body {
     font-size: 25px;
 }
 
-.armazem:hover {
-    width: 270px;
+
+#div_statusArmazem{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.dadoArmazem{
+    margin-top: 50px;
+    width: 60%;
+    height: 300px;
+    background-color: #85275a;
+    display: flex;
+    border-radius: 1em;
+    flex-direction: row;
+}
+
+.temperatura{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+    border-right: 1px solid #fff;
+}
+
+.endereco{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
 }

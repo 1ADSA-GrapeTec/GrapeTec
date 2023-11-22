@@ -171,10 +171,10 @@ SELECT sensor.*, vinho.tipoVinho FROM sensor join armazem on fkArmazem = idArmaz
 
 INSERT INTO dadoSensor (temperatura, fkSensor, fkArmazem, fkEmpresa) VALUES
 -- tinto
-(10, 1, 200, 1000),
-(12, 2, 200, 1000),
-(11, 3, 200, 1000),
-(13, 4, 200, 1000),
+(7, 1, 200, 1000),
+(15, 2, 200, 1000),
+(10, 3, 200, 1000),
+(15, 4, 200, 1000),
 -- rosê
 (9, 1, 201, 1000),
 (10, 2, 201, 1000),
@@ -198,6 +198,7 @@ select * from usuario;
 delete from usuario where idUsuario=7;
 select * from dadosensor;
 
+
 CREATE USER 'usuario'@'10.18.33.116' IDENTIFIED BY 'usuario';
 GRANT insert, select, update, delete on grapetec.* TO 'usuario'@'10.18.33.116';
 FLUSH PRIVILEGES;
@@ -206,7 +207,7 @@ select * from acesso;
 
 -- SELECT PARA A TELA DE VISÃO GERAL
 SELECT
-ds.temperatura,
+AVG(ds.temperatura) tempMedia,
 ar.idArmazem,
 ar.fkEmpresa empresaArmazem,
 v.tipoVinho,
@@ -239,4 +240,4 @@ JOIN vinho v
 ON ar.fkVinho = v.idVinho
 JOIN endereco en
 ON en.idEndereco = ar.fkEndereco
-WHERE acs.fkEmpresa = 1000 AND acs.fkUsuario = 1 order by ds.dtAtual;
+WHERE acs.fkEmpresa = 1000 AND acs.fkUsuario = 1 AND ds.dtAtual = (SELECT MAX(dtAtual) FROM dadoSensor) GROUP BY ar.idArmazem;

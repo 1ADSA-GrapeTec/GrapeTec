@@ -6,12 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="estilodash.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-    <link rel="shortcut icon" href="public/assets/img/fav.png" type="image/x-icon">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <title>GrapeTec</title>
 </head>
 
-<body onload="tipoAdm()">
+<body onload="tipoAdm(), criarSessionStorage()">
     <!-- Menu Lateral -->
     <div class="container">
         <div class="menuLateral">
@@ -58,7 +57,9 @@
                         </h1>
                     </div>
                 </div>
-
+                <div id="div_statusArmazem">
+                    
+                </div>
             </div>
 
         </div>
@@ -70,6 +71,54 @@
 
 <script>
     var fkEmpresa = sessionStorage.FKEMPRESA_USUARIO;
+
+    function criarSessionStorage() {
+        document.getElementById("div_statusArmazem").innerHTML= '';
+        fetch("/armazem/visaoGeral", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                idEmpresa: fkEmpresa,
+                idUsuario: sessionStorage.ID_USUARIO
+            })
+        }).then(
+            function (resposta) {
+                if (resposta.ok) {
+                    resposta.json().then(json => {
+                        console.log(json);
+                        console.log(JSON.stringify(json));
+                        sessionStorage.informacoesArmazens = JSON.stringify(json);
+                    }).then(
+                        JSON.parse(sessionStorage.informacoesArmazens).forEach(item => {
+                            document.getElementById("div_statusArmazem").innerHTML += `
+                            <div class="dadoArmazem">
+                        <div class="temperatura">
+                            <h1 class="corVerde">${item.tempMedia}</h1>
+                        </div>
+                        <div class="endereco">
+                            <span><b>Número:</b>${item.numero}</span>
+                            <span><b>Rua:</b>${item.rua}</span>
+                            <span><b>Bairro:</b>${item.bairro}</span>
+                            <span><b>Estado:</b>${item.estado}</span>
+                            <span><b>Cidade:</b>${item.cidade}</span>
+                            <span><b>Pais:</b>${item.rua}</span>
+                        </div>
+                    </div>
+                    `
+                        })
+                    ) .then(
+                        sessionStorage.informacoesArmazens = {}
+                    ) .then(
+                        setTimeout(criarSessionStorage,10000)
+                        )
+                }
+            }
+        )
+    };
 
     function tipoAdm() {
         var tipoUsuario = sessionStorage.TIPO_USUARIO;
