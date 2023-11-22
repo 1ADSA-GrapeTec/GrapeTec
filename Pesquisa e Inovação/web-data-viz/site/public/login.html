@@ -101,19 +101,16 @@
                     sessionStorage.EMAIL_USUARIO = json.email;
                     sessionStorage.NOME_USUARIO = json.nome;
                     sessionStorage.TIPO_USUARIO = json.tipoUsuario;
-                    sessionStorage.FKEMPRESA_USUARIO = json.fkEmpresa;
                     sessionStorage.ID_USUARIO = json.idUsuario;
-<<<<<<< HEAD
-                    
-                        window.location = "visaoGeral.html";
-=======
-                    sessionStorage.FKARMAZEM_SENSOR = JSON.stringify(json.fkArmazem)
-                    sessionStorage.DADOSENSOR = JSON.stringify(json.dadoSensor) // Pegar dados dos sensores
-
+                    sessionStorage.FK_ARMAZEM = JSON.stringify(json.fkArmazem);
+                    sessionStorage.DADO_SENSOR1 = JSON.stringify(json.dadoSensor1);
+                    sessionStorage.DADO_SENSOR2 = JSON.stringify(json.dadoSensor2);
+                    sessionStorage.DADO_SENSOR3 = JSON.stringify(json.dadoSensor3);
+                    sessionStorage.DADO_SENSOR4 = JSON.stringify(json.dadoSensor4);
+                    sessionStorage.DADO_SENSOR5 = JSON.stringify(json.dadoSensor5);
+                    window.location = "visaoGeral.html";
                     // window.location = "./dashboard/cards.html";
->>>>>>> 9fc33f778f76db51a1f7b460fa569af3594337d0
                     // apenas para exibir o loading
-
                 });
 
             } else {
@@ -125,9 +122,6 @@
                     finalizarAguardar(texto);
                 });
             }
-
         })
-
-    }
-        
+    }    
 </script>

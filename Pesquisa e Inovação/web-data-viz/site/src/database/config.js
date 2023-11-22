@@ -22,11 +22,7 @@ var mySqlConfig = {
     host: "localhost", 
     database: "grapetec",
     user: "usuario",
-<<<<<<< HEAD
     password: "usuario"
-=======
-    password: "usuario",
->>>>>>> 9fc33f778f76db51a1f7b460fa569af3594337d0
 };
 
 function executar(instrucao) {
