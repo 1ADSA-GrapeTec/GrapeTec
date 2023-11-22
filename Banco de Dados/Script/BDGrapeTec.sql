@@ -19,6 +19,7 @@ truncate table dadosensor;
 select * from dadosensor;
 drop user 'usuario'@'localhost';
 
+select*from usuario;
 
 CREATE TABLE usuario(
 idUsuario INT auto_increment,
@@ -200,3 +201,42 @@ select * from dadosensor;
 CREATE USER 'usuario'@'10.18.33.116' IDENTIFIED BY 'usuario';
 GRANT insert, select, update, delete on grapetec.* TO 'usuario'@'10.18.33.116';
 FLUSH PRIVILEGES;
+
+select * from acesso;
+
+-- SELECT PARA A TELA DE VISÃO GERAL
+SELECT
+ds.temperatura,
+ar.idArmazem,
+ar.fkEmpresa empresaArmazem,
+v.tipoVinho,
+v.tempCritQuente,
+v.tempAlertaQuente,
+v.temperaturaIdeal,
+v.tempAlertaFrio,
+v.tempCritFrio,
+en.rua,
+en.numero,
+en.bairro,
+en.estado,
+en.cidade,
+en.pais
+FROM dadosensor ds
+JOIN sensor
+ON sensor.idSensor = ds.fkSensor
+AND sensor.fkArmazem = ds.fkArmazem
+AND sensor.fkEmpresa = ds.fkEmpresa
+JOIN armazem ar
+ON sensor.fkArmazem = ar.idArmazem
+AND sensor.fkEmpresa = ar.fkEmpresa
+JOIN acesso acs
+ON acs.fkEmpresa = ar.fkEmpresa
+AND acs.fkArmazem = ar.idArmazem
+JOIN usuario usr
+ON usr.idUsuario = acs.fkUsuario
+AND usr.fkEmpresa = acs.fkEmpresa
+JOIN vinho v
+ON ar.fkVinho = v.idVinho
+JOIN endereco en
+ON en.idEndereco = ar.fkEndereco
+WHERE acs.fkEmpresa = 1000 AND acs.fkUsuario = 1 order by ds.dtAtual;

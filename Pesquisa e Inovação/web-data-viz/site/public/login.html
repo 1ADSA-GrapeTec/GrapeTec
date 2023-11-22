@@ -103,8 +103,15 @@
                     sessionStorage.TIPO_USUARIO = json.tipoUsuario;
                     sessionStorage.FKEMPRESA_USUARIO = json.fkEmpresa;
                     sessionStorage.ID_USUARIO = json.idUsuario;
+<<<<<<< HEAD
                     
                         window.location = "visaoGeral.html";
+=======
+                    sessionStorage.FKARMAZEM_SENSOR = JSON.stringify(json.fkArmazem)
+                    sessionStorage.DADOSENSOR = JSON.stringify(json.dadoSensor) // Pegar dados dos sensores
+
+                    // window.location = "./dashboard/cards.html";
+>>>>>>> 9fc33f778f76db51a1f7b460fa569af3594337d0
                     // apenas para exibir o loading
 
                 });
