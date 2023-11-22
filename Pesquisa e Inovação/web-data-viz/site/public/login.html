@@ -102,14 +102,13 @@
                     sessionStorage.NOME_USUARIO = json.nome;
                     sessionStorage.TIPO_USUARIO = json.tipoUsuario;
                     sessionStorage.ID_USUARIO = json.idUsuario;
-<<<<<<< HEAD
+                    sessionStorage.FKEMPRESA_USUARIO = json.fkEmpresa;
                     sessionStorage.FKARMAZEM_SENSOR = JSON.stringify(json.fkArmazem);
                     sessionStorage.DADOSENSOR = JSON.stringify(json.dadoSensor);
                         window.location = "visaoGeral.html";
                 
                         // Pegar dados dos sensores
 
-=======
                     sessionStorage.FK_ARMAZEM = JSON.stringify(json.fkArmazem);
                     sessionStorage.DADO_SENSOR1 = JSON.stringify(json.dadoSensor1);
                     sessionStorage.DADO_SENSOR2 = JSON.stringify(json.dadoSensor2);
@@ -117,7 +116,6 @@
                     sessionStorage.DADO_SENSOR4 = JSON.stringify(json.dadoSensor4);
                     sessionStorage.DADO_SENSOR5 = JSON.stringify(json.dadoSensor5);
                     window.location = "visaoGeral.html";
->>>>>>> 0fea7187ebe7ea52f73317bceb6e68c040525280
                     // window.location = "./dashboard/cards.html";
                     // apenas para exibir o loading
                 });

@@ -1,7 +1,7 @@
 var database = require("../database/config");
 
 function buscarAcesso(usuarioId) {
- instrucaoSql = `select fkArmazem from acesso where fkUsuario = ${usuarioId}`;
+ instrucaoSql = `select fkArmazem, fkEmpresa from acesso where fkUsuario = ${usuarioId}`;
 
  console.log("Exexcutando a instrução SQL: \n" + instrucaoSql)
  return database.executar(instrucaoSql);
@@ -14,7 +14,6 @@ function buscarSensor(fkArmazem) {
     return database.executar(instrucaoSql)
 }
 
-<<<<<<< HEAD
 function visaoGeral(idEmpresa, idUsuario) {
     instrucaoSql = `
     SELECT
@@ -53,23 +52,22 @@ function visaoGeral(idEmpresa, idUsuario) {
     ON en.idEndereco = ar.fkEndereco
     WHERE acs.fkEmpresa = ${idEmpresa} AND acs.fkUsuario = ${idUsuario} AND ds.dtAtual = (SELECT MAX(dtAtual) FROM dadoSensor) GROUP BY ar.idArmazem;
     `
-=======
+    console.log("Executando a instrução SQL: \n" + instrucaoSql)
+    return database.executar(instrucaoSql)
+}
 function buscarDadoSensor(fkArmazem, idSensor) {
     instrucaoSql = `select * from dadosensor where fkArmazem = ${fkArmazem} and fkSensor = ${idSensor} order by idDadoSensor desc limit 24`
     
->>>>>>> 0fea7187ebe7ea52f73317bceb6e68c040525280
+
     console.log("Executando a instrução SQL: \n" + instrucaoSql)
     return database.executar(instrucaoSql)
 }
 
 module.exports = {
-<<<<<<< HEAD
-    buscarArmazemPorEmpresa,
+    // buscarArmazemPorEmpresa,
     buscarDadoSensor,
-    visaoGeral
-=======
+    visaoGeral,
     buscarAcesso,
     buscarSensor,
     buscarDadoSensor
->>>>>>> 0fea7187ebe7ea52f73317bceb6e68c040525280
 }
