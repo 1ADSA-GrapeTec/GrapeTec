@@ -18,36 +18,35 @@ function autenticar(req, res) {
                     console.log(`Resultados: ${JSON.stringify(resultadoAutenticar)}`); // transforma JSON em String
 
                     if (resultadoAutenticar.length >= 1) {
-                        armazemModel.buscarArmazemPorEmpresa(resultadoAutenticar[0].fkEmpresa).then((resultadoArmazem)=> {
-                            if(resultadoArmazem.length > 0) {
-                                armazemModel.buscarDadoSensor(resultadoArmazem[0].idSensor).then((resultadoDadoSensor1)=> {
-                                    armazemModel.buscarDadoSensor(resultadoArmazem[1].idSensor).then((resultadoDadoSensor2)=> {
-                                        armazemModel.buscarDadoSensor(resultadoArmazem[2].idSensor).then((resultadoDadoSensor3)=> {
-                                            armazemModel.buscarDadoSensor(resultadoArmazem[3].idSensor).then((resultadoDadoSensor4)=> {
-                                                armazemModel.buscarDadoSensor(resultadoArmazem[4].idSensor).then((resultadoDadoSensor5)=> {
+                        armazemModel.buscarAcesso(resultadoAutenticar[0].idUsuario).then((resultadoAcesso)=> {
+                            armazemModel.buscarSensor(resultadoAcesso[0].fkArmazem).then((resultadoSensor)=> {
+                                armazemModel.buscarDadoSensor(resultadoSensor[0].fkArmazem, resultadoSensor[0].idSensor).then((resultadoDadoSensor1)=> {
+                                    armazemModel.buscarDadoSensor(resultadoSensor[0].fkArmazem, resultadoSensor[1].idSensor).then((resultadoDadoSensor2)=> {
+                                        armazemModel.buscarDadoSensor(resultadoSensor[0].fkArmazem, resultadoSensor[2].idSensor).then((resultadoDadoSensor3)=> {
+                                            armazemModel.buscarDadoSensor(resultadoSensor[0].fkArmazem, resultadoSensor[3].idSensor).then((resultadoDadoSensor4)=> {
+                                                armazemModel.buscarDadoSensor(resultadoSensor[0].fkArmazem, resultadoSensor[4].idSensor).then((resultadoDadoSensor5)=> {
+                                                    console.log(resultadoAcesso)
                                                     res.json({
-                                                        email:resultadoAutenticar[0].email,
-                                                        nome:resultadoAutenticar[0].nome,
-                                                        tipoUsuario:resultadoAutenticar[0].tipoUsuario,
-                                                        fkEmpresa:resultadoAutenticar[0].fkEmpresa,
-                                                        idUsuario:resultadoAutenticar[0].idUsuario,
-                                                        fkArmazem:resultadoArmazem,
-                                                        fkSensor1: resultadoDadoSensor1,
-                                                        fkSensor2: resultadoDadoSensor2,
-                                                        fkSensor3: resultadoDadoSensor3,
-                                                        fkSensor4: resultadoDadoSensor4,
-                                                        fkSensor5: resultadoDadoSensor5
+                                                        idUsuario: resultadoAutenticar[0].idUsuario,
+                                                        email: resultadoAutenticar[0].email,
+                                                        nome: resultadoAutenticar[0].nome,
+                                                        tipoUsuario: resultadoAutenticar[0].tipoUsuario,
+                                                        fkArmazem: resultadoAcesso,
+                                                        sensorArmazem: resultadoSensor,
+                                                        dadoSensor1: resultadoDadoSensor1,
+                                                        dadoSensor2: resultadoDadoSensor2,
+                                                        dadoSensor3: resultadoDadoSensor3,
+                                                        dadoSensor4: resultadoDadoSensor4,
+                                                        dadoSensor5: resultadoDadoSensor5
                                                     })
                                                 })
                                             })
                                         })
                                     })
                                 })
-                                
-                            }
+                            })
                         })
                     }
-
                 });
 
     }
