@@ -240,3 +240,7 @@ ON ar.fkVinho = v.idVinho
 JOIN endereco en
 ON en.idEndereco = ar.fkEndereco
 WHERE acs.fkEmpresa = 1000 AND acs.fkUsuario = 1 order by ds.dtAtual;
+
+create user 'cliente'@'localhost' identified by 'cliente';
+grant insert,select on grapetec.* to 'cliente'@'localhost';
+flush privileges;
