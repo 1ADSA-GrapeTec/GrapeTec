@@ -241,3 +241,8 @@ ON ar.fkVinho = v.idVinho
 JOIN endereco en
 ON en.idEndereco = ar.fkEndereco
 WHERE acs.fkEmpresa = 1000 AND acs.fkUsuario = 1 AND ds.dtAtual = (SELECT MAX(dtAtual) FROM dadoSensor) GROUP BY ar.idArmazem;
+
+create user 'cliente'@'localhost' identified by 'cliente';
+grant insert,select on grapetec.* to 'cliente'@'localhost';
+flush privileges;
+
