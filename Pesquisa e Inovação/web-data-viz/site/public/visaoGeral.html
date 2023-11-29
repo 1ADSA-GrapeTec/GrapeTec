@@ -93,7 +93,8 @@
                         console.log(JSON.stringify(json));
                         sessionStorage.informacoesArmazens = JSON.stringify(json);
                     }).then(
-                        JSON.parse(sessionStorage.informacoesArmazens).forEach(item => {
+
+                    setTimeout(JSON.parse(sessionStorage.informacoesArmazens).forEach(item => {
                             document.getElementById("div_statusArmazem").innerHTML += `
                             <div class="dadoArmazem">
                         <div class="temperatura">
@@ -109,7 +110,8 @@
                         </div>
                     </div>
                     `
-                        })
+                        }),100)
+                        
                     ) .then(
                         sessionStorage.informacoesArmazens = {}
                     ) .then(
