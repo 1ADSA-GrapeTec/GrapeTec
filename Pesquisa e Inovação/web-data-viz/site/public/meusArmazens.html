@@ -13,43 +13,25 @@
 
 <body>
     <!-- Menu Lateral -->
-    <div class="container">
-        <div class="menuLateral">
-            <div class="links">
-                <ul>
-                    <li class="itemMenu">
-                        <a href="visaoGeral.html">
-                            <span class="icon"><span class="bi bi-bar-chart-line"></span></span>
-                            <span class="link">Visão geral</span>
-                        </a>
-                    </li>
-                    <li class="itemMenu">
-                        <a href="meusArmazens.html">
-                            <span id="aqui" class="icon"><span class="bi bi-house-door"></span></span>
-                            <span id="aqui" class="link">Meus armazéns</span>
-                        </a>
-                    </li>
-                    <li class="itemMenu">
-                        <a href="cadastro.html">
-                            <span class="icon"><span class="bi bi-plus-circle"></span></span>
-                            <span class="link">Adicionar novo usuário</span>
-                        </a>
-                    </li>
-                    <li class="itemMenu">
-                        <a href="#">
-                            <span class="icon"><span class="bi bi-exclamation-triangle"></span></span>
-                            <span class="link">Alertas</span>
-                        </a>
-                    </li>
-                    <li class="itemMenu">
-                        <a href="#">
-                            <span class="icon"><span class="bi bi-box-arrow-left"></span></span>
-                            <span class="link">Sair</span>
-                        </a>
-                    </li>
-                </ul>
+        <div class="container">
+            <div class="menuLateral">
+                <div class="links">
+                    <ul id="ul_navBar">
+                        <li class="itemMenu">
+                            <a href="#">
+                                <span id="aqui" class="icon"><span class="bi bi-bar-chart-line"></span></span>
+                                <span id="aqui" class="link">Visão geral</span>
+                            </a>
+                        </li>
+                        <li class="itemMenu">
+                            <a href="meusArmazens.html">
+                                <span class="icon"><span class="bi bi-house-door"></span></span>
+                                <span class="link">Meus armazéns</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-        </div>
         <!-- NAVBAR -->
         <div class="info">
             <div class="navbar">
@@ -135,6 +117,41 @@
 </html>
 
 <script>
+
+    
+function tipoAdm() {
+        var tipoUsuario = sessionStorage.TIPO_USUARIO;
+        var nomeUsuario = sessionStorage.NOME_USUARIO;
+
+        span_nomeUsuario.innerHTML = nomeUsuario;
+
+        if (tipoUsuario == 'administrador') {
+            ul_navBar.innerHTML += `
+        <li class="itemMenu">
+            <a href="cadastro.html">
+                <span class="icon"><span class="bi bi-plus-circle"></span></span>
+                <span class="link">Adicionar novo usuário</span>
+            </a>
+        </li>
+        <li class="itemMenu">
+            <a href="#">
+                <span class="icon"><span class="bi bi-box-arrow-left"></span></span>
+                <span class="link">Sair</span>
+            </a>
+        </li>
+        `
+        } else {
+            ul_navBar.innerHTML += `
+        <li class="itemMenu">
+            <a href="#">
+                <span class="icon"><span class="bi bi-box-arrow-left"></span></span>
+                <span class="link">Sair</span>
+            </a>
+        </li>
+        `
+        }
+    }
+    
     var temp = [];
     for (; temp.length < 24;) {
         var temperatura = (Math.random() * 9) + 9;
