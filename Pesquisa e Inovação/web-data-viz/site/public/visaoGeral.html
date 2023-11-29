@@ -58,7 +58,7 @@
                     </div>
                 </div>
                 <div id="div_statusArmazem">
-                    
+                   
                 </div>
             </div>
 
@@ -73,7 +73,7 @@
     var fkEmpresa = sessionStorage.FKEMPRESA_USUARIO;
 
     function criarSessionStorage() {
-        document.getElementById("div_statusArmazem").innerHTML= '';
+        document.getElementById("div_statusArmazem").innerHTML = '';
         fetch("/armazem/visaoGeral", {
             method: "POST",
             headers: {
@@ -94,7 +94,7 @@
                         sessionStorage.informacoesArmazens = JSON.stringify(json);
                     }).then(
 
-                    setTimeout(JSON.parse(sessionStorage.informacoesArmazens).forEach(item => {
+                        setTimeout(JSON.parse(sessionStorage.informacoesArmazens).forEach(item => {
                             document.getElementById("div_statusArmazem").innerHTML += `
                             <div class="dadoArmazem">
                         <div class="temperatura">
@@ -109,14 +109,15 @@
                             <span><b>Pais:</b>${item.rua}</span>
                         </div>
                     </div>
+
                     `
-                        }),100)
-                        
-                    ) .then(
+                        }), 100)
+
+                    ).then(
                         sessionStorage.informacoesArmazens = {}
-                    ) .then(
-                        setTimeout(criarSessionStorage,10000)
-                        )
+                    ).then(
+                        setTimeout(criarSessionStorage, 10000)
+                    )
                 }
             }
         )

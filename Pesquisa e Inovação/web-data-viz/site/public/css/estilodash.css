@@ -9,18 +9,24 @@
 
 body {
     height: 100vh;
+    background-color: #f1f1f153;
 }
-
 .container {
     display: flex;
     flex-direction: row;
 }
 
+
+.content {
+    margin-left: 280px; 
+    width: calc(100% - 280px);
+}
+
 .info {
     height: 100vh;
-    width: 100vw;
-    background-color: #f1f1f19c;
+    width: 100%;
 }
+
 
 .navbar {
     display: flex;
@@ -125,7 +131,7 @@ body {
 .container02 {
     height: calc(100% - 70px);
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     justify-content: space-evenly;
     margin-left: 20px;
@@ -151,6 +157,7 @@ body {
 .armazem .text {
     display: flex;
     flex-direction: row;
+    color: white;
 }
 
 .armazem #linha {
@@ -177,6 +184,7 @@ body {
 #div_statusArmazem{
     height: 100%;
     width: 100%;
+    margin-bottom: 45px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -210,4 +218,9 @@ body {
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
+    color: white;
+}
+
+.corVerde {
+    color: white;
 }
