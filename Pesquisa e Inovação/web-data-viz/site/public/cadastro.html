@@ -21,7 +21,7 @@
                     <input id="input_email" placeholder="usuario@exemplo.com">
                     <span id="span_errormsg" style="color: red;"></span>
                 </div>
-                <button class="next" onclick="campoSenha()">Próximo</button>
+                <button class="next" onclick="campoSenha()">Próximo</button> 
             </div>
         </div>
     </section>
@@ -32,20 +32,60 @@
     senha = '';
     nome = '';
     var field = document.getElementById('div_field');
+    var telaSenha = `
+        <div>
+            <h2>Senha</h2>
+            <input id="input_password" onkeyup="verificarSenha()" type="password" placeholder="********">
+            <span id="span_errormsg" style="color: red;"></span>
+        </div>
+        <div class="buttons">
+            <button class="back" onclick="voltarCampoEmail()">Voltar</button>
+            <button class="next" onclick="campoConfirmarSenha()">Próximo</button>
+        </div>
+        `;
+
+    var telaEmail = `
+        <div>
+            <h2>E-mail</h2>
+            <input id="input_email" placeholder="usuario@exemplo.com">
+            <span id="span_errormsg" style="color: red;"></span>
+        </div>
+        <button class="next" onclick="campoSenha()">Próximo</button>   
+        `;
+
+    var telaConfirmSenha = `
+        <div>
+            <h2>Confirmar senha</h2>
+            <input id="input_passwordConfirm" type="password" placeholder="********">
+            <span id="span_errormsg" style="color: red;"></span>
+        </div>
+        <div class="buttons">
+            <button class="back" onclick="voltarCampoSenha()">Voltar</button>
+            <button class="next" onclick="campoNome()">Próximo</button>
+        </div>
+            `;
+
+        var telaTipoUsuario = `
+        <div>
+            <h2>Tipo de usuário</h2>
+            <select id="select_tipoUsuario">
+                <option value="comum">comum</option>
+                <option value="administrador">administrador</option>
+            </select>
+            <span id="span_errormsg" style="color: red;"></span>
+        </div>
+        <div class="buttons">
+            <button class="back" onclick="voltarCampoNome()">Voltar</button>
+            <button class="next" onclick="gerarAcessos()">Enviar</button>
+        </div>
+        `;
 
     function campoSenha() {
         var emailVar = (input_email.value).toLowerCase();
-        var posicaoArroba = false;
-        for (var index = 0; index < emailVar.length; index++) {
-            if (emailVar[index] == '@') {
-                posicaoArroba = true;
-                break;
-            };
-        };
+        
         if (
-            emailVar.indexOf('.com') < emailVar.length - 4 ||
-            posicaoArroba == false ||
-            index < 1
+            emailVar.indexOf('@') < 1 ||
+            emailVar.indexOf('.com') < emailVar.length - 4
         ) {
             span_errormsg.innerHTML = `E-mail inválido`;
         } else {
@@ -68,17 +108,7 @@
                 } else {
                     
                     field.classList.remove('field');
-                    div_field.innerHTML = `
-                    <div>
-                        <h2>Senha</h2>
-                        <input id="input_password" onkeyup="verificarSenha()" type="password" placeholder="********">
-                        <span id="span_errormsg" style="color: red;"></span>
-                    </div>
-                    <div class="buttons">
-                        <button class="back" onclick="voltarCampoEmail()">Voltar</button>
-                        <button class="next" onclick="campoConfirmarSenha()">Próximo</button>
-                    </div>
-                    `;
+                    div_field.innerHTML = telaSenha;
                     field.classList.add('field');
 
                     email = emailVar;
@@ -90,34 +120,18 @@
 
     function voltarCampoEmail() {
         field.classList.remove('field');
-        div_field.innerHTML = `
-                <div>
-                    <h2>E-mail</h2>
-                    <input id="input_email" placeholder="usuario@exemplo.com">
-                    <span id="span_errormsg" style="color: red;"></span>
-                </div>
-                <button class="next" onclick="campoSenha()">Próximo</button>
-                
-        `;
+        div_field.innerHTML = telaEmail;
         field.classList.add('field');
         email = "";
     };
 
-    var temEspaco = false
     function verificarSenha() {
         var senhaVar = input_password.value;
         span_errormsg.innerHTML = "";
-        temEspaco = false;
-        for (var index = 0; index < senhaVar.length; index++) {
-            if (senhaVar[index] == " ") {
-                temEspaco = true;
-                break;
-            };
-        };
 
         if (senhaVar.length < 8) {
             span_errormsg.innerHTML = `A senha deve ter no mínimo 8 caracteres`;
-        } else if (temEspaco == true) {
+        } else if (senhaVar.indexOf(' ') > -1) {
             span_errormsg.innerHTML = `A senha não pode conter espaços`;
         };
     };
@@ -140,17 +154,7 @@
         } else {
 
             field.classList.remove('field');
-            div_field.innerHTML = `
-                <div>
-                    <h2>Confirmar senha</h2>
-                    <input id="input_passwordConfirm" type="password" placeholder="********">
-                    <span id="span_errormsg" style="color: red;"></span>
-                </div>
-                <div class="buttons">
-                    <button class="back" onclick="voltarCampoSenha()">Voltar</button>
-                    <button class="next" onclick="campoNome()">Próximo</button>
-                </div>
-            `;
+            div_field.innerHTML = telaConfirmSenha;
             field.classList.add('field');
             senha = senhaVar;
         };
@@ -158,17 +162,7 @@
 
     function voltarCampoSenha() {
         field.classList.remove('field');
-        div_field.innerHTML = `
-                <div>
-                    <h2>Senha</h2>
-                    <input id="input_password" onkeyup="verificarSenha()" type="password" placeholder="********">
-                    <span id="span_errormsg" style="color: red;"></span>
-                </div>
-                <div class="buttons">
-                    <button class="back" onclick="voltarCampoEmail()">Voltar</button>
-                    <button class="next" onclick="campoConfirmarSenha()">Próximo</button>
-                </div>
-            `;
+        div_field.innerHTML = telaSenha;
         field.classList.add('field');
         senha = "";
     };
@@ -179,7 +173,7 @@
         if (confSenha != senha) {
             span_errormsg.innerHTML = `As senhas devem ser iguais`
         } else {
-            var nomePH = ['Caio', 'Fernando', 'Vivian', 'Thiago', 'Mônica', 'Eduardo'];
+            var nomePH = ['Amanda', 'Anna', 'Caique', 'Daniel', 'Jean', 'Jacson'];
             var index = parseInt(Math.random() * nomePH.length)
             field.classList.remove('field');
             div_field.innerHTML = `
@@ -192,8 +186,8 @@
                 <div class="buttons">
                     <button class="back" onclick="voltarCampoSenha()">Voltar</button>
                     <button class="next" onclick="campoTipoUsuario()">Próximo</button>
-                </div>
-            `;
+                </div>`
+                ;
             field.classList.add('field');
         };
     };
@@ -219,50 +213,107 @@
             span_errormsg.innerHTML = `Nome muito curto`
         } else {
             field.classList.remove('field')
-            div_field.innerHTML = `
-                <div>
-                    <h2>Tipo de usuário</h2>
-                    <select id="select_tipoUsuario">
-                        <option value="comum">comum</option>
-                        <option value="administrador">administrador</option>
-                    </select>
-                    <span id="span_errormsg" style="color: red;"></span>
-                </div>
-                <div class="buttons">
-                    <button class="back" onclick="voltarCampoNome()">Voltar</button>
-                    <button class="next" onclick="enviarBanco()">Enviar</button>
-                </div>
-            `;
+            div_field.innerHTML = telaTipoUsuario;
             field.classList.add('field');
             nome = nomeVar;
         }
     };
 
+    function gerarAcessos(){
+        field.classList.remove('field');
+        
+        field.innerHTML = `
+        <div>
+                <h2>Armazéns acessáveis</h2>
+        <div id="div_field2" class="field">
+
+        </div>
+                <span id="span_errormsg" style="color: red;"></span>
+        </div>
+        <div class="buttons">
+                <button class="back" onclick="voltarCampoTipoUsuario()">Voltar</button>
+                <button class="next" onclick="enviarBanco()">Próximo</button>
+            </div>
+        </div>
+        `;
+
+        field.classList.add('field');
+
+        fetch("/armazem/buscarArmazemPorEmpresa", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                idEmpresaServer: sessionStorage.FKEMPRESA_USUARIO
+            })
+        }).then(function(resposta){
+            if(resposta.status == 500){
+                span_errormsg.innerHTML = `Erro na comunicação com o servidor`
+            } else if(resposta.status == 400){
+                span_errormsg.innerHTML = `Nenhum armazem cadastrado`
+            } else{
+                resposta.json().then(json => {
+                    console.log(json)
+                    sessionStorage.resultadoBuscaArmazens = JSON.stringify(json)
+                }) .then(
+
+                setTimeout(() => {
+                        var resultadoBusca = JSON.parse(sessionStorage.resultadoBuscaArmazens)
+                        atualizarTela(resultadoBusca);
+                    }, 200)
+                    
+                )
+                // forEach(element => {
+                //     div_field2.innerHTML += `<span class="span_chk"><input value="${armazem.idArmazem}"class="chk" type="checkbox">Rua ${element.rua} ${element.nome}</span>`
+                // });
+            }
+        })
+    }
+
+    function atualizarTela(resultadoBusca){
+        resultadoBusca.forEach(element => {
+            div_field2.innerHTML += `<span class="span_chk"><input value="${element.idArmazem}"class="chk" type="checkbox">Rua ${element.rua} Nº${element.numero}</span>`
+        });
+    }
+
     function voltarCampoNome() {
         nome = "";
-        var nomePH = ['Caio', 'Fernando', 'Vivian', 'Thiago', 'Mônica', 'Eduardo'];
+        var nomePH = ['Amanda', 'Anna', 'Caique', 'Daniel', 'Jean', 'Jacson'];
         var index = parseInt(Math.random() * nomePH.length)
         field.classList.remove('field');
         div_field.innerHTML = `
-                <div>
-                    <h2>Nome</h2>
-                    <input id="input_nome" placeholder="${nomePH[index]}">
+        <div>
+            <h2>Nome</h2>
+            <input id="input_nome" placeholder="${nomePH[index]}">
 
-                    <span id="span_errormsg" style="color: red;"></span>
-                </div>
-                <div class="buttons">
-                    <button class="back" onclick="voltarCampoSenha()">Voltar</button>
-                    <button class="next" onclick="campoTipoUsuario()">Próximo</button>
-                </div>
-            `;
+            <span id="span_errormsg" style="color: red;"></span>
+        </div>
+        <div class="buttons">
+            <button class="back" onclick="voltarCampoSenha()">Voltar</button>
+            <button class="next" onclick="campoTipoUsuario()">Próximo</button>
+        </div>`
+        ;
         field.classList.add('field');
     };
 
     function enviarBanco() {
 
+        var armazensSelecionados = [];
+
+        var chkBox = document.getElementsByClassName('chk');
+
+        for(var i = 0; i < chk.length; i ++){
+
+            if(chkBox[i].check == true){
+                armazensSelecionados.push(chkBox[i].value);
+            };
+            
+        };
+
         var tipoUsuario = select_tipoUsuario.value;
         nome = nome.toLowerCase();
-        // nome = nome.replace(nome[0], nome[0].toUpperase());
+        nome = nome.replace(nome[0], nome[0].toUpperase());
 
         fetch("/usuario/cadastrar", {
             method: "POST",
@@ -270,8 +321,6 @@
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({
-                // crie um atributo que recebe o valor recuperado aqui
-                // Agora vá para o arquivo routes/usuario.js
                 nomeServer: nome,
                 emailServer: email,
                 senhaServer: senha,
@@ -279,16 +328,28 @@
                 
             })
         }).then(function (resposta) {
-            if (resposta.status==400){
+            if (resposta.status == 400){
                 alert ("CAMPOS INVÁLIDOS")
             }else {
             if (resposta.ok) {
-
-                setTimeout(function () {
-                    consol.log(resposta)
-                }, 3000)
-                window.location.href = "login.html"
+                buscarIdCadastrado();
             }}
         })
     };
+
+    function buscarIdCadastrado(){
+        fetch("/usuario/cadastrar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                nomeServer: nome,
+                emailServer: email,
+                senhaServer: senha,
+                tipoUsuarioServer: tipoUsuario
+                
+            })
+        })
+    }
 </script>

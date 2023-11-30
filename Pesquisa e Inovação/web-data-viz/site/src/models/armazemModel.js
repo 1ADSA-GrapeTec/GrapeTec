@@ -1,21 +1,35 @@
 var database = require("../database/config");
 
 function buscarAcesso(usuarioId) {
- instrucaoSql = `select fkArmazem, fkEmpresa from acesso where fkUsuario = ${usuarioId}`;
+    var instrucaoSql = `select fkArmazem, fkEmpresa from acesso where fkUsuario = ${usuarioId}`;
 
- console.log("Exexcutando a instrução SQL: \n" + instrucaoSql)
+ console.log("Executando a instrução SQL: \n" + instrucaoSql)
  return database.executar(instrucaoSql);
 }
 
 function buscarSensor(fkArmazem) {
-    instrucaoSql = `select * from sensor where  fkArmazem=${fkArmazem}`
+    var instrucaoSql = `select * from sensor where  fkArmazem = ${fkArmazem}`
 
     console.log("Executando a instrução SQL: \n" + instrucaoSql)
     return database.executar(instrucaoSql)
 }
 
+function buscarArmazemPorEmpresa(idEmpresa){
+    var instrucaoSql = `
+    SELECT 
+    idArmazem, 
+    rua, 
+    numero 
+    FROM armazem 
+    JOIN endereco 
+    ON fkEndereco = idEndereco 
+    WHERE armazem.fkEmpresa = ${idEmpresa} `
+    console.log("Executando a instrução SQL: \n" + instrucaoSql)
+    return database.executar(instrucaoSql)
+}
+
 function visaoGeral(idEmpresa, idUsuario) {
-    instrucaoSql = `
+    var instrucaoSql = `
     SELECT
     AVG(ds.temperatura) tempMedia,
     ar.idArmazem,
@@ -56,7 +70,7 @@ function visaoGeral(idEmpresa, idUsuario) {
     return database.executar(instrucaoSql)
 }
 function buscarDadoSensor(fkArmazem, idSensor) {
-    instrucaoSql = `select * from dadosensor where fkArmazem = ${fkArmazem} and fkSensor = ${idSensor} order by idDadoSensor desc limit 24`
+    var instrucaoSql = `select * from dadosensor where fkArmazem = ${fkArmazem} and fkSensor = ${idSensor} order by idDadoSensor desc limit 24`
     
 
     console.log("Executando a instrução SQL: \n" + instrucaoSql)
@@ -64,7 +78,7 @@ function buscarDadoSensor(fkArmazem, idSensor) {
 }
 
 module.exports = {
-    // buscarArmazemPorEmpresa,
+    buscarArmazemPorEmpresa,
     buscarDadoSensor,
     visaoGeral,
     buscarAcesso,
