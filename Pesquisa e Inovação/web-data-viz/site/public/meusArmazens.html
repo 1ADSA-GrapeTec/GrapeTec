@@ -11,37 +11,37 @@
     <title>GrapeTec</title>
 </head>
 
-<body>
+<body onload="tipoAdm(), criarSessionStorage()">
     <!-- Menu Lateral -->
-        <div class="container">
-            <div class="menuLateral">
-                <div class="links">
-                    <ul id="ul_navBar">
-                        <li class="itemMenu">
-                            <a href="#">
-                                <span id="aqui" class="icon"><span class="bi bi-bar-chart-line"></span></span>
-                                <span id="aqui" class="link">Visão geral</span>
-                            </a>
-                        </li>
-                        <li class="itemMenu">
-                            <a href="meusArmazens.html">
-                                <span class="icon"><span class="bi bi-house-door"></span></span>
-                                <span class="link">Meus armazéns</span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
+    <div class="container">
+        <div class="menuLateral">
+            <div class="links">
+                <ul id="ul_navBar">
+                    <li class="itemMenu">
+                        <a href="visaoGeral.html">
+                            <span  class="icon"><span class="bi bi-bar-chart-line"></span></span>
+                            <span  class="link">Visão geral</span>
+                        </a>
+                    </li>
+                    <li class="itemMenu">
+                        <a href="meusArmazens.html">
+                            <span id="aqui" class="icon"><span class="bi bi-house-door"></span></span>
+                            <span id="aqui" class="link">Meus armazéns</span>
+                        </a>
+                    </li>
+                </ul>
             </div>
+        </div>
         <!-- NAVBAR -->
         <div class="info">
             <div class="navbar">
                 <div class="BarraIcon">
-                    <img src="public/assets/img/fav.png" alt="">
+                    <img src="assets/img/fav.png" alt="">
                     <h2>GRAPETEC</h2>
                 </div>
                 <div class="user">
-                    <img src="public/assets/img/IconPessoa.png" alt="">
-                    <h3>Olá, Jacson</h3>
+                    <img src="assets/images/IconPessoa.png" alt="">
+                    <h3>Olá, <span id="span_nomeUsuario"></span></h3>
                 </div>
             </div>
             <!-- HOME -->
@@ -95,10 +95,6 @@
                             <h1 id="linha"></h1>
                             <h1>
                                 <select id="id_armazem">
-                                    <option value="">Armazém 1</option>
-                                    <option value="">Armazém 2</option>
-                                    <option value="">Armazém 3</option>
-                                    <option value="">Armazém 4</option>
                                 </select>
                             </h1>
                         </div>
@@ -117,9 +113,11 @@
 </html>
 
 <script>
-
-    
-function tipoAdm() {
+    var armazens = JSON.parse(sessionStorage.FK_ARMAZEM);
+    armazens.forEach(element =>  {
+        id_armazem.innerHTML += `<option value="${element.fkArmazem}">Rua: ${element.rua} Num: ${element.numero}</option>`;
+    });
+    function tipoAdm() {
         var tipoUsuario = sessionStorage.TIPO_USUARIO;
         var nomeUsuario = sessionStorage.NOME_USUARIO;
 
@@ -151,7 +149,7 @@ function tipoAdm() {
         `
         }
     }
-    
+
     var temp = [];
     for (; temp.length < 24;) {
         var temperatura = (Math.random() * 9) + 9;
@@ -352,9 +350,8 @@ function tipoAdm() {
         }
     };
 
-    const ctx = document.getElementById('myChart');
-
-    new Chart(ctx, {
+    
+    var myChart1 = new Chart(document.getElementById('myChart'), {
         type: 'line',
         data: {
             labels: ['00:00', '01:00', '02:00', '03:00', '04:00', '05:00', '06:00', '07:00', '08:00', '09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00', '20:00', '21:00', '22:00', '23:00'],
@@ -381,7 +378,7 @@ function tipoAdm() {
                 borderWidth: 3,
                 borderJoinStyle: 'round',
                 pointBackgroundColor: 'rgba(75, 192, 192, 1)',
-                pointRadius: 0, 
+                pointRadius: 0,
                 pointHoverRadius: 0,
                 borderCapStyle: 'round'
             },
@@ -394,7 +391,7 @@ function tipoAdm() {
                 borderJoinStyle: 'round',
                 pointBackgroundColor: 'rgba(75, 192, 192, 1)',
                 pointBorderColor: '#fff',
-                pointRadius: 0, 
+                pointRadius: 0,
                 pointHoverRadius: 0,
                 borderCapStyle: 'round'
             },
@@ -407,7 +404,7 @@ function tipoAdm() {
                 borderJoinStyle: 'round',
                 pointBackgroundColor: 'rgba(75, 192, 192, 1)',
                 pointBorderColor: '#fff',
-                pointRadius: 0, 
+                pointRadius: 0,
                 pointHoverRadius: 0,
                 borderCapStyle: 'round'
             },
@@ -420,7 +417,7 @@ function tipoAdm() {
                 borderJoinStyle: 'round',
                 pointBackgroundColor: 'rgba(75, 192, 192, 1)',
                 pointBorderColor: '#fff',
-                pointRadius: 0, 
+                pointRadius: 0,
                 pointHoverRadius: 0,
                 borderCapStyle: 'round'
             }]
@@ -432,8 +429,30 @@ function tipoAdm() {
                 }
             }
         }
-        
+
     });
 
+     
+    var selectAtual = id_armazem.value;
     
+    function verificarSelects(){
+        var select = id_armazem.value;
+        if(selectAtual != select){
+            selectAtual = select
+        }else {
+            fetch("/armazem/visaoGeral", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                idArmazem = selectAtual
+            })
+        })
+        }
+        setTimeout(verificarSelects, 1000)
+    }
+
 </script>
