@@ -1,7 +1,22 @@
 var database = require("../database/config");
 
 function buscarAcesso(usuarioId) {
+<<<<<<< HEAD
     var instrucaoSql = `select fkArmazem, fkEmpresa from acesso where fkUsuario = ${usuarioId}`;
+=======
+ instrucaoSql = `
+ SELECT
+ fkArmazem, 
+ armazem.fkEmpresa, 
+ rua, 
+ numero 
+ FROM acesso 
+ JOIN armazem 
+ ON fkArmazem = idArmazem 
+ JOIN endereco 
+ ON fkEndereco = idEndereco 
+ WHERE fkUsuario = ${usuarioId}`;
+>>>>>>> 762ccd103ab1de4a2aec89a46815bf9f0b565e62
 
  console.log("Executando a instrução SQL: \n" + instrucaoSql)
  return database.executar(instrucaoSql);

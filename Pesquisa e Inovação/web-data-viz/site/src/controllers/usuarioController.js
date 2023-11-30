@@ -48,7 +48,10 @@ function autenticar(req, res) {
                             })
                         })
                     }
-                });
+                }) .catch(function(erro){
+                    console.log(erro.sqlMessage)
+                    res.status(500).send('Erro com o banco')
+                })
 
     }
 }
@@ -141,3 +144,4 @@ module.exports = {
     autenticar,
     cadastrar
 }
+
