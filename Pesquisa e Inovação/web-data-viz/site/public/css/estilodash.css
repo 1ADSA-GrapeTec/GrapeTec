@@ -8,23 +8,21 @@
 }
 
 body {
-    height: 100vh;
     background-color: #f1f1f153;
 }
 .container {
+    height: 100vh;
     display: flex;
     flex-direction: row;
 }
 
 
-.content {
-    margin-left: 280px; 
-    width: calc(100% - 280px);
-}
-
 .info {
-    height: 100vh;
+    height: 100%;
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 
@@ -129,60 +127,112 @@ body {
 
 /* VISÃO GERAL */
 .container02 {
-    height: calc(100% - 70px);
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-evenly;
-    margin-left: 20px;
+    width: 100%;
+    height: 100%;
     overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 /* CARD ARMAZEM */
-.armazem {
-    height: 190px;
-    width: 380px;
-    margin-top: 10px;
-    border-radius: 15px;
+.informacoes{
+   width: 100%;
+   display: flex;
+   align-items: center;
+   justify-content: space-evenly;
+   height: 250px;
+   overflow-x: scroll;
+}
+
+.infoArmazem{
+    width: 25%;
+    height: 80%;
+    background-color: #00ff33;
     display: flex;
+    align-items: center;
     flex-direction: column;
-    align-items: start;
+    text-align: center;
     justify-content: space-evenly;
-    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.233);
-    background-color: #4d1132;
-    color: white;
-    transition: 0.3s;
+    border-radius: 20px;
+    margin-top: 30px;
+    color: #fff;
+    font-size: 13px;
 }
 
-.armazem .text {
+.alertaVermelho{
+    width: 25%;
+    height: 100%;
+    background-color: #ff0000;
+    border: solid 5px #ff0000;
     display: flex;
-    flex-direction: row;
-    color: white;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    justify-content: space-evenly;
+    border-radius: 20px;
+    margin-top: 30px;
+    color: #fff;
+    font-size: 13px;
+    animation: vermelho;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
 }
 
-.armazem #linha {
-    margin-left: 25px;
-    height: 40px;
+@keyframes vermelho {
+    from{
+        background-color: #fff;
+        color: #ff0000;
+    }
+    to{
+        
+    }
 }
 
-.armazem h1 {
-    margin-left: 10px;
-    font-size: 40px;
+@keyframes amarelo {
+    from{
+        background-color: #fff;
+        color: yellow;
+    }
+    to{
+        
+    }
 }
 
-.armazem h1 hr {
-    color: 4px solid #F1F1F1;
-
+.alertaAmarelo{
+    width: 25%;
+    height: 85%;
+    background-color: yellow;
+    border: solid 5px yellow;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    justify-content: space-evenly;
+    border-radius: 20px;
+    margin-top: 30px;
+    color: #fff;
+    font-size: 13px;
+    animation: amarelo;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
 }
 
-.armazem p {
-    margin-left: 25px;
-    font-size: 25px;
-}
+
 
 
 #div_statusArmazem{
-    height: 100%;
+    height: fit-content;
+    width: 100%;
+    margin-bottom: 45px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+#div_statusArmazem2{
+    height: fit-content;
     width: 100%;
     margin-bottom: 45px;
     display: flex;
@@ -221,6 +271,14 @@ body {
     color: white;
 }
 
-.corVerde {
-    color: white;
+.tempVerde {
+    color: #00ff33;
+}
+
+.tempAmarela {
+    color: yellow;
+}
+
+.tempVermelha{
+    color: #ff0000;
 }
