@@ -28,6 +28,7 @@
 </body>
 
 <script>
+    tipoUsuario = '';
     email = '';
     senha = '';
     nome = '';
@@ -220,6 +221,9 @@
     };
 
     function gerarAcessos(){
+
+        tipoUsuario = select_tipoUsuario.value;
+
         field.classList.remove('field');
         
         field.innerHTML = `
@@ -264,9 +268,6 @@
                     }, 200)
                     
                 )
-                // forEach(element => {
-                //     div_field2.innerHTML += `<span class="span_chk"><input value="${armazem.idArmazem}"class="chk" type="checkbox">Rua ${element.rua} ${element.nome}</span>`
-                // });
             }
         })
     }
@@ -303,17 +304,18 @@
 
         var chkBox = document.getElementsByClassName('chk');
 
-        for(var i = 0; i < chk.length; i ++){
+        for(var i = 0; i < chkBox.length; i ++){
 
-            if(chkBox[i].check == true){
+            if(chkBox[i].checked == true){
                 armazensSelecionados.push(chkBox[i].value);
             };
             
         };
 
-        var tipoUsuario = select_tipoUsuario.value;
+        console.log(armazensSelecionados);
+        
         nome = nome.toLowerCase();
-        nome = nome.replace(nome[0], nome[0].toUpperase());
+        nome = nome.replace(nome[0], nome[0].toUpperCase());
 
         fetch("/usuario/cadastrar", {
             method: "POST",
@@ -324,32 +326,21 @@
                 nomeServer: nome,
                 emailServer: email,
                 senhaServer: senha,
-                tipoUsuarioServer: tipoUsuario
-                
+                tipoUsuarioServer: tipoUsuario,
+                armazens: armazensSelecionados,
+                fkEmpresa: sessionStorage.FKEMPRESA_USUARIO
             })
         }).then(function (resposta) {
             if (resposta.status == 400){
-                alert ("CAMPOS INVÁLIDOS")
-            }else {
-            if (resposta.ok) {
-                buscarIdCadastrado();
-            }}
+                span_errormsg.innerHTML = `Campos inválidos`;
+            }else if(resposta.status == 500){
+                span_errormsg.innerHTML = `Erro ao se comunicar com o servidor`;
+            } else{
+                setTimeout(()=>{
+                    alert('Novo usuario cadastrado com sucesso!')
+                    window.location.href = 'visaoGeral.html'
+                },1000)
+            }
         })
     };
-
-    function buscarIdCadastrado(){
-        fetch("/usuario/cadastrar", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                nomeServer: nome,
-                emailServer: email,
-                senhaServer: senha,
-                tipoUsuarioServer: tipoUsuario
-                
-            })
-        })
-    }
 </script>

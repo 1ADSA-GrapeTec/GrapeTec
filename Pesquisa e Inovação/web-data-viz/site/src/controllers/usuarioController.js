@@ -84,6 +84,9 @@ function cadastrar(req, res) {
     var email = req.body.emailServer;
     var senha = req.body.senhaServer;
     var tipoUser = req.body.tipoUsuarioServer;
+    var armazensSelecionados = req.body.armazens;
+    var fkEmpresa = req.body.fkEmpresa;
+    console.log('ARRAY NO CONTROLER' + armazensSelecionados)
     
     // var empresaId = req.body.empresaServer;
 
@@ -102,7 +105,7 @@ function cadastrar(req, res) {
         nome.indexOf("8") >-1 ||
         nome.indexOf("9") >-1) {
             
-            console.log("errou nome")
+        console.log("errou nome")
         res.status(400).json("Seu nome está inválido!");
     } else 
     if (email.indexOf(".com") < email.length - 4 || email.indexOf("@") < 1) {
@@ -121,10 +124,17 @@ function cadastrar(req, res) {
     else {
 
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.cadastrar(nome, email, senha, tipoUser)
-            .then(
-                function (resultado) {
-                    res.json(resultado);
+        usuarioModel.cadastrar(nome, email, senha, tipoUser, fkEmpresa)
+            .then((resultado) => {
+                    usuarioModel.autenticar(email, senha)
+                    .then((resultadoAutenticar)=> {
+                        usuarioModel.cadastrarAcesso(resultadoAutenticar[0].idUsuario, armazensSelecionados, fkEmpresa)
+                        .then(
+                            function(resultadoAcesso){
+                                    res.status(200).json(resultadoAcesso);
+                            }
+                        )
+                    })
                 }
             ).catch(
                 function (erro) {
