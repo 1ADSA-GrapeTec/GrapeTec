@@ -2,7 +2,7 @@ var database = require("../database/config");
 
 function buscarAcesso(usuarioId) {
 
- instrucaoSql = `
+    instrucaoSql = `
  SELECT
  fkArmazem, 
  armazem.fkEmpresa, 
@@ -16,8 +16,8 @@ function buscarAcesso(usuarioId) {
  WHERE fkUsuario = ${usuarioId}`;
 
 
- console.log("Executando a instrução SQL: \n" + instrucaoSql)
- return database.executar(instrucaoSql);
+    console.log("Executando a instrução SQL: \n" + instrucaoSql)
+    return database.executar(instrucaoSql);
 }
 
 function buscarSensor(fkArmazem) {
@@ -27,7 +27,7 @@ function buscarSensor(fkArmazem) {
     return database.executar(instrucaoSql)
 }
 
-function buscarArmazemPorEmpresa(idEmpresa){
+function buscarArmazemPorEmpresa(idEmpresa) {
     var instrucaoSql = `
     SELECT 
     idArmazem, 
@@ -59,7 +59,7 @@ function visaoGeral(idEmpresa, idUsuario) {
     en.estado,
     en.cidade,
     en.pais
-    FROM dadosensor ds
+    FROM dadoSensor ds
     JOIN sensor
     ON sensor.idSensor = ds.fkSensor
     AND sensor.fkArmazem = ds.fkArmazem
@@ -83,12 +83,41 @@ function visaoGeral(idEmpresa, idUsuario) {
     return database.executar(instrucaoSql)
 }
 function buscarDadoSensor(fkArmazem, idSensor) {
-    var instrucaoSql = `select * from dadosensor where fkArmazem = ${fkArmazem} and fkSensor = ${idSensor} order by idDadoSensor desc limit 24`
-    
+    var instrucaoSql = `select * from dadoSensor where fkArmazem = ${fkArmazem} and fkSensor = ${idSensor} order by idDadoSensor desc limit 24`
+
 
     console.log("Executando a instrução SQL: \n" + instrucaoSql)
     return database.executar(instrucaoSql)
 }
+
+function gerarDados(idArmazem, idSensor) {
+    var instrucaoSql = `
+    select fkSensor, temperatura, dtAtual 
+    from dadoSensor 
+    where fkSensor = ${idSensor} and fkArmazem = ${idArmazem}
+    order by dtAtual
+    limit 10;
+    `;
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql)
+    return database.executar(instrucaoSql)
+}
+function buscarDadoNovo(idArmazem) {
+    var instrucaoSql = `
+    select fkSensor, temperatura, dtAtual 
+    from dadoSensor 
+    where dtAtual = (select max(dtAtual) from dadoSensor)
+    and fkArmazem = ${idArmazem}
+    order by dtAtual
+    limit 5;
+    `;
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql)
+    return database.executar(instrucaoSql)
+}
+
+
+
 
 module.exports = {
     buscarArmazemPorEmpresa,
@@ -96,5 +125,7 @@ module.exports = {
     visaoGeral,
     buscarAcesso,
     buscarSensor,
-    buscarDadoSensor
+    buscarDadoSensor,
+    gerarDados,
+    buscarDadoNovo
 }

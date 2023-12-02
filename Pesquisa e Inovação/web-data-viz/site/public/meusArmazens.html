@@ -11,7 +11,7 @@
     <title>GrapeTec</title>
 </head>
 
-<body onload="tipoAdm(), criarSessionStorage()">
+<body onload="tipoAdm(), gerarDados()">
     <!-- Menu Lateral -->
     <div class="container">
         <div class="menuLateral">
@@ -19,8 +19,8 @@
                 <ul id="ul_navBar">
                     <li class="itemMenu">
                         <a href="visaoGeral.html">
-                            <span  class="icon"><span class="bi bi-bar-chart-line"></span></span>
-                            <span  class="link">Visão geral</span>
+                            <span class="icon"><span class="bi bi-bar-chart-line"></span></span>
+                            <span class="link">Visão geral</span>
                         </a>
                     </li>
                     <li class="itemMenu">
@@ -114,7 +114,7 @@
 
 <script>
     var armazens = JSON.parse(sessionStorage.FK_ARMAZEM);
-    armazens.forEach(element =>  {
+    armazens.forEach(element => {
         id_armazem.innerHTML += `<option value="${element.fkArmazem}">Rua: ${element.rua} Num: ${element.numero}</option>`;
     });
     function tipoAdm() {
@@ -151,212 +151,213 @@
     }
 
     var temp = [];
-    for (; temp.length < 24;) {
-        var temperatura = (Math.random() * 9) + 9;
-        temp.push(temperatura);
-    }
+    var data = [];
     var temp2 = [];
     var temp3 = [];
     var temp4 = [];
     var temp5 = [];
+    // for (; temp.length < 24;) {
+    //     var temperatura = (Math.random() * 9) + 9;
+    //     temp.push(temperatura);
+    // }
     //criando as temperaturas dos outros sensores
-    for (var index = 0; index <= temp.length - 1; index += 1) {
-        temp2.push(temp[index] * 1.25);
-        temp3.push(temp[index] * 0.90);
-        temp4.push(temp[index] * 1.10);
-        temp5.push(temp[index] * 0.60);
-    }
+    //    for (var index = 0; index <= temp.length - 1; index += 1) {
+    //         temp2.push(temp[index] * 1.25);
+    //          temp3.push(temp[index] * 0.90);
+    //         temp4.push(temp[index] * 1.10);
+    //         temp5.push(temp[index] * 0.60);
+    //     }
     //Criando alguns sensores para teste
-    var idSensor = parseInt((Math.random() * 3) + 1);
-    var Sensores = ['14ºC', '14.5ºC', '13ºC', '13.5ºC'];
-    //calculo de media
-    var tempMedia = (temp[temp.length - 1] + temp2[temp.length - 1] + temp3[temp.length - 1] + temp4[temp.length - 1] + temp5[temp.length - 1]) / 5;
+    // var idSensor = parseInt((Math.random() * 3) + 1);
+    // var Sensores = ['14ºC', '14.5ºC', '13ºC', '13.5ºC'];
+    // //calculo de media
+    // var tempMedia = (temp[temp.length - 1] + temp2[temp.length - 1] + temp3[temp.length - 1] + temp4[temp.length - 1] + temp5[temp.length - 1]) / 5;
 
-    if (tempMedia <= 13.9) {
-        for (var index = 0; index < Sensores.length; index += 1) {
-            if (idSensor == index + 1) {
-                A.innerHTML = `<div class="alerta" > 
-                    <p>
-                        Status
-                    </p>
+    // if (tempMedia <= 13.9) {
+    //     for (var index = 0; index < Sensores.length; index += 1) {
+    //         if (idSensor == index + 1) {
+    //             A.innerHTML = `<div class="alerta" > 
+    //                 <p>
+    //                     Status
+    //                 </p>
 
-                    <div class="text">
-                        <h1 id="linha">|</h1>
-                        <h1>
-                            Crítico frio!
-                        </h1>
-                    </div>
-                    
-                    <style> 
-                    .alerta {
-                        background-color: red;
-                    }
-                </style>`;
-                B.innerHTML = `<div class="tempMedia">
-                                <p>
-                                    Temperatura Média
-                                </p> 
-                                <div class="text">
-                                <p>
-                                    O armázem está com temperatura média de <span style="font-size: 20px; font-weight: 700; color: red;">${Sensores[index]}</span><br>
-                                </p>
-                                </div>
-                            </div>`
-            }
-        }
-    } else if (tempMedia <= 15.4) {
-        for (var index = 0; index < Sensores.length; index += 1) {
-            if (idSensor == index + 1) {
-                A.innerHTML = `<div class="alerta" > 
-                    <p>
-                        Status
-                    </p>
+    //                 <div class="text">
+    //                     <h1 id="linha">|</h1>
+    //                     <h1>
+    //                         Crítico frio!
+    //                     </h1>
+    //                 </div>
 
-                    <div class="text">
-                        <h1 id="linha">|</h1>
-                        <h1>
-                           Alerta Frio!
-                        </h1>
-                    </div>
-                    
-                    <style> 
-                    .alerta {
-                        background-color: yellow;
-                    }
-                    .alerta p {
-                        color: #4d1132; 
-                    }
-                    .alerta h1 {
-                        color: #4d1132;
-                    }
-                </style>`;
-                B.innerHTML = `<div class="tempMedia">
-                                <p>
-                                    Temperatura Média
-                                </p> 
-                                <div class="text">
-                                <p>
-                                    O armázem está com temperatura média de <span style="font-size: 20px; font-weight: 700; color: yellow;">${Sensores[index]}</span><br>
-                                </p>
-                                </div>
-                            </div>`
-            }
-        }
-    } else if (tempMedia <= 15.6) {
-        for (var index = 0; index < Sensores.length; index += 1) {
-            if (idSensor == index + 1) {
-                A.innerHTML = `<div class="alerta" > 
-                    <p>
-                        Status
-                    </p>
+    //                 <style> 
+    //                 .alerta {
+    //                     background-color: red;
+    //                 }
+    //             </style>`;
+    //             B.innerHTML = `<div class="tempMedia">
+    //                             <p>
+    //                                 Temperatura Média
+    //                             </p> 
+    //                             <div class="text">
+    //                             <p>
+    //                                 O armázem está com temperatura média de <span style="font-size: 20px; font-weight: 700; color: red;">${Sensores[index]}</span><br>
+    //                             </p>
+    //                             </div>
+    //                         </div>`
+    //         }
+    //     }
+    // } else if (tempMedia <= 15.4) {
+    //     for (var index = 0; index < Sensores.length; index += 1) {
+    //         if (idSensor == index + 1) {
+    //             A.innerHTML = `<div class="alerta" > 
+    //                 <p>
+    //                     Status
+    //                 </p>
 
-                    <div class="text">
-                        <h1 id="linha">|</h1>
-                        <h1>
-                            Temperatura estável.
-                        </h1>
-                    </div>
-                    
-                    <style> 
-                    .alerta {
-                        background-color: green;
-                    }
-                </style>`;
+    //                 <div class="text">
+    //                     <h1 id="linha">|</h1>
+    //                     <h1>
+    //                        Alerta Frio!
+    //                     </h1>
+    //                 </div>
 
-                B.innerHTML = `<div class="tempMedia">
-                                <p>
-                                    Temperatura Média
-                                </p> 
-                                <div class="text">
-                                <p>
-                                    O armázem está com temperatura média de <span style="font-size: 20px; font-weight: 700; color: green;">${Sensores[index]}</span><br>
-                                </p>
-                                </div>
-                            </div>`
-            }
-        }
+    //                 <style> 
+    //                 .alerta {
+    //                     background-color: yellow;
+    //                 }
+    //                 .alerta p {
+    //                     color: #4d1132; 
+    //                 }
+    //                 .alerta h1 {
+    //                     color: #4d1132;
+    //                 }
+    //             </style>`;
+    //             B.innerHTML = `<div class="tempMedia">
+    //                             <p>
+    //                                 Temperatura Média
+    //                             </p> 
+    //                             <div class="text">
+    //                             <p>
+    //                                 O armázem está com temperatura média de <span style="font-size: 20px; font-weight: 700; color: yellow;">${Sensores[index]}</span><br>
+    //                             </p>
+    //                             </div>
+    //                         </div>`
+    //         }
+    //     }
+    // } else if (tempMedia <= 15.6) {
+    //     for (var index = 0; index < Sensores.length; index += 1) {
+    //         if (idSensor == index + 1) {
+    //             A.innerHTML = `<div class="alerta" > 
+    //                 <p>
+    //                     Status
+    //                 </p>
 
-    } else if (tempMedia <= 15.8) {
-        for (var index = 0; index < Sensores.length; index += 1) {
-            if (idSensor == index + 1) {
-                A.innerHTML = `<div class="alerta" > 
-                    <p>
-                        Status
-                    </p>
+    //                 <div class="text">
+    //                     <h1 id="linha">|</h1>
+    //                     <h1>
+    //                         Temperatura estável.
+    //                     </h1>
+    //                 </div>
 
-                    <div class="text">
-                        <h1 id="linha">|</h1>
-                        <h1>
-                            Alerta quente!
-                        </h1>
-                    </div>
-                    
-                    <style> 
-                    .alerta {
-                        background-color: yellow;
-                    }
-                    .alerta p {
-                        color: #4d1132; 
-                    }
-                    .alerta h1 {
-                        color: #4d1132;
-                    }
-                </style>`;
+    //                 <style> 
+    //                 .alerta {
+    //                     background-color: green;
+    //                 }
+    //             </style>`;
 
-                B.innerHTML = `<div class="tempMedia">
-                                 <p>
-                                    Temperatura Média
-                                </p> 
-                                <div class="text">
-                                <p>
-                                    O armázem está com temperatura média de <span style="font-size: 20px; font-weight: 700; color: yellow;">${Sensores[index]}</span><br>
-                                </p>
-                                </div>
-                            </div>`
-            }
-        }
+    //             B.innerHTML = `<div class="tempMedia">
+    //                             <p>
+    //                                 Temperatura Média
+    //                             </p> 
+    //                             <div class="text">
+    //                             <p>
+    //                                 O armázem está com temperatura média de <span style="font-size: 20px; font-weight: 700; color: green;">${Sensores[index]}</span><br>
+    //                             </p>
+    //                             </div>
+    //                         </div>`
+    //         }
+    //     }
 
-    } else {
-        for (var index = 0; index < Sensores.length; index += 1) {
-            if (idSensor == index + 1) {
-                A.innerHTML = `<div class="alerta" > 
-                    <p>
-                        Status
-                    </p>
+    // } else if (tempMedia <= 15.8) {
+    //     for (var index = 0; index < Sensores.length; index += 1) {
+    //         if (idSensor == index + 1) {
+    //             A.innerHTML = `<div class="alerta" > 
+    //                 <p>
+    //                     Status
+    //                 </p>
 
-                    <div class="text">
-                        <h1 id="linha">|</h1>
-                        <h1>
-                            Crítico quente!
-                        </h1>
-                    </div>
-                    
-                    <style> 
-                    .alerta {
-                        background-color: red;
-                    }
-                </style>`;
-                B.innerHTML = `<div class="tempMedia">
-                                <p>
-                                    Temperatura Média
-                                </p> 
-                                <div class="text">
-                                <p>
-                                    O armázem está com temperatura média de <span style="font-size: 20px; font-weight: 700; color: red;">${Sensores[index]}</span><br>
-                                </p>
-                                </div>
-                            </div>`
-            }
-        }
-    };
+    //                 <div class="text">
+    //                     <h1 id="linha">|</h1>
+    //                     <h1>
+    //                         Alerta quente!
+    //                     </h1>
+    //                 </div>
 
-    
+    //                 <style> 
+    //                 .alerta {
+    //                     background-color: yellow;
+    //                 }
+    //                 .alerta p {
+    //                     color: #4d1132; 
+    //                 }
+    //                 .alerta h1 {
+    //                     color: #4d1132;
+    //                 }
+    //             </style>`;
+
+    //             B.innerHTML = `<div class="tempMedia">
+    //                              <p>
+    //                                 Temperatura Média
+    //                             </p> 
+    //                             <div class="text">
+    //                             <p>
+    //                                 O armázem está com temperatura média de <span style="font-size: 20px; font-weight: 700; color: yellow;">${Sensores[index]}</span><br>
+    //                             </p>
+    //                             </div>
+    //                         </div>`
+    //         }
+    //     }
+
+    // } else {
+    //     for (var index = 0; index < Sensores.length; index += 1) {
+    //         if (idSensor == index + 1) {
+    //             A.innerHTML = `<div class="alerta" > 
+    //                 <p>
+    //                     Status
+    //                 </p>
+
+    //                 <div class="text">
+    //                     <h1 id="linha">|</h1>
+    //                     <h1>
+    //                         Crítico quente!
+    //                     </h1>
+    //                 </div>
+
+    //                 <style> 
+    //                 .alerta {
+    //                     background-color: red;
+    //                 }
+    //             </style>`;
+    //             B.innerHTML = `<div class="tempMedia">
+    //                             <p>
+    //                                 Temperatura Média
+    //                             </p> 
+    //                             <div class="text">
+    //                             <p>
+    //                                 O armázem está com temperatura média de <span style="font-size: 20px; font-weight: 700; color: red;">${Sensores[index]}</span><br>
+    //                             </p>
+    //                             </div>
+    //                         </div>`
+    //         }
+    //     }
+    // };
+
+
     var myChart1 = new Chart(document.getElementById('myChart'), {
         type: 'line',
         data: {
-            labels: ['00:00', '01:00', '02:00', '03:00', '04:00', '05:00', '06:00', '07:00', '08:00', '09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00', '20:00', '21:00', '22:00', '23:00'],
+            labels: data,
             datasets: [{
-                label: '',
+                label: 'Sensor 1',
                 borderColor: 'rgb(79, 0, 128)',
                 backgroundColor: 'rgb(79, 0, 128)',
                 data: temp,
@@ -366,12 +367,12 @@
                 pointBorderColor: '#fff',
                 pointHoverBackgroundColor: '#fff',
                 pointHoverBorderColor: 'rgba(75, 192, 192, 1)',
-                pointRadius: 0, // Removendo os pontos
+                pointRadius: 0,
                 pointHoverRadius: 0,
                 borderCapStyle: 'round'
             },
             {
-                label: '',
+                label: 'Sensor 2',
                 borderColor: 'rgb(255, 57, 162)',
                 backgroundColor: 'rgb(255, 57, 162)',
                 data: temp2,
@@ -383,7 +384,7 @@
                 borderCapStyle: 'round'
             },
             {
-                label: '',
+                label: 'Sensor 3',
                 borderColor: 'rgb(119, 7, 48)',
                 backgroundColor: 'rgb(119, 7, 48)',
                 data: temp3,
@@ -396,7 +397,7 @@
                 borderCapStyle: 'round'
             },
             {
-                label: '',
+                label: 'Sensor 4',
                 borderColor: 'rgb(77, 207, 80)',
                 backgroundColor: 'rgb(77, 207, 80)',
                 data: temp4,
@@ -409,7 +410,7 @@
                 borderCapStyle: 'round'
             },
             {
-                label: '',
+                label: 'Sensor 5',
                 borderColor: 'rgb(255, 7, 208)',
                 backgroundColor: 'rgb(255, 7, 208)',
                 data: temp5,
@@ -432,27 +433,126 @@
 
     });
 
-     
+
     var selectAtual = id_armazem.value;
-    
-    function verificarSelects(){
-        var select = id_armazem.value;
-        if(selectAtual != select){
-            selectAtual = select
-        }else {
-            fetch("/armazem/visaoGeral", {
+
+    function gerarDados() {
+
+
+        fetch("/armazem/gerarDados", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({
-                // crie um atributo que recebe o valor recuperado aqui
-                // Agora vá para o arquivo routes/usuario.js
+
                 idArmazem: selectAtual
             })
         })
+            .then(function (respostas) {
+                if (respostas.status == 500) {
+                    alert("erro ao encontrar dados do armazem")
+                } else {
+                    if (respostas.ok) {
+                        respostas.json()
+                            .then(json => {
+                                console.log(json)
+                                sessionStorage.DadosGrafico = JSON.stringify(json)
+                            })
+                        setTimeout(() => {
+                            var DadosGrafico = JSON.parse(sessionStorage.DadosGrafico)
+
+                            atualizarGrafico(DadosGrafico)
+
+                        }, 300)
+                    }
+                }
+            })
+    }
+    // setTimeout(verificarSelects, 1000)
+
+    function atualizarGrafico(DadosGrafico) {
+        for (objeto = 0; DadosGrafico.resultadoS1.length > objeto; objeto++) {
+            temp.push(DadosGrafico.resultadoS1[objeto].temperatura)
+            temp2.push(DadosGrafico.resultadoS2[objeto].temperatura)
+            temp3.push(DadosGrafico.resultadoS3[objeto].temperatura)
+            temp4.push(DadosGrafico.resultadoS4[objeto].temperatura)
+            temp5.push(DadosGrafico.resultadoS5[objeto].temperatura)
+
+            data.push(DadosGrafico.resultadoS1[objeto].dtAtual)
         }
-        setTimeout(verificarSelects, 1000)
+        myChart1.update()
+        buscarDadoNovo()
+    }
+
+    function buscarDadoNovo() {
+        var select = id_armazem.value;
+        if (selectAtual != select) {
+            selectAtual = select;
+            temp.splice(0, temp.length)
+            temp2.splice(0, temp2.length)
+            temp3.splice(0, temp3.length)
+            temp4.splice(0, temp4.length)
+            temp5.splice(0, temp5.length)
+
+            data.splice(0, data.length)
+
+            gerarDados()
+
+        } else {
+            fetch("/armazem/buscarDadoNovo", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    idArmazem: selectAtual
+                })
+            }).then(function(respostas){
+                if(respostas == 400){
+
+                }else if( respostas == 500){
+
+                }else {
+                    if(respostas.ok){
+                        respostas.json()
+                            .then(json => {
+                                console.log(json)
+                                sessionStorage.dadoNovo = JSON.stringify(json)
+                            })
+                            setTimeout(() => {
+                            var dadoNovo = JSON.parse(sessionStorage.dadoNovo)
+
+                            inserirDadoNovo(dadoNovo)
+
+                        }, 300)
+                    }
+                }
+            })
+        }
+    }
+
+    function inserirDadoNovo(dadoNovo){
+        // alert("chegou até aqui")
+        if(temp.length >= 10){
+            temp.splice(0,1)
+            temp2.splice(0,1)
+            temp3.splice(0,1)
+            temp4.splice(0,1)
+            temp5.splice(0,1)
+
+            data.splice(0,1)
+        }
+        temp.push(dadoNovo[0].temperatura)
+        temp2.push(dadoNovo[1].temperatura)
+        temp3.push(dadoNovo[2].temperatura)
+        temp4.push(dadoNovo[3].temperatura)
+        temp5.push(dadoNovo[4].temperatura)
+
+        data.push(dadoNovo[0].dtAtual)
+     
+        myChart1.update()
+        setTimeout(buscarDadoNovo, 1000)
     }
 
 </script>

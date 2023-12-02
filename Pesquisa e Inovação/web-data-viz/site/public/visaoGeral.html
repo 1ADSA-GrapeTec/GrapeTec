@@ -131,7 +131,7 @@
 
         divAlertas.innerHTML = `
             <div class="infoArmazem">
-                <h1>Quantidade de armazens</h1>
+                <h1>Quantidade de armazéns</h1>
                 <h1 style="font-size: 60px;" id="h1_qtdArmazens">${informacoesArmazens.length}</h1>
             </div>`;
         informacoesArmazens.forEach(armazem => {
@@ -155,7 +155,7 @@
             } else{
                 var classAlerta = 'alertaVermelho';
                 var fraseAlerta = `O armazém da rua ${armazem.rua} Nº${armazem.numero}<br> está com a temperatura acima do ideal!`;
-                var classTemp = 'tempVerde';
+                var classTemp = 'tempVermelha';
             }
 
             divAlertas.innerHTML += `
