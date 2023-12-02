@@ -4,58 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-    <canvas id="myChart"></canvas>
+    <h1 id=""></h1>
 </body>
 </html>
-
-<script>
-
-    var temp = [];
-    var myChart1 = new Chart(document.getElementById('myChart'), {
-        type: 'line',
-        data: {
-            labels: ['00:00', '01:00', '02:00', '03:00', '04:00', '05:00', '06:00', '07:00', '08:00', '09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00', '20:00', '21:00', '22:00', '23:00'],
-            datasets: [{
-                label: '',
-                borderColor: 'rgb(79, 0, 128)',
-                backgroundColor: 'rgb(79, 0, 128)',
-                data: temp,
-                borderWidth: 3,
-                borderJoinStyle: 'round',
-                pointBackgroundColor: 'rgba(75, 192, 192, 1)',
-                pointBorderColor: '#fff',
-                pointHoverBackgroundColor: '#fff',
-                pointHoverBorderColor: 'rgba(75, 192, 192, 1)',
-                pointRadius: 0,
-                pointHoverRadius: 0,
-                borderCapStyle: 'round'
-            }]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            }
-        }
-    });
-
-    function atualizarGrafico(){
-       
-
-        if(temp.length >= 24){
-            temp.splice(0, 1);
-        };
-
-        temp.push(((Math.random() * 7) + 8).toFixed(2));
-
-        myChart1.update();
-
-        setTimeout(atualizarGrafico, 2000)
-    };
-
-    atualizarGrafico();
-</script>

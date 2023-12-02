@@ -300,6 +300,9 @@
 
     function enviarBanco() {
 
+        var botoes = document.getElementsByClassName('buttons');
+        botoes[0].innerHTML = '';
+
         var armazensSelecionados = [];
 
         var chkBox = document.getElementsByClassName('chk');

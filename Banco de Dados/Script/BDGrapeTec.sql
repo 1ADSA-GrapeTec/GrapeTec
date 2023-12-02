@@ -6,7 +6,7 @@ idEmpresa INT PRIMARY KEY auto_increment,
 nomeEmpresa VARCHAR(50) NOT NULL,
 CNPJ CHAR(18) NOT NULL,
 telefone CHAR(11) NOT NULL,
-email VARCHAR(45) NOT NULL,
+email VARCHAR(45) NOT NULL UNIQUE,
 cep CHAR(9) NOT NULL
 ) auto_increment = 1000;
 
@@ -14,10 +14,6 @@ INSERT INTO empresa (CNPJ, nomeEmpresa, email,telefone, CEP) VALUES
 ('43.093.053/0001-77','Vinhos Viana','Vinhos Viana@gmail.com','282232-4086', '123456781'),
 ('78.581.354/0006-33','YabutaWine','YabutaWine@gmail.com','692763-2911', '123456782'),
 ('49.704.129/0009-99','Divinhos','Divinhos@gmail.com','823652-7289', '123456783');
-
-truncate table dadosensor;
-select * from dadosensor;
-drop user 'usuario'@'localhost';
 
 select*from usuario;
 
@@ -105,6 +101,7 @@ CONSTRAINT pkAcesso PRIMARY KEY (fkUsuario, fkEmpresa, fkArmazem)
 
 SELECT * FROM armazem;
 SELECT * FROM usuario;
+SELECT * FROM acesso JOIN usuario ON fkUsuario = idUsuario;
 INSERT INTO acesso (fkUsuario, fkEmpresa, fkArmazem) VALUES
 (1, 1000, 200),
 (1, 1000, 201),

@@ -6,7 +6,7 @@ idEmpresa INT PRIMARY KEY auto_increment,
 nomeEmpresa VARCHAR(50) NOT NULL,
 CNPJ CHAR(18) NOT NULL,
 telefone CHAR(11) NOT NULL,
-email VARCHAR(45) NOT NULL,
+email VARCHAR(45) NOT NULL UNIQUE,
 cep CHAR(9) NOT NULL
 ) auto_increment = 1000;
 
@@ -14,10 +14,6 @@ INSERT INTO empresa (CNPJ, nomeEmpresa, email,telefone, CEP) VALUES
 ('43.093.053/0001-77','Vinhos Viana','Vinhos Viana@gmail.com','282232-4086', '123456781'),
 ('78.581.354/0006-33','YabutaWine','YabutaWine@gmail.com','692763-2911', '123456782'),
 ('49.704.129/0009-99','Divinhos','Divinhos@gmail.com','823652-7289', '123456783');
-
-truncate table dadosensor;
-select * from dadosensor;
-drop user 'usuario'@'localhost';
 
 select*from usuario;
 
@@ -105,6 +101,7 @@ CONSTRAINT pkAcesso PRIMARY KEY (fkUsuario, fkEmpresa, fkArmazem)
 
 SELECT * FROM armazem;
 SELECT * FROM usuario;
+SELECT * FROM acesso JOIN usuario ON fkUsuario = idUsuario;
 INSERT INTO acesso (fkUsuario, fkEmpresa, fkArmazem) VALUES
 (1, 1000, 200),
 (1, 1000, 201),
@@ -171,10 +168,10 @@ SELECT sensor.*, vinho.tipoVinho FROM sensor join armazem on fkArmazem = idArmaz
 
 INSERT INTO dadoSensor (temperatura, fkSensor, fkArmazem, fkEmpresa) VALUES
 -- tinto
-(7, 1, 200, 1000),
-(15, 2, 200, 1000),
-(10, 3, 200, 1000),
-(15, 4, 200, 1000),
+(10, 1, 200, 1000),
+(12, 2, 200, 1000),
+(11, 3, 200, 1000),
+(13, 4, 200, 1000),
 -- rosê
 (9, 1, 201, 1000),
 (10, 2, 201, 1000),
@@ -198,7 +195,6 @@ select * from usuario;
 delete from usuario where idUsuario=7;
 select * from dadosensor;
 
-
 CREATE USER 'usuario'@'10.18.33.116' IDENTIFIED BY 'usuario';
 GRANT insert, select, update, delete on grapetec.* TO 'usuario'@'10.18.33.116';
 FLUSH PRIVILEGES;
@@ -207,7 +203,7 @@ select * from acesso;
 
 -- SELECT PARA A TELA DE VISÃO GERAL
 SELECT
-AVG(ds.temperatura) tempMedia,
+ds.temperatura,
 ar.idArmazem,
 ar.fkEmpresa empresaArmazem,
 v.tipoVinho,
@@ -240,9 +236,4 @@ JOIN vinho v
 ON ar.fkVinho = v.idVinho
 JOIN endereco en
 ON en.idEndereco = ar.fkEndereco
-WHERE acs.fkEmpresa = 1000 AND acs.fkUsuario = 1 AND ds.dtAtual = (SELECT MAX(dtAtual) FROM dadoSensor) GROUP BY ar.idArmazem;
-
-create user 'cliente'@'localhost' identified by 'cliente';
-grant insert,select on grapetec.* to 'cliente'@'localhost';
-flush privileges;
-
+WHERE acs.fkEmpresa = 1000 AND acs.fkUsuario = 1 order by ds.dtAtual;
