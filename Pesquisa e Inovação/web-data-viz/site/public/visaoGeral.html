@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="css/estilodash.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="shortcut icon" href="assets/images/fav.ico" type="image/x-icon">
     <title>GrapeTec</title>
 </head>
 
@@ -35,7 +36,7 @@
         <div class="info">
             <div class="navbar">
                 <div class="BarraIcon">
-                    <img src="assets/images/fav.png" alt="">
+                    <a href="index.html"><img src="assets/images/fav.ico" alt=""></a>
                     <h2>GRAPETEC</h2>
                 </div>
                 <div class="user">
@@ -44,22 +45,22 @@
                 </div>
             </div>
             <!-- HOME -->
-            <div class="container02">  
+            <div class="container02">
                 <div id="div_statusArmazem">
                     <div id="div_alertas" class="informacoes">
-                        
+
                         <div class="alertaAmarelo">
                             <h1>Status</h1>
                             <div style="font-size: 20px;">
-                            <span>O armazém da rua xinforinfola Nº300</span> <br>
-                            <span>Está proximo de ficar com a temperatura abaixo do ideal</span>
+                                <span>O armazém da rua xinforinfola Nº300</span> <br>
+                                <span>Está proximo de ficar com a temperatura abaixo do ideal</span>
                             </div>
                         </div>
                     </div>
                     <div id="div_statusArmazem2">
 
                     </div>
-                   
+
                 </div>
             </div>
 
@@ -122,7 +123,7 @@
         )
     };
 
-    function gerarKpis(informacoesArmazens){
+    function gerarKpis(informacoesArmazens) {
 
         var divArmazens = document.getElementById("div_statusArmazem2");
         var divAlertas = document.getElementById("div_alertas");
@@ -132,27 +133,30 @@
         divAlertas.innerHTML = `
             <div class="infoArmazem">
                 <h1>Quantidade de armazéns</h1>
-                <h1 style="font-size: 60px;" id="h1_qtdArmazens">${informacoesArmazens.length}</h1>
+                <h1 style="font-size: 50px;" id="h1_qtdArmazens">${informacoesArmazens.length}</h1>
+            </div>
+            <div class="infoArmazem">
+                <h1>Temperatura ideal dos vinhos</h1>
+                <p>Tinto - 15,5ºC<br>
+                   Branco -  11,5ºC<br>
+                   Rosé - 11ºC<br>
+                   Espumante - 7,5ºC</p>
             </div>`;
         informacoesArmazens.forEach(armazem => {
 
-            if(armazem.tempMedia <= armazem.tempCritFrio){
+            if (armazem.tempMedia <= armazem.tempCritFrio) {
                 var classAlerta = 'alertaVermelho';
                 var fraseAlerta = `O armazém da rua ${armazem.rua} Nº${armazem.numero}<br> está com a temperatura acima do ideal!`;
                 var classTemp = 'tempVermelha';
-            } else if (armazem.tempMedia <= armazem.tempAlertaFrio){
+            } else if (armazem.tempMedia <= armazem.tempAlertaFrio) {
                 var classAlerta = 'alertaAmarelo';
                 var fraseAlerta = `O armazém da rua ${armazem.rua} Nº${armazem.numero}<br> está próximo de ficar com a temperatura abaixo do ideal!`;
                 var classTemp = 'tempAmarela';
-            } else if(armazem.tempMedia <= armazem.temperaturaIdeal + 0.1){
-                var classAlerta = 'infoArmazem';
-                var fraseAlerta = `O armazém da rua ${armazem.rua} Nº${armazem.numero}<br> Está com a temperatura ideal!`;
-                var classTemp = 'tempVerde';
-            } else if(armazem.tempMedia <= armazem.tempAlertaQuente){
+            } else if (armazem.tempMedia <= armazem.tempAlertaQuente) {
                 var classAlerta = 'alertaAmarelo';
                 var fraseAlerta = `O armazém da rua ${armazem.rua} Nº${armazem.numero}<br> está próximo de ficar com a temperatura acima do ideal!`;
                 var classTemp = 'tempAmarela';
-            } else{
+            } else {
                 var classAlerta = 'alertaVermelho';
                 var fraseAlerta = `O armazém da rua ${armazem.rua} Nº${armazem.numero}<br> está com a temperatura acima do ideal!`;
                 var classTemp = 'tempVermelha';
@@ -170,7 +174,7 @@
             divArmazens.innerHTML += `
             <div class="dadoArmazem">
                 <div class="temperatura">
-                    <h1 class="${classTemp}">${armazem.tempMedia}</h1>
+                    <h1 class="${classTemp}">${armazem.tempMedia}ºC</h1>
                 </div>
                 <div class="endereco">
                 <span><b>Tipo de vinho:</b> ${(armazem.tipoVinho).replace(armazem.tipoVinho[0], armazem.tipoVinho[0].toUpperCase())}</span>
@@ -185,7 +189,7 @@
             `
         });
 
-        
+
 
     }
 

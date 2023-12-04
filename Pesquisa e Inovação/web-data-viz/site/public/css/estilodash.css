@@ -143,79 +143,67 @@ body {
    justify-content: space-evenly;
    height: 250px;
    overflow-x: scroll;
+   overflow: hidden;
 }
 
 .infoArmazem{
-    width: 25%;
-    height: 80%;
-    background-color: #00ff33;
+    height: 150px;
+    width: 280px;
+    border-radius: 15px;
+    background-color: #4d1132;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.233);
     display: flex;
     align-items: center;
     flex-direction: column;
     text-align: center;
     justify-content: space-evenly;
-    border-radius: 20px;
     margin-top: 30px;
     color: #fff;
-    font-size: 13px;
+    font-size: 10px;
+    transition: 0.3s;
+}
+
+.infoArmazem:hover {
+     width: 310px;
+}
+
+.infoArmazem p {
+    font-size: 20px;
+    text-align: justify;
 }
 
 .alertaVermelho{
-    width: 25%;
-    height: 100%;
+    height: 150px;
+    width: 280px;
+    border-radius: 15px;
     background-color: #ff0000;
     border: solid 5px #ff0000;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.233);
     display: flex;
     align-items: center;
     flex-direction: column;
     text-align: center;
     justify-content: space-evenly;
-    border-radius: 20px;
     margin-top: 30px;
     color: #fff;
-    font-size: 13px;
-    animation: vermelho;
-    animation-duration: 2s;
-    animation-iteration-count: infinite;
-}
-
-@keyframes vermelho {
-    from{
-        background-color: #fff;
-        color: #ff0000;
-    }
-    to{
-        
-    }
-}
-
-@keyframes amarelo {
-    from{
-        background-color: #fff;
-        color: yellow;
-    }
-    to{
-        
-    }
+    font-size: 10px;
 }
 
 .alertaAmarelo{
-    width: 25%;
-    height: 85%;
+    height: 150px;
+    width: 280px;
+    border-radius: 15px;
     background-color: yellow;
     border: solid 5px yellow;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.233);
     display: flex;
     align-items: center;
     flex-direction: column;
     text-align: center;
     justify-content: space-evenly;
-    border-radius: 20px;
     margin-top: 30px;
     color: #fff;
-    font-size: 13px;
-    animation: amarelo;
-    animation-duration: 2s;
-    animation-iteration-count: infinite;
+    font-size: 10px;
 }
 
 
@@ -245,7 +233,8 @@ body {
     margin-top: 50px;
     width: 60%;
     height: 300px;
-    background-color: #85275a;
+    background-color: #4d1132;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.233);
     display: flex;
     border-radius: 1em;
     flex-direction: row;
@@ -258,7 +247,8 @@ body {
     align-items: center;
     justify-content: center;
     font-size: 40px;
-    border-right: 1px solid #fff;
+    border-radius: 20px;
+    background-color: #85275a;
 }
 
 .endereco{
@@ -271,14 +261,7 @@ body {
     color: white;
 }
 
-.tempVerde {
-    color: #00ff33;
+.tempAmarela, .tempVermelha {
+    color: red;
 }
 
-.tempAmarela {
-    color: yellow;
-}
-
-.tempVermelha{
-    color: #ff0000;
-}
