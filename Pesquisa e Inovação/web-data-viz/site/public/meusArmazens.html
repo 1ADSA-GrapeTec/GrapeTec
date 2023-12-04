@@ -67,7 +67,7 @@
                             Status
                         </p>
 
-                        <div class="text">
+                        <div id="div_status" class="text">
                             <h1 id="linha"></h1>
                             <h1></h1>
                         </div>
@@ -78,7 +78,7 @@
                         <p>Temperatura Média</p>
 
                         <div class="text">
-                            <p>O armázem está com temperatura média de <span
+                            <p>O armázem está com temperatura média de <span id="span_tempMedia"
                                     style="font-size: 20px; font-weight: 700; color: rgb(255, 255, 255);"></span><br>
                             </p>
                         </div>
@@ -299,8 +299,34 @@
             temp4.push(DadosGrafico.resultadoS4[objeto].temperatura)
             temp5.push(DadosGrafico.resultadoS5[objeto].temperatura)
 
-            data.push(DadosGrafico.resultadoS1[objeto].dtAtual)
+            data.push(((DadosGrafico.resultadoS1[objeto].dtAtual).replace('T', ' ')).replace('.000Z', ''))
         }
+
+        var tempMedia = (temp[temp.length - 1] + temp2[temp2.length - 1] + temp3[temp3.length - 1] + temp4[temp4.length - 1] + temp5[temp.length - 1]) / 5;
+
+        span_tempMedia.innerHTML = tempMedia;
+
+        for (var i = 0; i < dadosArmazens.length; i++) {
+            if (selectAtual == dadosArmazens[i].idArmazem) {
+                if (tempMedia <= dadosArmazens[i].tempCritFrio) {
+                    div_status.innerHTML = `A temperatura do armazém está abaixo do ideal!`
+                    break
+                } else if (tempMedia <= dadosArmazens[i].tempAlertaFrio) {
+                    div_status.innerHTML = `A temperatura do armazém está próxima de cair a ponto de prejudicar a qualidade do seu vinho!`
+                    break
+                } else if (tempMedia <= dadosArmazens[i].temperaturaIdeal + 0.1) {
+                    div_status.innerHTML = `A temperatura do armazém está adequada.`
+                    break
+                } else if (tempMedia <= dadosArmazens[i].tempAlertaQuente) {
+                    div_status.innerHTML = `A temperatura do armazém está próxima de subir a ponto de prejudicar a qualidade do seu vinho!`
+                    break
+                } else {
+                    div_status.innerHTML = `A temperatura do armazém está acima do ideal!`
+                    break
+                }
+            }
+
+        };
         myChart1.update()
         buscarDadoNovo()
     }
@@ -368,7 +394,7 @@
     }
 
     function inserirDadoNovo(dadoNovo) {
-        // alert("chegou até aqui")
+
         if (temp.length >= 10) {
             temp.splice(0, 1)
             temp2.splice(0, 1)
@@ -384,7 +410,32 @@
         temp4.push(dadoNovo[3].temperatura)
         temp5.push(dadoNovo[4].temperatura)
 
-        data.push(dadoNovo[0].dtAtual)
+        data.push(((dadoNovo[0].dtAtual).replace('T', ' ')).replace('.000Z', ''))
+
+        var tempMedia = (temp[temp.length - 1] + temp2[temp2.length - 1] + temp3[temp3.length - 1] + temp4[temp4.length - 1] + temp5[temp.length - 1]) / 5;
+
+        span_tempMedia.innerHTML = tempMedia;
+
+        for (var i = 0; i < dadosArmazens.length; i++) {
+            if (selectAtual == dadosArmazens[i].idArmazem) {
+                if (tempMedia <= dadosArmazens[i].tempCritFrio) {
+                    div_status.innerHTML = `A temperatura do armazém está abaixo do ideal!`
+                    break
+                } else if (tempMedia <= dadosArmazens[i].tempAlertaFrio) {
+                    div_status.innerHTML = `A temperatura do armazém está próxima de cair a ponto de prejudicar a qualidade do seu vinho!`
+                    break
+                } else if (tempMedia <= dadosArmazens[i].temperaturaIdeal + 0.1) {
+                    div_status.innerHTML = `A temperatura do armazém está adequada.`
+                    break
+                } else if (tempMedia <= dadosArmazens[i].tempAlertaQuente) {
+                    div_status.innerHTML = `A temperatura do armazém está próxima de subir a ponto de prejudicar a qualidade do seu vinho!`
+                    break
+                } else {
+                    div_status.innerHTML = `A temperatura do armazém está acima do ideal!`
+                    break
+                }
+            }
+        }
 
         myChart1.update()
         setTimeout(buscarDadoNovo, 1000)
