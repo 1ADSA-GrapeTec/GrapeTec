@@ -36,8 +36,8 @@
         <div class="info">
             <div class="navbar">
                 <div class="BarraIcon">
-                    <img src="assets/img/fav.png" alt="">
-                    <h2>GRAPETEC</h2>
+                    <a href="index.html"><img src="assets/images/fav.ico" alt=""></a>
+                    <a href="index.html"><h2>GRAPETEC</h2></a>
                 </div>
                 <div class="user">
                     <img src="assets/images/IconPessoa.png" alt="">
@@ -257,8 +257,6 @@
     };
 
     function gerarDados() {
-
-
         fetch("/armazem/gerarDados", {
             method: "POST",
             headers: {
@@ -321,7 +319,7 @@
                     div_status.innerHTML = `A temperatura do armazém está próxima de subir a ponto de prejudicar a qualidade do seu vinho!`
                     break
                 } else {
-                    div_status.innerHTML = `A temperatura do armazém está acima do ideal!`
+                    div_status.innerHTML = `<b>  A temperatura do armazém está acima do ideal!</b>`
                     break
                 }
             }
@@ -431,7 +429,7 @@
                     div_status.innerHTML = `A temperatura do armazém está próxima de subir a ponto de prejudicar a qualidade do seu vinho!`
                     break
                 } else {
-                    div_status.innerHTML = `A temperatura do armazém está acima do ideal!`
+                    div_status.innerHTML = `<b> A temperatura do armazém está acima do ideal!</b>`
                     break
                 }
             }
