@@ -8,7 +8,7 @@
 .cardBranco {
     width: 95%;
     height: 80%;
-    background-image: url(assets/images/fundo-sobre-nos.png);
+    background-image: url(../assets/images/fundo-sobre-nos.png);
     background-repeat: no-repeat;
     background-size: cover;
     display: flex;

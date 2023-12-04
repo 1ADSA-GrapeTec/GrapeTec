@@ -16,7 +16,7 @@
 .cardBranco {
     width: 95%;
     height: 82%;
-    background-image: url(assets/images/fundo-como-funciona.png);
+    background-image: url(../assets/images/fundo-como-funciona.png);
     background-repeat: no-repeat;
     background-size: cover;
     display: flex;
