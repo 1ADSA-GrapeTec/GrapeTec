@@ -10,6 +10,7 @@
 body {
     background-color: #f1f1f153;
 }
+
 .container {
     height: 100vh;
     display: flex;
@@ -136,17 +137,43 @@ body {
 }
 
 /* CARD ARMAZEM */
-.informacoes{
-   width: 100%;
-   display: flex;
-   align-items: center;
-   justify-content: space-evenly;
-   height: 250px;
-   overflow-x: scroll;
-   overflow: hidden;
+.informacoes {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 250px;
+    overflow-x: scroll;
+    overflow: hidden;
 }
 
-.infoArmazem{
+.infoArmazem2 {
+    height: 150px;
+    width: 280px;
+    border-radius: 15px;
+    background-color: #85275a;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.233);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    justify-content: space-evenly;
+    margin-top: 30px;
+    color: #fff;
+    font-size: 10px;
+    transition: 0.3s;
+}
+
+.infoArmazem2:hover {
+    width: 310px;
+}
+
+.infoArmazem2 p {
+    font-size: 20px;
+    text-align: justify;
+}
+
+.infoArmazem {
     height: 150px;
     width: 280px;
     border-radius: 15px;
@@ -164,7 +191,7 @@ body {
 }
 
 .infoArmazem:hover {
-     width: 310px;
+    width: 310px;
 }
 
 .infoArmazem p {
@@ -172,12 +199,12 @@ body {
     text-align: justify;
 }
 
-.alertaVermelho{
+.alertaVermelho {
     height: 150px;
     width: 280px;
     border-radius: 15px;
-    background-color: #ff0000;
-    border: solid 5px #ff0000;
+    background-color: #4d1132;
+    border: solid 5px #4d1132;
     box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.233);
     display: flex;
     align-items: center;
@@ -189,12 +216,12 @@ body {
     font-size: 10px;
 }
 
-.alertaAmarelo{
+.alertaAmarelo {
     height: 150px;
     width: 280px;
     border-radius: 15px;
-    background-color: yellow;
-    border: solid 5px yellow;
+    background-color: #85275a;
+    border: solid 5px #85275a;
     box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.233);
     display: flex;
     align-items: center;
@@ -209,7 +236,7 @@ body {
 
 
 
-#div_statusArmazem{
+#div_statusArmazem {
     height: fit-content;
     width: 100%;
     margin-bottom: 45px;
@@ -219,7 +246,7 @@ body {
     justify-content: space-evenly;
 }
 
-#div_statusArmazem2{
+#div_statusArmazem2 {
     height: fit-content;
     width: 100%;
     margin-bottom: 45px;
@@ -229,7 +256,7 @@ body {
     justify-content: space-evenly;
 }
 
-.dadoArmazem{
+.dadoArmazem {
     margin-top: 50px;
     width: 60%;
     height: 300px;
@@ -240,7 +267,7 @@ body {
     flex-direction: row;
 }
 
-.temperatura{
+.temperatura {
     width: 50%;
     height: 100%;
     display: flex;
@@ -251,7 +278,12 @@ body {
     background-color: #85275a;
 }
 
-.endereco{
+.temperatura h1 {
+    -webkit-text-stroke: 2px rgb(255, 255, 255);
+    text-stroke: 2px rgb(255, 255, 255);
+}
+
+.endereco {
     width: 50%;
     height: 100%;
     display: flex;
@@ -261,14 +293,32 @@ body {
     color: white;
 }
 
-.tempAmarela, .tempVermelha {
+.tempAmarela,
+.tempVermelha {
     color: red;
 }
 
-/* a {
-    text-decoration: none;
-    color: white;
-} */
-/* .manual{
-    width: 40px;
-} */
+@keyframes blink {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.alerta-container {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+}
+
+.alerta-bola {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin-right: 10px;
+    animation: blink 2s infinite;
+    border: 1px solid #bababa;
+}

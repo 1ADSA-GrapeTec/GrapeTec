@@ -135,7 +135,7 @@
 
         var divArmazens = document.getElementById("div_statusArmazem2");
         var divAlertas = document.getElementById("div_alertas");
-
+        var corDaBola = 'green';
         divArmazens.innerHTML = '';
 
         divAlertas.innerHTML = `
@@ -143,7 +143,7 @@
                 <h1>Quantidade de armazéns</h1>
                 <h1 style="font-size: 50px;" id="h1_qtdArmazens">${informacoesArmazens.length}</h1>
             </div>
-            <div class="infoArmazem">
+            <div  class="infoArmazem2">
                 <h1>Temperatura ideal dos vinhos</h1>
                 <p>Tinto: 15,5ºC<br>
                    Branco:  11,5ºC<br>
@@ -154,25 +154,29 @@
 
             if (armazem.tempMedia <= armazem.tempCritFrio) {
                 var classAlerta = 'alertaVermelho';
+                corDaBola = 'red'
                 var fraseAlerta = `O armazém da rua ${armazem.rua} Nº${armazem.numero}<br> está com a temperatura acima do ideal!`;
                 var classTemp = 'tempVermelha';
             } else if (armazem.tempMedia <= armazem.tempAlertaFrio) {
                 var classAlerta = 'alertaAmarelo';
+                corDaBola ='yellow'
                 var fraseAlerta = `O armazém da rua ${armazem.rua} Nº${armazem.numero}<br> está próximo de ficar com a temperatura abaixo do ideal!`;
                 var classTemp = 'tempAmarela';
             } else if (armazem.tempMedia <= armazem.tempAlertaQuente) {
                 var classAlerta = 'alertaAmarelo';
+                corDaBola = 'yellow'
                 var fraseAlerta = `O armazém da rua ${armazem.rua} Nº${armazem.numero}<br> está próximo de ficar com a temperatura acima do ideal!`;
                 var classTemp = 'tempAmarela';
             } else {
-                var classAlerta = 'alertaVermelho';
+                var classAlerta = 'alerta-bola';
                 var fraseAlerta = `O armazém da rua ${armazem.rua} Nº${armazem.numero}<br> está com a temperatura acima do ideal!`;
+                corDaBola = 'red'
                 var classTemp = 'tempVermelha';
             }
 
             divAlertas.innerHTML += `
             <div class="${classAlerta}">
-                <h1>Status</h1>
+                <h1 style="display: flex; align-items: center;"><div class="alerta-bola" style="background-color:${corDaBola}"></div>Status</h1>
                 <div style="font-size: 20px;">
                 <span>${fraseAlerta}</span>
                 </div>
@@ -182,7 +186,7 @@
             divArmazens.innerHTML += `
             <div class="dadoArmazem">
                 <div class="temperatura">
-                    <h1 class="${classTemp}">${armazem.tempMedia}ºC</h1>
+                    <h1 style="color:${corDaBola}" class="${classTemp}">${armazem.tempMedia}ºC</h1>
                 </div>
                 <div class="endereco">
                 <span><b>Tipo de vinho:</b> ${(armazem.tipoVinho).replace(armazem.tipoVinho[0], armazem.tipoVinho[0].toUpperCase())}</span>

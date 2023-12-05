@@ -307,22 +307,22 @@
         for (var i = 0; i < dadosArmazens.length; i++) {
             if (selectAtual == dadosArmazens[i].idArmazem) {
                 if (tempMedia <= dadosArmazens[i].tempCritFrio) {
-                    div_status.innerHTML = `A temperatura do armazém está abaixo do ideal!`
+                    div_status.innerHTML = `<span style="color: white;">A temperatura do armazém está abaixo do ideal!</span>`
                     break
                 } else if (tempMedia <= dadosArmazens[i].tempAlertaFrio) {
-                    div_status.innerHTML = `A temperatura do armazém está próxima de cair a ponto de prejudicar a qualidade do seu vinho!`
+                    div_status.innerHTML = `<span style="color: black;">A temperatura do armazém está próxima de ficar abaixo do ideal</span>`
                     break
                 } else if (tempMedia <= dadosArmazens[i].temperaturaIdeal + 0.1) {
                     div_status.innerHTML = `A temperatura do armazém está adequada.`
                     break
                 } else if (tempMedia <= dadosArmazens[i].tempAlertaQuente) {
-                    div_status.innerHTML = `A temperatura do armazém está próxima de subir a ponto de prejudicar a qualidade do seu vinho!`
+                    div_status.innerHTML = `<span style="color: black;">A temperatura do armazém está próxima de ficar acima do ideal</span>`
                     break
                 } else if (tempMedia < 14 ) {
-                    div_status.innerHTML = ` <span style="background-color: red;"> A temperatura do armazém está acima do ideal! </span>`
+                    div_status.innerHTML = `<span style="color: white;">A temperatura do armazém está acima do ideal!</span>`
                     break
                 } else if (tempMedia < 15.7 ) {
-                    div_status.innerHTML = ` <span style="background-color: yellow;"> A temperatura do armazém está acima do ideal! </span>`
+                    div_status.innerHTML = `<span style="color: white;">A temperatura do armazém está acima do ideal!</span>`
                     break
                 } 
             }
@@ -421,24 +421,27 @@
             if (selectAtual == dadosArmazens[i].idArmazem) {
                 if (tempMedia <= dadosArmazens[i].tempCritFrio) {
                     alertas.style.backgroundColor = "red"
-                    div_status.innerHTML = `  A temperatura do armazém está abaixo do ideal! </span>`
+                    alertas.style.color = "white"
+                    div_status.innerHTML = `<span style="color: white;">A temperatura do armazém está abaixo do ideal! </span>`
                     break
                 } else if (tempMedia <= dadosArmazens[i].tempAlertaFrio) {
                     alertas.style.backgroundColor = "yellow"
-                    
-                    div_status.innerHTML = `  A temperatura do armazém está próxima de cair a ponto de prejudicar a qualidade do seu vinho! `
+                    alertas.style.color = "black"
+                    div_status.innerHTML = `<span style="color: black;">A temperatura do armazém está próxima de ficar abaixo do ideal</span>`
                     break
                 } else if (tempMedia <= dadosArmazens[i].temperaturaIdeal + 0.1) {
                     
-                    div_status.innerHTML = `A temperatura do armazém está adequada.`
+                    div_status.innerHTML = `<span style="color: white;">A temperatura do armazém está adequada.</span>`
                     break
                 } else if (tempMedia <= dadosArmazens[i].tempAlertaQuente) {
                     alertas.style.backgroundColor = "yellow"
-                    div_status.innerHTML = `  A temperatura do armazém está próxima de subir a ponto de prejudicar a qualidade do seu vinho! `
+                    alertas.style.color = "black"
+                    div_status.innerHTML = `<span style="color: black;">A temperatura do armazém está próxima de ficar acima do ideal</span>`
                     break
                 } else {
                     alertas.style.backgroundColor = "red"
-                    div_status.innerHTML = `  A temperatura do armazém está acima do ideal!`
+                    alertas.style.color = "white"
+                    div_status.innerHTML = `<span style="color: white;"> A temperatura do armazém está acima do ideal!</span>`
                     break
                 }
             }
