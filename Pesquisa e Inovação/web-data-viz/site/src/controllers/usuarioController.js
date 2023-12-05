@@ -17,7 +17,9 @@ function autenticar(req, res) {
                     console.log(`\nResultados encontrados: ${resultadoAutenticar.length}`);
                     console.log(`Resultados: ${JSON.stringify(resultadoAutenticar)}`); // transforma JSON em String
 
-                    if (resultadoAutenticar.length >= 1) {
+                    if (resultadoAutenticar.length == 0) {
+                        res.status(401).send("erro")
+                    } else {
                         armazemModel.buscarAcesso(resultadoAutenticar[0].idUsuario).then((resultadoAcesso)=> {
                             armazemModel.buscarSensor(resultadoAcesso[0].fkArmazem).then((resultadoSensor)=> {
                                 armazemModel.buscarDadoSensor(resultadoSensor[0].fkArmazem, resultadoSensor[0].idSensor).then((resultadoDadoSensor1)=> {
