@@ -17,6 +17,7 @@
         <div class="menuLateral">
             <div class="links">
                 <ul id="ul_navBar">
+
                     <li class="itemMenu">
                         <a href="#">
                             <span id="aqui" class="icon"><span class="bi bi-bar-chart-line"></span></span>
@@ -29,7 +30,14 @@
                             <span class="link">Meus armazéns</span>
                         </a>
                     </li>
+
                 </ul>
+                <li class="itemMenu"><a href="assets/Documentos/Sumário.pdf" download="">
+                    <span class="icon" ><i
+                            class="bi bi-file-earmark-arrow-down"></i></span>
+                    <span class="link"> Baixe nosso manual</span>
+                    </a>
+                </li>
             </div>
         </div>
         <!-- NAVBAR -->
@@ -137,10 +145,10 @@
             </div>
             <div class="infoArmazem">
                 <h1>Temperatura ideal dos vinhos</h1>
-                <p>Tinto - 15,5ºC<br>
-                   Branco -  11,5ºC<br>
-                   Rosé - 11ºC<br>
-                   Espumante - 7,5ºC</p>
+                <p>Tinto: 15,5ºC<br>
+                   Branco:  11,5ºC<br>
+                   Rosé: 11ºC<br>
+                   Espumante: 7,5ºC</p>
             </div>`;
         informacoesArmazens.forEach(armazem => {
 
@@ -183,7 +191,7 @@
                 <span><b>Bairro:</b> ${armazem.bairro}</span>
                 <span><b>Estado:</b> ${armazem.estado}</span>
                 <span><b>Cidade:</b> ${armazem.cidade}</span>
-                <span><b>Pais:</b> ${armazem.rua}</span>
+                <span><b>Pais:</b> ${armazem.pais}</span>
                 </div>
             </div>
             `

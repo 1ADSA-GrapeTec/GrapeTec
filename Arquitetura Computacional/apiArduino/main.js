@@ -35,7 +35,7 @@ const serial = async (
                 host: '10.18.32.95',
                 user: 'usuario',
                 password: 'usuario',
-                database: 'grapeTec'
+                database: 'grapetec'
             }
         ).promise();
     } else if (AMBIENTE == 'producao') {
