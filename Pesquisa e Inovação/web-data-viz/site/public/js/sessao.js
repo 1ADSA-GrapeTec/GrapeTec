@@ -34,3 +34,32 @@ function finalizarAguardar(texto) {
     }
 }
 
+function validacao() {
+    if (
+        sessionStorage.EMAIL_USUARIO == null ||
+        sessionStorage.NOME_USUARIO == null ||
+        sessionStorage.TIPO_USUARIO == null ||
+        sessionStorage.ID_USUARIO == null ||
+        sessionStorage.FKEMPRESA_USUARIO == null ||
+        sessionStorage.FKARMAZEM_SENSOR == null
+    ) {
+        botoesHeader.innerHTML = `
+        <span id="aqui"><a href="index.html">Página Inicial</a></span>
+        <span><a href="login.html">| Login</a></span>
+        <span><a href="#footer">| Contate-nos</a></span>
+        <span><a href="sobreNos.html">| Sobre Nós</a></span>
+        <span><a href="comoFunciona.html">| Como Funciona</a></span>
+        <span><a href="calculadora.html">| Calculadora Orçamental</a></span>
+    `
+    } else {
+        botoesHeader.innerHTML = `
+    <span id="aqui"><a href="index.html">Página Inicial</a></span>
+        <span><a href="visaoGeral.html">Dashboard</a></span>
+        <span><a href="#footer">| Contate-nos</a></span> 
+        <span><a href="sobreNos.html">| Sobre Nós</a></span>
+        <span><a href="comoFunciona.html">| Como Funciona</a></span>
+        <span><a href="calculadora.html">| Calculadora Orçamental</a></span>
+    `
+    }
+}
+

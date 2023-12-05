@@ -8,9 +8,10 @@
     <link rel="shortcut icon" href="assets/images/fav.ico" type="image/x-icon">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="js/sessao.js"></script>
 </head>
 
-<body>
+<body onload="validacao()">
 
 
     <div class="header">
@@ -18,13 +19,8 @@
             <img src="assets/images/fav.ico" alt="Logo GrapeTec">
             <h2><a href="index.html">GRAPETEC</a></h2>
         </div>
-        <div class="container">
-            <span id="aqui"><a href="index.html">Página Inicial</a></span>
-            <span><a href="login.html">| Login</a></span>
-            <span><a href="#footer">| Contate-nos</a></span>
-            <span><a href="sobreNos.html">| Sobre Nós</a></span>
-            <span><a href="comoFunciona.html">| Como Funciona</a></span>
-            <span><a href="calculadora.html">| Calculadora Orçamental</a></span>
+        <div id="botoesHeader" class="container">
+            
         </div>
 
     </div>
@@ -113,5 +109,4 @@
     
 
 </body>
-
 </html>
