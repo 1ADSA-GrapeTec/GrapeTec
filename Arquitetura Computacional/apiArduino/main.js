@@ -32,7 +32,7 @@ const serial = async (
             {
                 // altere!
                 // CREDENCIAIS DO BANCO - MYSQL WORKBENCH
-                host: '10.18.32.95',
+                host: '10.18.32.33',
                 user: 'usuario',
                 password: 'usuario',
                 database: 'grapetec'
@@ -63,32 +63,32 @@ const serial = async (
         // console.log(data);
         
         const valores = data.split(';')
-        const tempNormal = Math.round(parseFloat(valores[0]), 2);
-        const tempTinto = Math.round(parseFloat(valores[1]), 2);
-        const tempRose = Math.round(parseFloat(valores[2]), 2);
-        const tempBranco = Math.round(parseFloat(valores[3]), 2);
-        const tempEspumante = Math.round(parseFloat(valores[4]), 2);
+        const tempNormal = (parseFloat(valores[0])).toFixed(2);
+        const tempTinto = (parseFloat(valores[1])).toFixed(2);
+        const tempRose = (parseFloat(valores[2])).toFixed(2);
+        const tempBranco = (parseFloat(valores[3])).toFixed(2);
+        const tempEspumante = (parseFloat(valores[4])).toFixed(2);
 
         //sensores lógicos tinto
-        const tempTinto2 = Math.round(tempTinto * 0.8, 2)
-        const tempTinto3 = Math.round(tempTinto * 1.3, 2)
-        const tempTinto4 = Math.round(tempTinto * 0.6, 2)
-        const tempTinto5 = Math.round(tempTinto * 1.5, 2)
+        const tempTinto2 = (tempTinto * 0.8).toFixed(2)
+        const tempTinto3 = (tempTinto * 1.3).toFixed(2)
+        const tempTinto4 = (tempTinto * 0.6).toFixed(2)
+        const tempTinto5 = (tempTinto * 1.5).toFixed(2)
         //sensores lógicos rose
-        const tempRose2 = Math.round(tempRose * 0.8, 2)
-        const tempRose3 = Math.round(tempRose * 1.3, 2)
-        const tempRose4 = Math.round(tempRose * 0.6, 2)
-        const tempRose5 = Math.round(tempRose * 1.5, 2)
+        const tempRose3 = (tempRose * 1.3).toFixed(2)
+        const tempRose2 = (tempRose * 0.8).toFixed(2)
+        const tempRose4 = (tempRose * 0.6).toFixed(2)
+        const tempRose5 = (tempRose * 1.5).toFixed(2)
         //sensores lógicos branco
-        const tempBranco2 = Math.round(tempBranco * 0.8, 2)
-        const tempBranco3 = Math.round(tempBranco * 1.3, 2)
-        const tempBranco4 = Math.round(tempBranco * 0.6, 2)
-        const tempBranco5 = Math.round(tempBranco * 1.5, 2)
+        const tempBranco2 = (tempBranco * 0.8).toFixed(2)
+        const tempBranco3 = (tempBranco * 1.3).toFixed(2)
+        const tempBranco4 = (tempBranco * 0.6).toFixed(2)
+        const tempBranco5 = (tempBranco * 1.5).toFixed(2)
         //sensores lógicos espumante
-        const tempEspumante2 = Math.round(tempEspumante * 0.8, 2)
-        const tempEspumante3 = Math.round(tempEspumante * 1.3, 2)
-        const tempEspumante4 =Math.round( tempEspumante * 0.6, 2)
-        const tempEspumante5 = Math.round(tempEspumante * 1.5, 2)
+        const tempEspumante2 = (tempEspumante * 0.8).toFixed(2)
+        const tempEspumante3 = (tempEspumante * 1.3).toFixed(2)
+        const tempEspumante4 =(tempEspumante * 0.6).toFixed(2)
+        const tempEspumante5 = (tempEspumante * 1.5, 2).toFixed(2)
 
         valoresLm35Temperatura.push(tempNormal);
         // valoresDht11Umidade.push(dht11Umidade);
