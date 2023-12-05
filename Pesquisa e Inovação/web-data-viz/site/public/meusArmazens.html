@@ -68,7 +68,7 @@
                     </div>
                 </div>
                 <div id="A">
-                    <div class="alerta">
+                    <div class="alerta" id="alertas">
                         <p id="p">
                             Status
                         </p>
@@ -80,7 +80,7 @@
                     </div>
                 </div>
                 <div id="B">
-                    <div class="tempMedia">
+                    <div class="tempMedia" >
                         <p>Temperatura Média</p>
 
                         <div class="text">
@@ -89,10 +89,10 @@
                             </p>
                         </div>
 
-                    </div>
+                    </div> 
                 </div>
                 <div id="C">
-                    <div class="armazens">
+                    <div class="armazens" >
                         <p id="p">
                             Armazens
                         </p>
@@ -324,10 +324,13 @@
                 } else if (tempMedia <= dadosArmazens[i].tempAlertaQuente) {
                     div_status.innerHTML = `A temperatura do armazém está próxima de subir a ponto de prejudicar a qualidade do seu vinho!`
                     break
-                } else {
-                    div_status.innerHTML = `<b>  A temperatura do armazém está acima do ideal!</b>`
+                } else if (tempMedia < 14 ) {
+                    div_status.innerHTML = ` <span style="background-color: red;"> A temperatura do armazém está acima do ideal! </span>`
                     break
-                }
+                } else if (tempMedia < 15.7 ) {
+                    div_status.innerHTML = ` <span style="background-color: yellow;"> A temperatura do armazém está acima do ideal! </span>`
+                    break
+                } 
             }
 
         };
@@ -423,19 +426,25 @@
         for (var i = 0; i < dadosArmazens.length; i++) {
             if (selectAtual == dadosArmazens[i].idArmazem) {
                 if (tempMedia <= dadosArmazens[i].tempCritFrio) {
-                    div_status.innerHTML = `A temperatura do armazém está abaixo do ideal!`
+                    alertas.style.backgroundColor = "red"
+                    div_status.innerHTML = `  A temperatura do armazém está abaixo do ideal! </span>`
                     break
                 } else if (tempMedia <= dadosArmazens[i].tempAlertaFrio) {
-                    div_status.innerHTML = `A temperatura do armazém está próxima de cair a ponto de prejudicar a qualidade do seu vinho!`
+                    alertas.style.backgroundColor = "yellow"
+                    
+                    div_status.innerHTML = `  A temperatura do armazém está próxima de cair a ponto de prejudicar a qualidade do seu vinho! `
                     break
                 } else if (tempMedia <= dadosArmazens[i].temperaturaIdeal + 0.1) {
+                    
                     div_status.innerHTML = `A temperatura do armazém está adequada.`
                     break
                 } else if (tempMedia <= dadosArmazens[i].tempAlertaQuente) {
-                    div_status.innerHTML = `A temperatura do armazém está próxima de subir a ponto de prejudicar a qualidade do seu vinho!`
+                    alertas.style.backgroundColor = "yellow"
+                    div_status.innerHTML = `  A temperatura do armazém está próxima de subir a ponto de prejudicar a qualidade do seu vinho! `
                     break
                 } else {
-                    div_status.innerHTML = `<b> A temperatura do armazém está acima do ideal!</b>`
+                    alertas.style.backgroundColor = "red"
+                    div_status.innerHTML = `  A temperatura do armazém está acima do ideal!`
                     break
                 }
             }
