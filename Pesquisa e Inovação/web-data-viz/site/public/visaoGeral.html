@@ -163,7 +163,7 @@
             if (armazem.tempMedia <= armazem.tempCritFrio) {
                 var classAlerta = 'alertaVermelho';
                 corDaBola = 'red'
-                var fraseAlerta = `O armazém da rua ${armazem.rua} Nº${armazem.numero}<br> está com a temperatura acima do ideal!`;
+                var fraseAlerta = `O armazém da rua ${armazem.rua} Nº${armazem.numero}<br> está com a temperatura abaixo do ideal!`;
                 var classTemp = 'tempVermelha';
             } else if (armazem.tempMedia <= armazem.tempAlertaFrio) {
                 var classAlerta = 'alertaAmarelo';
@@ -194,7 +194,7 @@
             divArmazens.innerHTML += `
             <div class="dadoArmazem">
                 <div class="temperatura">
-                    <h1 style="color:${corDaBola}" class="${classTemp}">${armazem.tempMedia}ºC</h1>
+                    <h1 style="color:${corDaBola}" class="${classTemp}">${(armazem.tempMedia).toFixed(2)}ºC</h1>
                 </div>
                 <div class="endereco">
                 <span><b>Tipo de vinho:</b> ${(armazem.tipoVinho).replace(armazem.tipoVinho[0], armazem.tipoVinho[0].toUpperCase())}</span>

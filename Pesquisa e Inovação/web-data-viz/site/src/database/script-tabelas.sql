@@ -81,12 +81,9 @@ CONSTRAINT pkArmazem PRIMARY KEY (idArmazem, fkEmpresa)
 ) auto_increment = 200;
 
 INSERT INTO armazem (area, fkEndereco, fkVinho, fkEmpresa) VALUES
--- DOIS ARMAZNENS DA Vinhos Viana
 (2000, 100, 1, 1000),
 (300, 101, 2, 1000),
--- 1 ARMAZEM DA YabutaWine
 (1000, 102, 3, 1001),
--- 1 ARMAZEM DA Divinhos
 (500, 103, 4, 1002);
 
 CREATE TABLE acesso(
@@ -126,25 +123,21 @@ CONSTRAINT pkSensor PRIMARY KEY (idSensor, fkArmazem, fkEmpresa)
 select * from Armazem;
 select * from sensor order by fkEmpresa;
 INSERT INTO sensor (idSensor, fkArmazem, fkEmpresa, localizacao, statusSensor, nome) VALUES
--- 5 sensores armazem 1
 (1, 200, 1000, 'zona 1', 'Ligado', 'sensor 1'),
 (2, 200, 1000, 'zona 2', 'Ligado', 'sensor 2'),
 (3, 200, 1000, 'zona 3', 'Ligado' , 'sensor 3'),
 (4, 200, 1000, 'zona 4', 'Ligado' , 'sensor 4'),
 (5, 200, 1000, 'zona 5', 'Ligado' , 'sensor 5'),
--- 5 sensores armazem 2
 (1, 201, 1000, 'zona 1', 'Ligado', 'sensor 1'),
 (2, 201, 1000, 'zona 2', 'Ligado', 'sensor 2'),
 (3, 201, 1000, 'zona 3', 'Ligado', 'sensor 3'),
 (4, 201, 1000, 'zona 4', 'Ligado', 'sensor 4'),
 (5, 201, 1000, 'zona 5', 'Ligado', 'sensor 5'),
--- 5 sensores armazem 3
 (1, 202, 1001, 'zona 1', 'Ligado', 'sensor 1'),
 (2, 202, 1001, 'zona 2', 'Ligado', 'sensor 2'),
 (3, 202, 1001, 'zona 3', 'Ligado', 'sensor 3'),
 (4, 202, 1001, 'zona 4', 'Ligado', 'sensor 4'),
 (5, 202, 1001, 'zona 5', 'Ligado', 'sensor 5'),
--- 5 sensores armazem 4 :)
 (1, 203, 1002, 'zona 1', 'Ligado', 'sensor 1'),
 (2, 203, 1002, 'zona 2', 'Ligado', 'sensor 2'),
 (3, 203, 1002, 'zona 3', 'Ligado', 'sensor 3'),
@@ -167,24 +160,21 @@ CONSTRAINT pkDadoSensor PRIMARY KEY (idDadoSensor, fkSensor, fkArmazem, fkEmpres
 SELECT sensor.*, vinho.tipoVinho FROM sensor join armazem on fkArmazem = idArmazem join vinho on fkVinho = idVinho;
 
 INSERT INTO dadoSensor (temperatura, fkSensor, fkArmazem, fkEmpresa) VALUES
--- tinto
 (10, 1, 200, 1000),
 (12, 2, 200, 1000),
 (11, 3, 200, 1000),
-(13, 4, 200, 1000),
--- rosê
+(13, 4, 200, 1000), 
+(12, 5, 200, 1000), 
 (9, 1, 201, 1000),
 (10, 2, 201, 1000),
 (11, 3, 201, 1000),
 (10, 4, 201, 1000),
 (8, 5, 201, 1000),
--- branco
 (9, 1, 202, 1001),
 (5, 2, 202, 1001),
 (6, 3, 202, 1001),
 (7, 4, 202, 1001),
 (7.5, 5, 202, 1001),
--- espumante
 (10, 1, 203, 1002),
 (11, 2, 203, 1002),
 (9, 3, 203, 1002),
