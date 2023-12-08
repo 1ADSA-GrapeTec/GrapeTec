@@ -15,7 +15,7 @@ INSERT INTO empresa (CNPJ, nomeEmpresa, email,telefone, CEP) VALUES
 ('78.581.354/0006-33','YabutaWine','YabutaWine@gmail.com','692763-2911', '123456782'),
 ('49.704.129/0009-99','Divinhos','Divinhos@gmail.com','823652-7289', '123456783');
 
-select*from usuario;
+select*from empresa;
 
 CREATE TABLE usuario(
 idUsuario INT auto_increment,
@@ -159,11 +159,16 @@ CONSTRAINT pkDadoSensor PRIMARY KEY (idDadoSensor, fkSensor, fkArmazem, fkEmpres
 
 SELECT sensor.*, vinho.tipoVinho FROM sensor join armazem on fkArmazem = idArmazem join vinho on fkVinho = idVinho;
 
+
+select * from dadosensor;
+
 INSERT INTO dadoSensor (temperatura, fkSensor, fkArmazem, fkEmpresa) VALUES
-(10, 1, 200, 1000),
-(12, 2, 200, 1000),
-(11, 3, 200, 1000),
-(13, 4, 200, 1000), 
+(100, 1, 200, 1000),
+(100, 2, 200, 1000),
+(100, 3, 200, 1000),
+(100, 4, 200, 1000),
+(100, 5, 200, 1000),
+(13, 5, 200, 1000),  
 (12, 5, 200, 1000), 
 (9, 1, 201, 1000),
 (10, 2, 201, 1000),
@@ -227,3 +232,65 @@ ON ar.fkVinho = v.idVinho
 JOIN endereco en
 ON en.idEndereco = ar.fkEndereco
 WHERE acs.fkEmpresa = 1000 AND acs.fkUsuario = 1 order by ds.dtAtual;
+
+SELECT
+    AVG(ds.temperatura) tempMedia,
+    ar.idArmazem,
+    ar.fkEmpresa empresaArmazem,
+    v.tipoVinho,
+    v.tempCritQuente,
+    v.tempAlertaQuente,
+    v.temperaturaIdeal,
+    v.tempAlertaFrio,
+    v.tempCritFrio,
+    en.rua,
+    en.numero,
+    en.bairro,
+    en.estado,
+    en.cidade,
+    en.pais
+    FROM dadoSensor ds
+    JOIN sensor
+    ON sensor.idSensor = ds.fkSensor
+    AND sensor.fkArmazem = ds.fkArmazem
+    AND sensor.fkEmpresa = ds.fkEmpresa
+    JOIN armazem ar
+    ON sensor.fkArmazem = ar.idArmazem
+    AND sensor.fkEmpresa = ar.fkEmpresa
+    JOIN acesso acs
+    ON acs.fkEmpresa = ar.fkEmpresa
+    AND acs.fkArmazem = ar.idArmazem
+    JOIN usuario usr
+    ON usr.idUsuario = acs.fkUsuario
+    AND usr.fkEmpresa = acs.fkEmpresa
+    JOIN vinho v
+    ON ar.fkVinho = v.idVinho
+    JOIN endereco en
+    ON en.idEndereco = ar.fkEndereco
+    WHERE acs.fkEmpresa = 1000 AND acs.fkUsuario = 1 AND ds.dtAtual = (SELECT MAX(dtAtual) FROM dadoSensor) GROUP BY ar.idArmazem;
+
+
+-- insert quente
+INSERT INTO dadoSensor (temperatura, fkSensor, fkArmazem, fkEmpresa) VALUES
+(30, 1, 200, 1000),
+(30, 2, 200, 1000),
+(30, 3, 200, 1000),
+(30, 4, 200, 1000),
+(30, 5, 200, 1000);
+
+-- insert frio
+INSERT INTO dadoSensor (temperatura, fkSensor, fkArmazem, fkEmpresa) VALUES
+(5, 1, 200, 1000),
+(5, 2, 200, 1000),
+(5, 3, 200, 1000),
+(5, 4, 200, 1000),
+(5, 5, 200, 1000);
+
+-- insert estavel
+
+INSERT INTO dadoSensor (temperatura, fkSensor, fkArmazem, fkEmpresa) VALUES
+(15.5, 1, 200, 1000),
+(15.5, 2, 200, 1000),
+(15.5, 3, 200, 1000),
+(15.5, 4, 200, 1000),
+(15.5, 5, 200, 1000);

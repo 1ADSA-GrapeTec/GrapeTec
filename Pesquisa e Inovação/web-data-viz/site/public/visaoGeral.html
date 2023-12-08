@@ -116,24 +116,6 @@
                             gerarKpis(informacoesArmazens);
                         }, 300)
                     )
-                    //     setTimeout(JSON.parse(sessionStorage.informacoesArmazens).forEach(item => {
-                    //         document.getElementById("div_statusArmazem2").innerHTML += `
-                    //         <div class="dadoArmazem">
-                    //     <div class="temperatura">
-                    //         <h1 class="corVerde">${item.tempMedia}</h1>
-                    //     </div>
-                    //     <div class="endereco">
-                    //         <span><b>Número:</b>${item.numero}</span>
-                    //         <span><b>Rua:</b>${item.rua}</span>
-                    //         <span><b>Bairro:</b>${item.bairro}</span>
-                    //         <span><b>Estado:</b>${item.estado}</span>
-                    //         <span><b>Cidade:</b>${item.cidade}</span>
-                    //         <span><b>Pais:</b>${item.rua}</span>
-                    //     </div>
-                    // </div>
-
-                    // `
-                    //     }), 1000)
                 }
             }
         )
@@ -145,6 +127,7 @@
         var divAlertas = document.getElementById("div_alertas");
         var corDaBola = 'green';
         divArmazens.innerHTML = '';
+        divAlertas.innerHTML= '';
 
         divAlertas.innerHTML = `
             <div class="infoArmazem">
@@ -176,7 +159,7 @@
                 var fraseAlerta = `O armazém da rua ${armazem.rua} Nº${armazem.numero}<br> está próximo de ficar com a temperatura acima do ideal!`;
                 var classTemp = 'tempAmarela';
             } else {
-                var classAlerta = 'alerta-bola';
+                var classAlerta = 'alertaVermelho';
                 var fraseAlerta = `O armazém da rua ${armazem.rua} Nº${armazem.numero}<br> está com a temperatura acima do ideal!`;
                 corDaBola = 'red'
                 var classTemp = 'tempVermelha';
@@ -207,6 +190,7 @@
                 </div>
             </div>
             `
+            setTimeout(criarSessionStorage, 10000);
         });
 
 
@@ -228,7 +212,7 @@
             </a>
         </li>
         <li class="itemMenu">
-            <a href="#">
+            <a onclick="sair()" href="#">
                 <span class="icon"><span class="bi bi-box-arrow-left"></span></span>
                 <span class="link">Sair</span>
             </a>
@@ -244,5 +228,10 @@
         </li>
         `
         }
+    }
+
+    function sair(){
+        sessionStorage.clear()
+        window.location.href = 'index.html'
     }
 </script>

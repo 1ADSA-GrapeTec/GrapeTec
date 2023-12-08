@@ -154,7 +154,7 @@
         } else {
             ul_navBar.innerHTML += `
         <li class="itemMenu">
-            <a href="#">
+            <a onclick="sair()" href="#">
                 <span class="icon"><span class="bi bi-box-arrow-left"></span></span>
                 <span class="link">Sair</span>
             </a>
@@ -254,7 +254,9 @@
 
     var selectAtual = id_armazem.value;
     var dadosArmazens = JSON.parse(sessionStorage.informacoesArmazens);
-    for (var i = 0; i < armazens.length; i++) {
+    for (var i = 0; i < dadosArmazens.length; i++) {
+
+        console.log(JSON.stringify(dadosArmazens))
 
         if (dadosArmazens[i].idArmazem == selectAtual) {
             div_informacoesArmazem.innerHTML = `
@@ -315,7 +317,7 @@
 
         var tempMedia = (temp[temp.length - 1] + temp2[temp2.length - 1] + temp3[temp3.length - 1] + temp4[temp4.length - 1] + temp5[temp.length - 1]) / 5;
 
-        span_tempMedia.innerHTML = tempMedia;
+        span_tempMedia.innerHTML = (tempMedia).toFixed(2) + 'ºC';
 
         for (var i = 0; i < dadosArmazens.length; i++) {
             if (selectAtual == dadosArmazens[i].idArmazem) {
@@ -428,7 +430,7 @@
 
         var tempMedia = (temp[temp.length - 1] + temp2[temp2.length - 1] + temp3[temp3.length - 1] + temp4[temp4.length - 1] + temp5[temp.length - 1]) / 5;
 
-        span_tempMedia.innerHTML = tempMedia;
+        span_tempMedia.innerHTML = (tempMedia).toFixed(2) + 'ºC';
 
         for (var i = 0; i < dadosArmazens.length; i++) {
             if (selectAtual == dadosArmazens[i].idArmazem) {
@@ -461,7 +463,12 @@
         }
 
         myChart1.update()
-        setTimeout(buscarDadoNovo, 1000)
+        setTimeout(buscarDadoNovo, 1500)
+    }
+
+    function sair(){
+        sessionStorage.clear()
+        window.location.href = 'index.html'
     }
 
 </script>
