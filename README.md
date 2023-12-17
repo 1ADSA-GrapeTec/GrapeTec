@@ -20,7 +20,9 @@ A GrapeTec é uma empresa especializada no monitoramento de temperatura voltada 
 <p>
 Na GrapeTec, disponibilizamos um dashboard que permite aos funcionários das vinícolas gerenciar as condições de temperatura em seus armazéns. Essa ferramenta intuitiva oferece controle em tempo real sobre o ambiente de armazenamento, garantindo a preservação da qualidade dos vinhos de forma conveniente e eficaz.
 </p>
-<img  src="https://i.imgur.com/DOuvgyT.png" />
+<img  src="https://i.imgur.com/LxSTs5l.png" />
+<img  src="https://i.imgur.com/4JfAA12.png" />
+
 
 ## 🔢 Calculadora Orçamental
 <p>Em nosso site, apresentamos uma calculadora de orçamento especial desenvolvida em JavaScript. Essa ferramenta foi criada com o propósito de mostrar aos interessados o impacto de nossa solução. Ela revela quanto estão perdendo sem o nosso monitoramento de temperatura e, ao mesmo tempo, demonstra o quanto poderiam economizar com a implementação da GrapeTec. É uma maneira prática de entender o valor real que nossa tecnologia pode agregar ao mundo dos vinhos.</p>
@@ -54,7 +56,7 @@ Aqui na GrapeTec, utilizamos um banco de dados construído com o MySQL. Ele nos 
 
 ## ⚙ Tecnologias utilizadas
   
-<img  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-plain-wordmark.svg"  width="60"/> <img  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-plain-wordmark.svg"  width="60"/> <img  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-plain-wordmark.svg"  width="60"/> <img  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"  width="60"/>
+<img  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-plain-wordmark.svg"  width="60"/> <img  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-plain-wordmark.svg"  width="60"/> <img  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-plain-wordmark.svg"  width="60"/> <img  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"  width="60"/> <img  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"  width="60"/> <img  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/arduino/arduino-original.svg"  width="60"/>
 
 <hr/>
 
